@@ -217,9 +217,9 @@ const kidsRows: ChartRow[] = KIDS.map((k) => ({
   ranges: { height: [k.h - 3, k.h + 3] },
 }));
 
-const BUST_COL = { key: "bust" as MeasureKey, label: "Bust (cm)" };
-const WAIST_COL = { key: "waist" as MeasureKey, label: "Waist (cm)" };
-const HIP_COL = { key: "hip" as MeasureKey, label: "Hip (cm)" };
+const BUST_COL = { key: "bust" as MeasureKey, label: "Bust (cm / in)" };
+const WAIST_COL = { key: "waist" as MeasureKey, label: "Waist (cm / in)" };
+const HIP_COL = { key: "hip" as MeasureKey, label: "Hip (cm / in)" };
 
 export const CATEGORIES: Category[] = [
   {
@@ -265,7 +265,7 @@ export const CATEGORIES: Category[] = [
     extras: [],
     chart: SHOE_CHART,
     rows: shoeRows("women"),
-    columns: [{ key: "foot", label: "Foot length (cm)" }],
+    columns: [{ key: "foot", label: "Foot length (cm / in)" }],
   },
   {
     id: "mens-shoe",
@@ -274,7 +274,7 @@ export const CATEGORIES: Category[] = [
     extras: [],
     chart: SHOE_CHART,
     rows: shoeRows("men"),
-    columns: [{ key: "foot", label: "Foot length (cm)" }],
+    columns: [{ key: "foot", label: "Foot length (cm / in)" }],
   },
   {
     id: "bra",
@@ -292,7 +292,7 @@ export const CATEGORIES: Category[] = [
     extras: [],
     chart: CLOTHING_CHART,
     rows: kidsRows,
-    columns: [{ key: "height", label: "Height (cm)" }],
+    columns: [{ key: "height", label: "Height (cm / in)" }],
   },
   {
     id: "ring",
@@ -301,7 +301,7 @@ export const CATEGORIES: Category[] = [
     extras: [],
     chart: CLOTHING_CHART,
     rows: ringRows,
-    columns: [{ key: "finger", label: "Finger circumference (mm)" }],
+    columns: [{ key: "finger", label: "Finger circumference (mm / in)" }],
   },
 ];
 
@@ -696,7 +696,13 @@ export function lookupSize(input: LookupInput, unitLabels: { cm: string; in: str
         category.columns
           .map((c) => {
             const range = r.ranges[c.key];
-            return range ? `${range[0]}–${range[1]}` : "—";
+            if (!range) return "—";
+            // Both units in the cell: the visitor reads the chart in the unit
+            // they think in without changing a control first (parity T5).
+            const perInch = c.key === "finger" ? 25.4 : 2.54;
+            const inUnit = (v: number) => String(Math.round((v / perInch) * 10) / 10);
+            const isMm = c.key === "finger";
+            return `${range[0]}–${range[1]} ${isMm ? "mm" : "cm"} / ${inUnit(range[0])}–${inUnit(range[1])} in`;
           })
           .join(" · "),
       ],
@@ -708,8 +714,8 @@ export function lookupSize(input: LookupInput, unitLabels: { cm: string; in: str
   const method = [
     `${category.chart.label} — read ${formatDate(category.chart.checkedAt)}.`,
     units === "in"
-      ? "Your inches were changed to centimetres (× 2.54) before they met the chart."
-      : `Measured in centimetres; ${unitLabels.cm} and ${unitLabels.in} are the same table.`,
+      ? "Your inches were changed to centimetres (× 2.54) before they met the chart; the table shows both units."
+      : `Every row is printed in ${unitLabels.cm} and ${unitLabels.in} side by side — one table, not two.`,
     `The rule: ${category.measure === "foot" ? "a foot length settles the shoe row" : `${MEASURE_LABEL[category.measure]} settles the row`}, other measurements only move it, and two sizes that disagree resolve to the larger.`,
   ];
   if (brand) method.push(`${brand.sourceLabel} — read ${formatDate(brand.checkedAt)}.`);
