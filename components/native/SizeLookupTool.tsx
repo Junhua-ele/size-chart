@@ -58,6 +58,8 @@ export function SizeLookupTool({ t }: { t: UiStrings }) {
   const outputRef = useRef<HTMLDivElement | null>(null);
   const timerRef = useRef<number | null>(null);
   const [phone, setPhone] = useState(false);
+  const submitRef = useRef<HTMLButtonElement | null>(null);
+  const [stickyOn, setStickyOn] = useState(false);
 
   useEffect(() => {
     const query = window.matchMedia("(max-width: 520px)");
@@ -73,6 +75,19 @@ export function SizeLookupTool({ t }: { t: UiStrings }) {
     },
     [],
   );
+
+  // The phone's sticky copy bar only appears once the result's own button has
+  // scrolled out of view, so it never sits over the form the visitor is using.
+  useEffect(() => {
+    const node = submitRef.current;
+    if (!node || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(
+      (entries) => setStickyOn(!entries[0].isIntersecting),
+      { rootMargin: "0px 0px -8px 0px", threshold: 0.9 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   const category = findCategory(fields.category) ?? CATEGORIES[0];
   const extraField = category.measure in MEASURE_FIELD ? MEASURE_FIELD[category.measure] : null;
@@ -462,6 +477,7 @@ export function SizeLookupTool({ t }: { t: UiStrings }) {
 
           <div className="tool-actions">
             <button
+              ref={submitRef}
               disabled={working}
               aria-busy={working} type="submit" className="btn btn-primary" data-jtbd-action="lookup">
               {working ? t.toolWorking : t.toolStartAction}
@@ -606,6 +622,17 @@ export function SizeLookupTool({ t }: { t: UiStrings }) {
         </div>
       </div>
 
+      {answer && !working && stickyOn ? (
+        <div className="tool-sticky" data-tool-sticky>
+          <span className="tool-sticky-size">
+            <span className="tool-sticky-label">{t.toolYourSize}</span>
+            <span data-sticky-size>{answer.size}</span>
+          </span>
+          <button type="button" className="btn btn-secondary" onClick={copyResult}>
+            {copied ? t.toolCopied : t.toolCopy}
+          </button>
+        </div>
+      ) : null}
     </section>
     <p className="tool-note">
       {t.toolLede} {t.toolMeasureHint}

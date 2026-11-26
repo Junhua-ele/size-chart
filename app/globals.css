@@ -1559,8 +1559,16 @@ table.data tbody th {
     border-top: 1px solid var(--line);
   }
   .tool-sticky-size {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
     font-size: var(--s19);
     font-weight: 700;
+  }
+  .tool-sticky-label {
+    font-size: var(--s14);
+    font-weight: 500;
+    color: var(--muted);
   }
   .tool-sticky .btn {
     min-height: 40px;
