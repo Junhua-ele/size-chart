@@ -37,8 +37,8 @@
     },
     {
       "id": "what-a-paid-profile-holds",
-      "title": "What a paid profile holds",
-      "body": "A paid plan stores only what keeps your sizing in one place between visits.",
+      "title": "What the site stores",
+      "body": "A paid plan stores only what keeps your sizing in one place between visits, and a message you send is kept separately so it can be answered.",
       "items": [
         {
           "title": "Profiles and brands",
@@ -51,6 +51,10 @@
         {
           "title": "Payment details",
           "body": "Card details go to a secure payment provider and are not stored on this site. The site keeps the plan and the email address the checkout used."
+        },
+        {
+          "title": "Messages you send",
+          "body": "A message sent through the [contact page](/contact/) is kept, with the email address you give for the reply, so a reply can refer to it and a fixed answer can be traced back to the report. Nothing you send is published, and you can ask for it to be deleted at any time."
         }
       ]
     },
