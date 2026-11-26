@@ -15,6 +15,10 @@ import {
 
 /** Categories whose chart is read from a circumference, so a flat width works. */
 const FLAT_MEASURES = new Set(["bust", "waist", "hip"]);
+// Categories whose answer comes from a measurement the visitor takes, never
+// from a size label: a ring (inside diameter or circumference) and a child
+// (height or age).
+const MEASURED_FIRST = new Set(["ring", "kids-clothing"]);
 
 const SAMPLE = {
   age: "",
@@ -30,6 +34,7 @@ const SAMPLE = {
   underband: "",
   height: "",
   finger: "",
+  circumference: "",
   flatBust: "",
   flatWaist: "",
   flatHip: "",
@@ -118,11 +123,17 @@ export function SizeLookupTool({ t }: { t: UiStrings }) {
     if (timerRef.current !== null) window.clearTimeout(timerRef.current);
     setWorking(true);
     setError(null);
-    const given = fields;
+    const given: Fields = { ...fields };
+    if (category.id === "ring" && !String(given.diameter).trim() && String(given.circumference).trim()) {
+      const circumference = Number(given.circumference);
+      if (Number.isFinite(circumference) && circumference > 0) {
+        given.diameter = String(Math.round((circumference / Math.PI) * 10) / 10);
+      }
+    }
     timerRef.current = window.setTimeout(() => {
       timerRef.current = null;
       finishLookup(given);
-    }, 520);
+    }, 1200);
   }
 
   function finishLookup(given: Fields) {
@@ -246,6 +257,14 @@ export function SizeLookupTool({ t }: { t: UiStrings }) {
                     // shoes and rings fall back to the body measurement.
                     const nextCategory = findCategory(next);
                     if (fields.start === FLAT_START && nextCategory && !FLAT_MEASURES.has(nextCategory.measure)) {
+                      set("start", "My measurements");
+                    }
+                    // A ring and a child are read from a measurement, not from a
+                    // label the visitor already wears: the inputs that answer
+                    // them (inside diameter, circumference, height, age) are the
+                    // ones the page promises, so choosing either category opens
+                    // them straight away.
+                    if (nextCategory && MEASURED_FIRST.has(nextCategory.id) && fields.start !== "My measurements") {
                       set("start", "My measurements");
                     }
                   }}
@@ -443,11 +462,25 @@ export function SizeLookupTool({ t }: { t: UiStrings }) {
               </label>
             ) : null}
 
-            {category.id === "ring" ? (
+            {category.measure === "height" ? (
               <label className="field">
-                <span className="field-label">{t.toolRingDiameter}</span>
-                <input name="diameter" data-tool-input="diameter" type="number" inputMode="decimal" min={1} value={fields.diameter} onChange={(e) => set("diameter", e.target.value)} />
+                <span className="field-label">{t.toolHeight}</span>
+                <input name="height" data-tool-input="height" type="number" inputMode="decimal" min={1} value={fields.height} onChange={(e) => set("height", e.target.value)} />
               </label>
+            ) : null}
+
+            {category.id === "ring" ? (
+              <>
+                <label className="field">
+                  <span className="field-label">{t.toolRingDiameter}</span>
+                  <input name="diameter" data-tool-input="diameter" type="number" inputMode="decimal" min={1} value={fields.diameter} onChange={(e) => set("diameter", e.target.value)} />
+                </label>
+                <label className="field">
+                  <span className="field-label">Inside circumference (mm)</span>
+                  <input name="circumference" data-tool-input="circumference" type="number" inputMode="decimal" min={1} value={fields.circumference} onChange={(e) => set("circumference", e.target.value)} />
+                </label>
+                <p className="field-hint">Either measure works: across the inside of the ring for the diameter, or a strip of paper round the inside for the circumference.</p>
+              </>
             ) : null}
 
             {category.id === "kids-clothing" ? (

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { SiteConfig, Route } from "../../lib/site-config";
 import type { PageContent } from "../../lib/content";
 import { SiteHeader, SiteFooter } from "../site/SiteChrome";
@@ -25,6 +25,14 @@ const NUMBERS = {
 export function PricingPage({ content, config, route }: Props) {
   const t = uiStringsFor(config.language || "en");
   const [billing, setBilling] = useState<Billing>("month");
+  // A checkout that could not open comes back here with ?checkout=unavailable
+  // so the visitor reads what happened in the page, not on a bare error page.
+  const [unavailable, setUnavailable] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    setUnavailable(params.get("checkout") === "unavailable" || params.get("checkout") === "required");
+  }, []);
   const sections =((content.sections ?? []) as unknown as Section[]);
   const faq = (content.faq ?? []) as { question: string; answer: string }[];
 
@@ -64,7 +72,13 @@ export function PricingPage({ content, config, route }: Props) {
               <p className="billing-note">{t.twoMonthsFree}</p>
             </div>
 
-            <div className="plans">
+              {unavailable ? (
+          <p className="checkout-note" role="status">
+            The payment page did not open, so nothing has been charged. Write to us through the{" "}
+            <a href="/contact/">contact form</a> and we will finish the order by hand.
+          </p>
+        ) : null}
+      <div className="plans">
               <article className="plan">
                 <h2 className="plan-name">Free</h2>
                 <p className="plan-who">One look at a time, with no account and no card.</p>

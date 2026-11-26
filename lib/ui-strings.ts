@@ -60,7 +60,7 @@ const primary = {
   toolHeight: "Height",
   toolRingDiameter: "Inside diameter of a ring that fits (mm)",
   toolChildAge: "Child age (years)",
-  toolFinger: "Finger circumference",
+  toolFinger: "Finger circumference (mm)",
   toolMeasureHint: "Measure over underwear, tape level, and leave a finger under the tape.",
   toolStartAction: "Find my size",
   toolStartWaits: "Add a size or a measurement",
@@ -101,7 +101,7 @@ const primary = {
   contactSend: "Send the message",
   contactSending: "Sending…",
   contactSent: "Thank you — your message is stored and a real person reads it.",
-  contactFailed: "That did not send. Your message is not stored yet — try again, or write to hello@sizes.us.",
+  contactFailed: "That did not send. Your message is not stored yet — try again, or write to hello@sizechartonline.com.",
   contactNeedsEmail: "Add an email address so a reply can reach you.",
 
   // Pricing

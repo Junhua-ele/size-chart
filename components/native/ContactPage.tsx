@@ -25,6 +25,12 @@ export function ContactPage({ content, config, route }: Props) {
           <div className="wrap">
             <h1>{content.h1}</h1>
             <p>{content.heroText}</p>
+            {config.contactEmail ? (
+              <p className="hero-contact">
+                Write to{" "}
+                <a href={`mailto:${config.contactEmail}`}>{config.contactEmail}</a>
+              </p>
+            ) : null}
             <PageUpdated language={config.language ?? "en"} />
           </div>
         </section>

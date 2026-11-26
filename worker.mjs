@@ -164,8 +164,42 @@ function planLimitError(tier, key, limit) {
   );
 }
 
-const SESSION_COOKIE = "sc_session";
+const SESSION_COOKIE = "shipsite_session";
+const LEGACY_SESSION_COOKIE = "sc_session";
 const SESSION_DAYS = 30;
+
+// A page asked for by a browser is answered with a page or a redirect; a call
+// the page makes itself still gets JSON.
+function wantsJson(request) {
+  const accept = request.headers.get("Accept") ?? "";
+  if (request.headers.get("Sec-Fetch-Mode") === "navigate") return false;
+  return accept.includes("application/json");
+}
+
+// Only a path on this site is ever returned to, never another host.
+function returnPath(value) {
+  const raw = String(value ?? "");
+  if (!raw.startsWith("/") || raw.startsWith("//")) return "";
+  return raw;
+}
+
+async function sha256Hex(value) {
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(String(value)));
+  return Array.from(new Uint8Array(digest)).map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+// Waffo's order answer carries orderAction: a JSON string naming the cashier.
+function actionUrl(data) {
+  const raw = data?.orderAction ?? data?.action;
+  if (!raw) return "";
+  if (typeof raw === "object") return raw.webUrl || raw.url || raw.redirectUrl || "";
+  try {
+    const parsed = JSON.parse(String(raw));
+    return parsed.webUrl || parsed.url || parsed.redirectUrl || "";
+  } catch {
+    return "";
+  }
+}
 
 function json(data, status = 200, extra = {}) {
   return new Response(JSON.stringify(data), {
@@ -238,6 +272,15 @@ async function currentUser(request, env) {
   if (!env.DB) return null;
   const token = getCookie(request, SESSION_COOKIE);
   if (!token) return null;
+  // The platform's sessions table (id, token_hash, user_sub, user_email,
+  // expires_at) is read too, so a session made for the site's sign-in works
+  // the same wherever it was written.
+  const hash = await sha256Hex(token);
+  const shared = await env.DB.prepare("SELECT user_sub, user_email, expires_at FROM shipsite_sessions WHERE token_hash = ?").bind(hash).first().catch(() => null);
+  if (shared) {
+    if (shared.expires_at && shared.expires_at < nowIso()) return null;
+    return { id: shared.user_sub, email: shared.user_email, name: "" };
+  }
   const row = await env.DB.prepare("SELECT user_id, expires_at FROM sessions WHERE token = ?").bind(token).first();
   if (!row) return null;
   if (row.expires_at < nowIso()) return null;
@@ -252,6 +295,12 @@ async function createSession(env, userId) {
   await env.DB.prepare("INSERT INTO sessions (token, user_id, created_at, expires_at) VALUES (?, ?, ?, ?)")
     .bind(token, userId, created.toISOString(), expires.toISOString())
     .run();
+  const hash = await sha256Hex(token);
+  const email = (await env.DB.prepare("SELECT email FROM users WHERE id = ?").bind(userId).first())?.email ?? "";
+  await env.DB.prepare("INSERT OR REPLACE INTO shipsite_sessions (id, token_hash, user_sub, user_email, expires_at, created_at) VALUES (?, ?, ?, ?, ?, ?)")
+    .bind(newId(), hash, userId, String(email), expires.toISOString(), created.toISOString())
+    .run()
+    .catch(() => {});
   return token;
 }
 
@@ -259,11 +308,13 @@ function providerConfig(env) {
   const preview = env.SHIPSITE_ENVIRONMENT === "preview";
   const merchant = preview ? env.PAYMENT_TEST_MERCHANT_ID || env.PAYMENT_MERCHANT_ID : env.PAYMENT_MERCHANT_ID;
   const key = preview ? env.PAYMENT_TEST_PRIVATE_KEY || env.PAYMENT_PRIVATE_KEY : env.PAYMENT_PRIVATE_KEY;
+  const apiKey = preview ? env.PAYMENT_TEST_API_KEY || "" : env.PAYMENT_API_KEY || "";
   const webhookKey = preview ? env.PAYMENT_TEST_WEBHOOK_PUBLIC_KEY || env.PAYMENT_WEBHOOK_PUBLIC_KEY : env.PAYMENT_WEBHOOK_PUBLIC_KEY;
   const sandbox = preview || String(env.PAYMENT_TEST_MERCHANT_ID ?? "") === String(merchant ?? "");
   return {
     merchant: merchant || "",
     key: key || "",
+    apiKey: apiKey || "",
     webhookKey: webhookKey || "",
     apiBase: sandbox ? "https://api-sandbox.waffo.com" : "https://api.waffo.com",
   };
@@ -303,22 +354,29 @@ async function rsaVerify(publicPem, data, signatureBase64) {
 }
 
 async function waffoCall(config, path, payload) {
-  const body = JSON.stringify(payload);
-  const signature = await rsaSign(config.key, body);
-  const response = await fetch(`${config.apiBase}${path}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-API-KEY": config.merchant,
-      "X-SIGNATURE": signature,
-      "X-API-VERSION": "1.0.0",
-    },
-    body,
-  });
-  const text = await response.text();
-  let parsed = null;
-  try { parsed = JSON.parse(text); } catch { parsed = null; }
-  return { ok: response.ok && parsed?.code === "0", status: response.status, data: parsed?.data ?? null, code: parsed?.code ?? null, raw: text };
+  try {
+    const body = JSON.stringify(payload);
+    const signature = await rsaSign(config.key, body);
+    const response = await fetch(`${config.apiBase}${path}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-API-KEY": config.apiKey,
+        "X-SIGNATURE": signature,
+        "X-API-VERSION": "1.0.0",
+      },
+      body,
+    });
+    const text = await response.text();
+    let parsed = null;
+    try { parsed = JSON.parse(text); } catch { parsed = null; }
+    return { ok: response.ok && parsed?.code === "0", status: response.status, data: parsed?.data ?? null, code: parsed?.code ?? null, raw: text };
+  } catch (error) {
+    // A network fault, a timeout or an unreadable signing key is a checkout
+    // that did not open: the caller turns it into a page, never a 500.
+    console.warn(`waffo-call-failed:${path}:${String(error && error.message ? error.message : error)}`);
+    return { ok: false, status: 0, data: null, code: "call_failed", raw: "" };
+  }
 }
 
 function siteBase(request, env) {
@@ -390,20 +448,31 @@ async function handleApi(request, env, url) {
     const plan = PLANS[planId];
     if (!plan) return redirect(`${siteBase(request, env)}/pricing/`, 303);
     const config = providerConfig(env);
-    if (!config.merchant || !config.key) {
-      // No key on this Worker yet: a page in people's words, never raw JSON.
-      return page(
-        "Checkout opens shortly",
-        `<p>Card checkout is not connected on this copy of the site yet, so nothing has been charged. The free lookup — one size, the between-sizes rule and the brand direction — works without an account and without paying.</p>
-         <p>Write to us through the contact form and we will tell you the day ${escapeHtml(plan.name)} can be bought.</p>`,
-        503,
-      );
+    if (!config.merchant || !config.key || !config.apiKey) {
+      // No complete key set on this Worker yet: a page in people's words, never
+      // raw JSON and never an error status a visitor's browser would show.
+      if (!wantsJson(request)) return redirect("/pricing/?checkout=unavailable", 303);
+      return json({ ok: false, error: "api_key_missing" }, 503);
+    }
+    const base = siteBase(request, env);
+    // A sale belongs to an account: a signed-out visitor is sent to sign in
+    // first and comes straight back here, never to the provider's page alone.
+    const user = await currentUser(request, env);
+    if (!user) {
+      const back = `/api/pay/checkout?plan=${plan.id}`;
+      const origin = new URL(request.url).origin;
+      const signInUrl = `${origin}/api/auth/google?return=${encodeURIComponent(back)}`;
+      if (wantsJson(request)) return json({ ok: false, error: "sign_in_required", signInUrl }, 401);
+      return redirect(signInUrl, 302);
     }
     const merchantOrderId = `sc_${plan.id}_${Date.now().toString(36)}`;
-    const base = siteBase(request, env);
     const result = await waffoCall(config, "/api/v1/order/create", {
       paymentRequestId: merchantOrderId,
       merchantOrderId,
+      merchantInfo: { merchantId: config.merchant },
+      userInfo: { userId: user.id, userEmail: user.email, userTerminal: "WEB" },
+      paymentInfo: { productName: "ONE_TIME_PAYMENT" },
+      goodsInfo: { goodsName: `Size Chart ${plan.name}`, goodsUrl: `${base}/pricing/` },
       orderCurrency: plan.currency,
       orderAmount: (plan.amountCents / 100).toFixed(2),
       orderDescription: `Size Chart ${plan.name}`,
@@ -414,19 +483,19 @@ async function handleApi(request, env, url) {
       notifyUrl: `${base}/api/pay/webhook`,
     });
     if (env.DB) {
-      const user = await currentUser(request, env);
       await env.DB.prepare("INSERT INTO orders (id, user_id, plan_id, status, amount_cents, currency, provider, provider_ref, email, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
         .bind(newId(), user?.id ?? null, plan.id, result.ok ? "pending" : "create_failed", plan.amountCents, plan.currency, "waffo", merchantOrderId, user?.email ?? null, nowIso(), nowIso())
         .run();
     }
-    const checkoutUrl = result.data?.checkoutUrl || result.data?.paymentUrl || result.data?.payUrl || result.data?.redirectUrl || result.data?.cashierUrl;
+    const checkoutUrl = actionUrl(result.data) || result.data?.checkoutUrl || result.data?.paymentUrl || result.data?.payUrl || result.data?.redirectUrl || result.data?.cashierUrl;
     if (!result.ok || !checkoutUrl) {
       console.warn(`checkout-create-failed:${result.status}:${result.code ?? "no_code"}`);
-      return page(
-        "Checkout could not start",
-        `<p>The payment page did not open, so nothing has been charged. Please try again in a minute, or write to us through the contact form and we will finish the order by hand.</p>`,
-        502,
-      );
+      if (wantsJson(request)) {
+        return json({ ok: false, error: "checkout_unavailable", message: "The payment page did not open, so nothing has been charged." }, 502);
+      }
+      // Stay on the host the visitor is already on: this is a page of theirs,
+      // not a move to another site.
+      return redirect("/pricing/?checkout=unavailable", 303);
     }
     return redirect(checkoutUrl, 303);
   }
@@ -509,6 +578,8 @@ async function handleApi(request, env, url) {
     authUrl.searchParams.set("scope", "openid email profile");
     authUrl.searchParams.set("access_type", "online");
     authUrl.searchParams.set("prompt", "select_account");
+    const backTo = returnPath(url.searchParams.get("return"));
+    if (backTo) authUrl.searchParams.set("state", backTo);
     return redirect(authUrl.toString(), 302);
   }
 
@@ -541,7 +612,8 @@ async function handleApi(request, env, url) {
       await env.DB.prepare("INSERT INTO users (id, email, name, created_at) VALUES (?, ?, ?, ?)").bind(userId, email, String(profile.name ?? "").slice(0, 120), nowIso()).run();
     }
     const token = await createSession(env, userId);
-    return new Response(null, { status: 303, headers: { Location: `${base}/`, "Set-Cookie": sessionCookie(token), "Cache-Control": "no-store" } });
+    const backAfterSignIn = returnPath(url.searchParams.get("state"));
+    return new Response(null, { status: 303, headers: { Location: `${base}${backAfterSignIn || "/"}`, "Set-Cookie": sessionCookie(token), "Cache-Control": "no-store" } });
   }
 
   if (path === "/api/auth/me" && method === "GET") {
@@ -561,7 +633,10 @@ async function handleApi(request, env, url) {
 
   if (path === "/api/auth/signout" && method === "POST") {
     const token = getCookie(request, SESSION_COOKIE);
-    if (token && env.DB) await env.DB.prepare("DELETE FROM sessions WHERE token = ?").bind(token).run();
+    if (token && env.DB) {
+      await env.DB.prepare("DELETE FROM sessions WHERE token = ?").bind(token).run();
+      await env.DB.prepare("DELETE FROM shipsite_sessions WHERE token_hash = ?").bind(await sha256Hex(token)).run().catch(() => {});
+    }
     return json({ ok: true }, 200, { "Set-Cookie": sessionCookie("", 0) });
   }
 
@@ -647,6 +722,20 @@ export default {
     if (secureUrl) return new Response(null, { status: httpsRedirectStatus(request.method), headers: { Location: secureUrl, "Cache-Control": "public, max-age=3600" } });
 
     const url = new URL(request.url);
+    // In production the site's own address is its domain: a request on the
+    // Worker's workers.dev host moves to the same path and query there, so
+    // connecting the domain keeps the ranking it earned. The preview never
+    // redirects.
+    const canonicalBase = (env.NEXT_PUBLIC_SITE_URL || "").replace(/\/$/, "");
+    if (env.SHIPSITE_ENVIRONMENT !== "preview" && canonicalBase && url.hostname.endsWith(".workers.dev")) {
+      try {
+        if (new URL(canonicalBase).host !== url.host) {
+          return new Response(null, { status: 301, headers: { Location: `${canonicalBase}${url.pathname}${url.search}`, "Cache-Control": "public, max-age=3600" } });
+        }
+      } catch {
+        // A malformed address is not a redirect: serve the request as it came.
+      }
+    }
     if (url.pathname === "/api" || url.pathname.startsWith("/api/")) {
       try {
         const apiResponse = await handleApi(request, env, url);

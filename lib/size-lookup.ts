@@ -112,8 +112,11 @@ const jeansRows: ChartRow[] = JEANS_US.map((us) => ({
     IT: String(us + 14),
     FR: String(us + 10),
     AU: String(us - 14),
-    JP: String(Math.round(us * 2.33)),
-    CN: String(Math.round((us * 2.54 + 18) / 2) * 2),
+    // JP lists the same waist measured in centimetres, and CN labels the waist
+    // in centimetres too: both are the inch label converted, never a second
+    // made-up scale.
+    JP: String(Math.round(us * 2.54)),
+    CN: String(Math.round(us * 2.54)),
   },
   ranges: {
     waist: [round1(us * 2.54 - 1), round1(us * 2.54 + 1)],
@@ -147,7 +150,7 @@ function shoeRows(gender: "women" | "men"): ChartRow[] {
         FR: half(eu),
         AU: half(uk),
         JP: half(foot),
-        CN: String(Math.round(foot * 10) * 10),
+        CN: String(Math.round(foot * 10)),
       },
       ranges: { foot: [round1(foot - 0.25), round1(foot + 0.25)] },
     });
@@ -162,12 +165,12 @@ const CUP_STEPS: [number, string][] = [
 ];
 const braRows: ChartRow[] = [70, 75, 80, 85, 90, 95, 100].map((band) => ({
   labels: {
-    US: String(Math.round(band / 2.54)),
-    UK: String(Math.round(band / 2.54)),
+    US: String(Math.round(band * 0.4 + 4)),
+    UK: String(Math.round(band * 0.4 + 4)),
     EU: String(band),
     IT: String(band),
     FR: String(band),
-    AU: String(Math.round(band / 2.54)),
+    AU: String(Math.round(band * 0.4 + 4)),
     JP: String(band),
     CN: String(band),
   },
@@ -177,7 +180,7 @@ const braRows: ChartRow[] = [70, 75, 80, 85, 90, 95, 100].map((band) => ({
 // Ring: finger circumference in mm, read as a circumference chart.
 const RING_MM = [44, 45.5, 47, 48.5, 50, 51.5, 53, 54.5, 56, 57.5, 59, 60.5, 62, 63.5, 65, 66.5, 68];
 const ringRows: ChartRow[] = RING_MM.map((mm, i) => {
-  const us = Math.round(((mm - 36.5) / 0.8128) * 2) / 2;
+  const us = Math.round(((mm - 36.5) / 2.55) * 2) / 2;
   const letter = String.fromCharCode(65 + i);
   return {
     labels: {
@@ -490,7 +493,28 @@ function parseWornSize(value: string, rows: ChartRow[], market: Market): number 
       }
     }
   }
-  // A worn label we do not carry by number: look for a letter label (M, XL).
+    // A bra is written as a band and a cup letter ("34B"): the band is the
+  // figure to match, and in US/UK it is in inches while the chart's bands are
+  // cm, so it is converted before the rows are compared.
+  if (rows.some((row) => row.ranges.underband)) {
+    const bandNumber = Number(text.replace(/[^0-9.]/g, ""));
+    if (Number.isFinite(bandNumber) && bandNumber > 0) {
+      const bandCm = bandNumber < 60 ? bandNumber * 2.54 : bandNumber;
+      let best = -1;
+      let bestGap = Number.POSITIVE_INFINITY;
+      rows.forEach((row, i) => {
+        const range = row.ranges.underband;
+        const centre = range ? (range[0] + range[1]) / 2 : Number(row.labels.EU);
+        const gap = Math.abs(centre - bandCm);
+        if (gap < bestGap) {
+          bestGap = gap;
+          best = i;
+        }
+      });
+      if (best >= 0) return best;
+    }
+  }
+// A worn label we do not carry by number: look for a letter label (M, XL).
   const letter = text.trim().toUpperCase();
   return rows.findIndex((row) => row.sizeLabel === letter);
 }

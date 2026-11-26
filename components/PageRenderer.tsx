@@ -319,6 +319,9 @@ export function PageRenderer({ route, content, config, locale }: { route: Route;
     "@id": `${homeUrl}#organization`,
     name: config.brandName,
     url: homeUrl,
+    // The address a visitor writes to, read from the one config field the
+    // contact page, the footer and the legal pages already show.
+    ...(config.contactEmail ? { email: config.contactEmail } : {}),
     ...(config.brandLogo ? { logo: absoluteSiteUrl(config.brandLogo) } : {}),
   } : null;
   const websiteSchema = isHome ? {

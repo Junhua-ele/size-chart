@@ -118,7 +118,15 @@ export function SiteFooter({ config }: ChromeProps) {
             </div>
           ))}
         </div>
+        {config.contactEmail ? (
+          <p className="foot-contact">
+            <a href={`mailto:${config.contactEmail}`}>{config.contactEmail}</a>
+          </p>
+        ) : null}
         <p className="foot-note">{config.footerNote}</p>
+        <p className="foot-made">
+          <a href="https://shipsite.ai" rel="noopener">Made with ShipSite.ai</a>
+        </p>
       </div>
     </footer>
   );

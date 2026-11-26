@@ -6,782 +6,267 @@
   "language": "en",
   "locales": [],
   "routes": [
-  {
-    "path": "/",
-    "contentKey": "home",
-    "title": "Size Chart: Find Your Size in US, UK and EU",
-    "description": "Size chart lookup: enter a size you wear or your bust, waist and hip, pick a country or brand, and get one size, the rule for between two sizes, and how the brand runs.",
-    "index": true,
-    "canonical": "/",
-    "navLabel": "Size chart",
-    "role": "home",
-    "routeArchetype": "home_tool",
-    "indexPolicy": "index",
-    "routeCompositionRequired": true,
-    "compositionIdOrTemplateFamily": "route:/",
-    "coverageMode": "direct_screen",
-    "representativeScreenId": null,
-    "designIrHash": "dd101320892473dcf8ee67c231b80564354a93d7633ab9ed4bb53cecc84d8c8a",
-    "requiredStates": [
-      "empty",
-      "selected_or_uploaded",
-      "processing",
-      "success",
-      "validation_error",
-      "runtime_error",
-      "reset"
-    ],
-    "requiredActions": [
-      "select_or_upload",
-      "preview_source",
-      "start_or_confirm_processing",
-      "preview_result",
-      "download",
-      "replace_or_reset"
-    ],
-    "copyContractRef": "copy:089cbd1232509570a9bad94846231a9340d0d11058bc2ad51b16e56439f81723",
-    "verdict": "not_applicable",
-    "publicExposure": true,
-    "lastModified": "2026-11-26"
-  },
-  {
-    "path": "/about/",
-    "contentKey": "about",
-    "title": "Size chart data sources: About",
-    "description": "Size Chart turns measurements and brand charts into one size in US, UK and EU sizing. Where the data comes from, how a result is made and who runs the site.",
-    "index": true,
-    "canonical": "/about/",
-    "navLabel": "About",
-    "role": "about",
-    "routeArchetype": "article_guide",
-    "indexPolicy": "index",
-    "routeCompositionRequired": true,
-    "compositionIdOrTemplateFamily": "route:/about/",
-    "coverageMode": "inherited_template",
-    "representativeScreenId": null,
-    "designIrHash": "94f06c07bb3aa5fd83bfce949f668e9f9354af1a6992856da408fabd4cb74d7b",
-    "requiredStates": [
-      "ready"
-    ],
-    "requiredActions": [
-      "navigate_context",
-      "follow_contextual_cta"
-    ],
-    "copyContractRef": "copy:bbb2631f61fe3bfe1aefbc79807a1edac9dc4077f9897809be00377de1791315",
-    "verdict": "not_applicable",
-    "publicExposure": true,
-    "lastModified": "2026-11-26"
-  },
-  {
-    "path": "/contact/",
-    "contentKey": "contact",
-    "title": "Contact Size Chart: Send a Message About a Size",
-    "description": "Write to Size Chart about a size that looks wrong, a brand we do not carry, a paid plan or a deletion request, and find out what to include.",
-    "index": true,
-    "canonical": "/contact/",
-    "navLabel": "Contact Size Chart: Send a Message About a Size",
-    "routeArchetype": "article_guide",
-    "indexPolicy": "index",
-    "routeCompositionRequired": true,
-    "compositionIdOrTemplateFamily": "route:/contact/",
-    "coverageMode": "inherited_template",
-    "representativeScreenId": null,
-    "designIrHash": "c3e766506ad87047c96d05182fadb45aba1b43075d6b17d203186e7a74067f64",
-    "requiredStates": [
-      "ready"
-    ],
-    "requiredActions": [
-      "navigate_context",
-      "follow_contextual_cta"
-    ],
-    "copyContractRef": "copy:076a534fdc690d69011f4557a5ffbe0b07c262f804fdb3fb1f0dd88c91c62340",
-    "verdict": "not_applicable",
-    "publicExposure": true,
-    "lastModified": "2026-11-26"
-  },
-  {
-    "path": "/pricing/",
-    "contentKey": "pricing",
-    "title": "Size Chart Pricing: Free Size Conversion, Plus and Pro",
-    "description": "Free size chart conversion for one country or brand at a time. Plus and Pro add saved profiles, followed brands and comparison PDF exports. Cancel anytime.",
-    "index": true,
-    "canonical": "/pricing/",
-    "navLabel": "Size Chart Pricing: Free Size Conversion, Plus and Pro",
-    "routeArchetype": "pricing",
-    "indexPolicy": "index",
-    "routeCompositionRequired": true,
-    "compositionIdOrTemplateFamily": "route:/pricing/",
-    "coverageMode": "direct_screen",
-    "representativeScreenId": null,
-    "designIrHash": "e9c6d6da63879533b260bfaf516ad53714aee8a68934cc7245500474612b6216",
-    "requiredStates": [
-      "plans_ready",
-      "checkout_unavailable_or_removed"
-    ],
-    "requiredActions": [
-      "inspect_plan_limits",
-      "select_plan_or_contact"
-    ],
-    "copyContractRef": "copy:60668fc96655c36a851c8db5b5a8d83fdc2bc58e6840a18465d5a805d0795c64",
-    "verdict": "not_applicable",
-    "publicExposure": true,
-    "lastModified": "2026-11-26"
-  },
-  {
-    "path": "/privacy/",
-    "contentKey": "privacy",
-    "title": "Size Chart Privacy: What the Site Stores",
-    "description": "Size Chart works out a size in your browser. What is stored on a free plan, what a paid profile keeps, and how to have it deleted.",
-    "index": true,
-    "canonical": "/privacy/",
-    "navLabel": "Size Chart Privacy: What the Site Stores",
-    "routeArchetype": "legal",
-    "indexPolicy": "index",
-    "routeCompositionRequired": true,
-    "compositionIdOrTemplateFamily": "route:/privacy/",
-    "coverageMode": "inherited_template",
-    "representativeScreenId": null,
-    "designIrHash": "bf32576d5477b633f8654db195e268034c2cb07c7d1882472da64e0c5b82130b",
-    "requiredStates": [
-      "ready"
-    ],
-    "requiredActions": [
-      "navigate_document",
-      "return_to_product"
-    ],
-    "copyContractRef": "copy:308ef77a7e1846dd036d3c2785bfa92b7df323f65f646d07e240c7ec565c6783",
-    "verdict": "not_applicable",
-    "publicExposure": true,
-    "lastModified": "2026-11-26"
-  },
-  {
-    "path": "/terms/",
-    "contentKey": "terms",
-    "title": "Size Chart Terms: Using the Size Conversions and Plans",
-    "description": "The terms for using Size Chart: how its size conversions are meant to be used, what a paid plan covers, and why each brand's own chart wins.",
-    "index": true,
-    "canonical": "/terms/",
-    "navLabel": "Size Chart Terms: Using the Size Conversions and Plans",
-    "routeArchetype": "legal",
-    "indexPolicy": "index",
-    "routeCompositionRequired": true,
-    "compositionIdOrTemplateFamily": "route:/terms/",
-    "coverageMode": "inherited_template",
-    "representativeScreenId": null,
-    "designIrHash": "a0773138d1f4346c5c7b921c8855470db1185b760c5a55c2fff7f5bc52be4529",
-    "requiredStates": [
-      "ready"
-    ],
-    "requiredActions": [
-      "navigate_document",
-      "return_to_product"
-    ],
-    "copyContractRef": "copy:f57f281c79632ec9dd9ab30f3896820bdf155b5bd40bbec98cfbe97f7785d8ff",
-    "verdict": "not_applicable",
-    "publicExposure": true,
-    "lastModified": "2026-11-26"
-  }
-],
+    {
+      "path": "/",
+      "contentKey": "home",
+      "title": "Size Chart: Find Your Size in US, UK and EU",
+      "description": "Size chart lookup: enter a size you wear or your bust, waist and hip, pick a country or brand, and get one size, the rule for between two sizes, and how the brand runs.",
+      "index": true,
+      "canonical": "/",
+      "navLabel": "Size chart",
+      "role": "home",
+      "routeArchetype": "home_tool",
+      "indexPolicy": "index",
+      "routeCompositionRequired": true,
+      "compositionIdOrTemplateFamily": "route:/",
+      "coverageMode": "direct_screen",
+      "representativeScreenId": null,
+      "designIrHash": "dd101320892473dcf8ee67c231b80564354a93d7633ab9ed4bb53cecc84d8c8a",
+      "requiredStates": [
+        "empty",
+        "selected_or_uploaded",
+        "processing",
+        "success",
+        "validation_error",
+        "runtime_error",
+        "reset"
+      ],
+      "requiredActions": [
+        "select_or_upload",
+        "preview_source",
+        "start_or_confirm_processing",
+        "preview_result",
+        "download",
+        "replace_or_reset"
+      ],
+      "copyContractRef": "copy:089cbd1232509570a9bad94846231a9340d0d11058bc2ad51b16e56439f81723",
+      "verdict": "not_applicable",
+      "publicExposure": true,
+      "lastModified": "2026-11-26"
+    },
+    {
+      "path": "/about/",
+      "contentKey": "about",
+      "title": "Size chart data sources: About",
+      "description": "Size Chart turns measurements and brand charts into one size in US, UK and EU sizing. Where the data comes from, how a result is made and who runs the site.",
+      "index": true,
+      "canonical": "/about/",
+      "navLabel": "About",
+      "role": "about",
+      "routeArchetype": "article_guide",
+      "indexPolicy": "index",
+      "routeCompositionRequired": true,
+      "compositionIdOrTemplateFamily": "route:/about/",
+      "coverageMode": "inherited_template",
+      "representativeScreenId": null,
+      "designIrHash": "94f06c07bb3aa5fd83bfce949f668e9f9354af1a6992856da408fabd4cb74d7b",
+      "requiredStates": [
+        "ready"
+      ],
+      "requiredActions": [
+        "navigate_context",
+        "follow_contextual_cta"
+      ],
+      "copyContractRef": "copy:bbb2631f61fe3bfe1aefbc79807a1edac9dc4077f9897809be00377de1791315",
+      "verdict": "not_applicable",
+      "publicExposure": true,
+      "lastModified": "2026-11-26"
+    },
+    {
+      "path": "/contact/",
+      "contentKey": "contact",
+      "title": "Contact Size Chart: Send a Message About a Size",
+      "description": "Write to Size Chart about a size that looks wrong, a brand we do not carry, a paid plan or a deletion request, and find out what to include.",
+      "index": true,
+      "canonical": "/contact/",
+      "navLabel": "Contact Size Chart: Send a Message About a Size",
+      "routeArchetype": "article_guide",
+      "indexPolicy": "index",
+      "routeCompositionRequired": true,
+      "compositionIdOrTemplateFamily": "route:/contact/",
+      "coverageMode": "inherited_template",
+      "representativeScreenId": null,
+      "designIrHash": "c3e766506ad87047c96d05182fadb45aba1b43075d6b17d203186e7a74067f64",
+      "requiredStates": [
+        "ready"
+      ],
+      "requiredActions": [
+        "navigate_context",
+        "follow_contextual_cta"
+      ],
+      "copyContractRef": "copy:076a534fdc690d69011f4557a5ffbe0b07c262f804fdb3fb1f0dd88c91c62340",
+      "verdict": "not_applicable",
+      "publicExposure": true,
+      "lastModified": "2026-11-26"
+    },
+    {
+      "path": "/pricing/",
+      "contentKey": "pricing",
+      "title": "Size Chart Pricing: Free Size Conversion, Plus and Pro",
+      "description": "Free size chart conversion for one country or brand at a time. Plus and Pro add saved profiles, followed brands and comparison PDF exports. Cancel anytime.",
+      "index": true,
+      "canonical": "/pricing/",
+      "navLabel": "Size Chart Pricing: Free Size Conversion, Plus and Pro",
+      "routeArchetype": "pricing",
+      "indexPolicy": "index",
+      "routeCompositionRequired": true,
+      "compositionIdOrTemplateFamily": "route:/pricing/",
+      "coverageMode": "direct_screen",
+      "representativeScreenId": null,
+      "designIrHash": "e9c6d6da63879533b260bfaf516ad53714aee8a68934cc7245500474612b6216",
+      "requiredStates": [
+        "plans_ready",
+        "checkout_unavailable_or_removed"
+      ],
+      "requiredActions": [
+        "inspect_plan_limits",
+        "select_plan_or_contact"
+      ],
+      "copyContractRef": "copy:60668fc96655c36a851c8db5b5a8d83fdc2bc58e6840a18465d5a805d0795c64",
+      "verdict": "not_applicable",
+      "publicExposure": true,
+      "lastModified": "2026-11-26"
+    },
+    {
+      "path": "/privacy/",
+      "contentKey": "privacy",
+      "title": "Size Chart Privacy: What the Site Stores",
+      "description": "Size Chart works out a size in your browser. What is stored on a free plan, what a paid profile keeps, and how to have it deleted.",
+      "index": true,
+      "canonical": "/privacy/",
+      "navLabel": "Size Chart Privacy: What the Site Stores",
+      "routeArchetype": "legal",
+      "indexPolicy": "index",
+      "routeCompositionRequired": true,
+      "compositionIdOrTemplateFamily": "route:/privacy/",
+      "coverageMode": "inherited_template",
+      "representativeScreenId": null,
+      "designIrHash": "bf32576d5477b633f8654db195e268034c2cb07c7d1882472da64e0c5b82130b",
+      "requiredStates": [
+        "ready"
+      ],
+      "requiredActions": [
+        "navigate_document",
+        "return_to_product"
+      ],
+      "copyContractRef": "copy:308ef77a7e1846dd036d3c2785bfa92b7df323f65f646d07e240c7ec565c6783",
+      "verdict": "not_applicable",
+      "publicExposure": true,
+      "lastModified": "2026-11-26"
+    },
+    {
+      "path": "/terms/",
+      "contentKey": "terms",
+      "title": "Size Chart Terms: Using the Size Conversions and Plans",
+      "description": "The terms for using Size Chart: how its size conversions are meant to be used, what a paid plan covers, and why each brand's own chart wins.",
+      "index": true,
+      "canonical": "/terms/",
+      "navLabel": "Size Chart Terms: Using the Size Conversions and Plans",
+      "routeArchetype": "legal",
+      "indexPolicy": "index",
+      "routeCompositionRequired": true,
+      "compositionIdOrTemplateFamily": "route:/terms/",
+      "coverageMode": "inherited_template",
+      "representativeScreenId": null,
+      "designIrHash": "a0773138d1f4346c5c7b921c8855470db1185b760c5a55c2fff7f5bc52be4529",
+      "requiredStates": [
+        "ready"
+      ],
+      "requiredActions": [
+        "navigate_document",
+        "return_to_product"
+      ],
+      "copyContractRef": "copy:f57f281c79632ec9dd9ab30f3896820bdf155b5bd40bbec98cfbe97f7785d8ff",
+      "verdict": "not_applicable",
+      "publicExposure": true,
+      "lastModified": "2026-11-26"
+    }
+  ],
   "nav": [
-  {
-    "label": "Size chart",
-    "href": "/"
-  },
-  {
-    "label": "Pricing",
-    "href": "/pricing/"
-  }
-],
+    {
+      "label": "Size chart",
+      "href": "/"
+    },
+    {
+      "label": "Pricing",
+      "href": "/pricing/"
+    }
+  ],
   "navGroups": [],
   "navMore": [],
   "design": {
-  "background": "#113b38",
-  "surface": "#1b4b47",
-  "text": "#f4f1e6",
-  "accent": "#f5c449",
-  "font": "system-ui, sans-serif"
-},
-  "visual": {
-  "layoutArchetype": "",
-  "navigationModel": "",
-  "heroComposition": "",
-  "radiusFamily": "",
-  "buttonGeometry": "",
-  "surfaceTreatment": "",
-  "backgroundTexture": "",
-  "dataDisplay": "",
-  "iconLanguage": "",
-  "sectionSequence": [],
-  "density": "comfortable",
-  "motion": "subtle",
-  "motionMotifs": [
-    "",
-    "",
-    ""
-  ],
-  "typeScale": 1.25,
-  "headingWeight": 700,
-  "headingCase": "none",
-  "contentMeasure": 68,
-  "maxWidth": 1280,
-  "colors": {
     "background": "#113b38",
     "surface": "#1b4b47",
     "text": "#f4f1e6",
     "accent": "#f5c449",
-    "secondary": "#a9d3c9",
-    "gradient": {
-      "angle": 180,
-      "from": "#2c4b3a",
-      "to": "#55643d"
+    "font": "system-ui, sans-serif"
+  },
+  "visual": {
+    "layoutArchetype": "",
+    "navigationModel": "",
+    "heroComposition": "",
+    "radiusFamily": "",
+    "buttonGeometry": "",
+    "surfaceTreatment": "",
+    "backgroundTexture": "",
+    "dataDisplay": "",
+    "iconLanguage": "",
+    "sectionSequence": [],
+    "density": "comfortable",
+    "motion": "subtle",
+    "motionMotifs": [
+      "",
+      "",
+      ""
+    ],
+    "typeScale": 1.25,
+    "headingWeight": 700,
+    "headingCase": "none",
+    "contentMeasure": 68,
+    "maxWidth": 1280,
+    "colors": {
+      "background": "#113b38",
+      "surface": "#1b4b47",
+      "text": "#f4f1e6",
+      "accent": "#f5c449",
+      "secondary": "#a9d3c9",
+      "gradient": {
+        "angle": 180,
+        "from": "#2c4b3a",
+        "to": "#55643d"
+      },
+      "font": "'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif",
+      "headingFont": "'Archivo', system-ui, sans-serif"
     },
-    "font": "'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif",
-    "headingFont": "'Archivo', system-ui, sans-serif"
-  },
-  "variantDefaults": {
-    "hero": "",
-    "table": ""
-  },
-  "aestheticDirection": "",
-  "customDialect": {
-    "space": {
-      "related": 0.9,
-      "group": 1,
-      "section": 1.4
+    "variantDefaults": {
+      "hero": "",
+      "table": ""
     },
-    "headingTracking": "-0.02em",
-    "displayFloorBoost": 1.1,
-    "textureOpacity": 0,
-    "motion": {
-      "duration": 0.8,
-      "distance": 0.8,
-      "ease": "cubic-bezier(0.2,0.7,0.3,1)"
-    }
-  },
-  "firstScreenBrief": "",
-  "brandVoice": {
-    "headline": "One size, not a table to scan.",
-    "lede": "Enter a size you wear or your measurements, pick a country or brand, and get one size back with the rule behind it."
-  },
-  "signatureObject": "",
-  "subjectInventory": []
-},
-  "composition": {
-  "root": {
-    "type": "shell",
-    "children": [
-      {
-        "type": "nav"
+    "aestheticDirection": "",
+    "customDialect": {
+      "space": {
+        "related": 0.9,
+        "group": 1,
+        "section": 1.4
       },
-      {
-        "type": "row",
-        "variant": "仪表分栏：h1 与说明在左，整块仪表卡在右",
-        "children": [
-          {
-            "type": "group",
-            "span": 5,
-            "children": [
-              {
-                "type": "hero",
-                "label": "Size chart: find your size in US, UK and EU",
-                "emphasis": "lead"
-              },
-              {
-                "type": "media",
-                "variant": "窄幅真实照片，压在标题栏下方",
-                "label": "Hands drawing a tape measure round a waist"
-              }
-            ]
-          },
-          {
-            "type": "group",
-            "span": 7,
-            "children": [
-              {
-                "type": "tool",
-                "source": "tool",
-                "label": "Find your size",
-                "emphasis": "lead",
-                "capability": "size-lookup"
-              },
-              {
-                "type": "actions",
-                "label": "Copy result, Save result, Print / PDF"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": "row",
-        "children": [
-          {
-            "type": "group",
-            "span": 4,
-            "children": [
-              {
-                "type": "prose",
-                "source": "result-explained",
-                "label": "What the result tells you"
-              }
-            ]
-          },
-          {
-            "type": "group",
-            "span": 8,
-            "children": [
-              {
-                "type": "cards",
-                "variant": "三条结论各一张窄卡，第四张是横跨的算例面板",
-                "source": "result-explained"
-              },
-              {
-                "type": "media",
-                "variant": "宽幅照片，切在算例面板之上",
-                "label": "Fitting-room mirror"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": "row",
-        "children": [
-          {
-            "type": "group",
-            "span": 4,
-            "children": [
-              {
-                "type": "prose",
-                "source": "category-tables",
-                "label": "What is covered"
-              }
-            ]
-          },
-          {
-            "type": "group",
-            "span": 8,
-            "children": [
-              {
-                "type": "table",
-                "source": "category-tables",
-                "label": "Standard rows the lookup reads",
-                "mobilePresentation": "cards"
-              },
-              {
-                "type": "cards",
-                "variant": "六项覆盖，两列文字，无图标",
-                "source": "category-tables"
-              },
-              {
-                "type": "media",
-                "variant": "横切整栏的宽幅照片",
-                "label": "Trying on shoes"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": "row",
-        "children": [
-          {
-            "type": "group",
-            "span": 6,
-            "children": [
-              {
-                "type": "prose",
-                "source": "between-sizes"
-              },
-              {
-                "type": "cards",
-                "variant": "三条规则按序排列",
-                "source": "between-sizes"
-              }
-            ]
-          },
-          {
-            "type": "group",
-            "span": 6,
-            "children": [
-              {
-                "type": "media",
-                "variant": "竖幅照片贴在文字栏右侧",
-                "label": "Jeans waistband in hands"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": "row",
-        "children": [
-          {
-            "type": "group",
-            "span": 12,
-            "children": [
-              {
-                "type": "prose",
-                "source": "brand-direction",
-                "label": "Brands size differently"
-              },
-              {
-                "type": "table",
-                "source": "brand-direction",
-                "label": "The same label read across five regions",
-                "mobilePresentation": "cards"
-              },
-              {
-                "type": "cards",
-                "variant": "四条说明分两列",
-                "source": "brand-direction"
-              },
-              {
-                "type": "media",
-                "variant": "整栏宽幅照片，压在表格下方",
-                "label": "Clothes rail with size labels"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": "faq",
-        "label": "Questions about the size lookup"
-      },
-      {
-        "type": "footer"
+      "headingTracking": "-0.02em",
+      "displayFloorBoost": 1.1,
+      "textureOpacity": 0,
+      "motion": {
+        "duration": 0.8,
+        "distance": 0.8,
+        "ease": "cubic-bezier(0.2,0.7,0.3,1)"
       }
-    ]
-  }
-},
-  "routeCompositions": {
-  "/about/": {
-    "root": {
-      "type": "shell",
-      "children": [
-        {
-          "type": "nav"
-        },
-        {
-          "type": "row",
-          "children": [
-            {
-              "type": "group",
-              "span": 7,
-              "children": [
-                {
-                  "type": "hero",
-                  "label": "About Size Chart",
-                  "emphasis": "lead"
-                },
-                {
-                  "type": "prose",
-                  "source": "where-the-data-comes-from"
-                },
-                {
-                  "type": "prose",
-                  "source": "how-a-result-is-made"
-                }
-              ]
-            },
-            {
-              "type": "group",
-              "span": 5,
-              "sticky": true,
-              "children": [
-                {
-                  "type": "media",
-                  "variant": "竖幅照片，与左侧长文并排",
-                  "label": "Tailor's table with a tape measure"
-                },
-                {
-                  "type": "actions",
-                  "label": "Write to us"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "row",
-          "children": [
-            {
-              "type": "group",
-              "span": 6,
-              "children": [
-                {
-                  "type": "prose",
-                  "source": "what-it-does-not-do"
-                }
-              ]
-            },
-            {
-              "type": "group",
-              "span": 6,
-              "children": [
-                {
-                  "type": "prose",
-                  "source": "who-runs-size-chart"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "footer"
-        }
-      ]
-    }
+    },
+    "firstScreenBrief": "",
+    "brandVoice": {
+      "headline": "One size, not a table to scan.",
+      "lede": "Enter a size you wear or your measurements, pick a country or brand, and get one size back with the rule behind it."
+    },
+    "signatureObject": "",
+    "subjectInventory": []
   },
-  "/contact/": {
-    "root": {
-      "type": "shell",
-      "children": [
-        {
-          "type": "nav"
-        },
-        {
-          "type": "row",
-          "children": [
-            {
-              "type": "group",
-              "span": 6,
-              "children": [
-                {
-                  "type": "hero",
-                  "label": "Contact Size Chart",
-                  "emphasis": "lead"
-                },
-                {
-                  "type": "prose",
-                  "source": "what-to-write-about"
-                },
-                {
-                  "type": "prose",
-                  "source": "what-we-cannot-help-with"
-                },
-                {
-                  "type": "prose",
-                  "source": "how-messages-are-handled"
-                }
-              ]
-            },
-            {
-              "type": "group",
-              "span": 6,
-              "sticky": true,
-              "children": [
-                {
-                  "type": "alert",
-                  "variant": "info",
-                  "label": "The status line under the form says whether your message was sent."
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "footer"
-        }
-      ]
-    }
-  },
-  "/pricing/": {
-    "root": {
-      "type": "shell",
-      "children": [
-        {
-          "type": "nav"
-        },
-        {
-          "type": "row",
-          "children": [
-            {
-              "type": "group",
-              "span": 12,
-              "children": [
-                {
-                  "type": "hero",
-                  "label": "Size Chart pricing",
-                  "emphasis": "lead"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "row",
-          "children": [
-            {
-              "type": "group",
-              "span": 12,
-              "children": [
-                {
-                  "type": "cards",
-                  "variant": "三档并排，每月/每年切换，Plus 标为最受欢迎",
-                  "source": "plans",
-                  "emphasis": "lead"
-                },
-                {
-                  "type": "actions",
-                  "label": "Start free, Get Plus, Get Pro"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "row",
-          "children": [
-            {
-              "type": "group",
-              "span": 12,
-              "children": [
-                {
-                  "type": "table",
-                  "source": "compare-plans",
-                  "label": "What separates the plans",
-                  "mobilePresentation": "cards"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "row",
-          "children": [
-            {
-              "type": "group",
-              "span": 12,
-              "children": [
-                {
-                  "type": "prose",
-                  "source": "checkout-and-privacy"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "faq",
-          "label": "Billing questions"
-        },
-        {
-          "type": "footer"
-        }
-      ]
-    }
-  },
-  "/privacy/": {
-    "root": {
-      "type": "shell",
-      "children": [
-        {
-          "type": "nav"
-        },
-        {
-          "type": "row",
-          "children": [
-            {
-              "type": "group",
-              "span": 8,
-              "children": [
-                {
-                  "type": "hero",
-                  "label": "Size Chart privacy",
-                  "emphasis": "lead"
-                },
-                {
-                  "type": "prose",
-                  "source": "what-stays-on-your-device"
-                },
-                {
-                  "type": "prose",
-                  "source": "what-a-paid-profile-holds"
-                },
-                {
-                  "type": "prose",
-                  "source": "your-choices"
-                }
-              ]
-            },
-            {
-              "type": "group",
-              "span": 4,
-              "sticky": true,
-              "children": [
-                {
-                  "type": "actions",
-                  "label": "Delete my data, Contact"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "footer"
-        }
-      ]
-    }
-  },
-  "/terms/": {
-    "root": {
-      "type": "shell",
-      "children": [
-        {
-          "type": "nav"
-        },
-        {
-          "type": "row",
-          "children": [
-            {
-              "type": "group",
-              "span": 8,
-              "children": [
-                {
-                  "type": "hero",
-                  "label": "Size Chart terms",
-                  "emphasis": "lead"
-                },
-                {
-                  "type": "prose",
-                  "source": "what-the-site-offers"
-                },
-                {
-                  "type": "prose",
-                  "source": "independent-site"
-                },
-                {
-                  "type": "prose",
-                  "source": "plans-and-billing"
-                },
-                {
-                  "type": "prose",
-                  "source": "changes-and-questions"
-                }
-              ]
-            },
-            {
-              "type": "group",
-              "span": 4,
-              "sticky": true,
-              "children": [
-                {
-                  "type": "actions",
-                  "label": "Contact"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "footer"
-        }
-      ]
-    }
-  },
-  "/": {
+  "composition": {
     "root": {
       "type": "shell",
       "children": [
@@ -969,651 +454,1182 @@
         }
       ]
     }
-  }
-},
+  },
+  "routeCompositions": {
+    "/about/": {
+      "root": {
+        "type": "shell",
+        "children": [
+          {
+            "type": "nav"
+          },
+          {
+            "type": "row",
+            "children": [
+              {
+                "type": "group",
+                "span": 7,
+                "children": [
+                  {
+                    "type": "hero",
+                    "label": "About Size Chart",
+                    "emphasis": "lead"
+                  },
+                  {
+                    "type": "prose",
+                    "source": "where-the-data-comes-from"
+                  },
+                  {
+                    "type": "prose",
+                    "source": "how-a-result-is-made"
+                  }
+                ]
+              },
+              {
+                "type": "group",
+                "span": 5,
+                "sticky": true,
+                "children": [
+                  {
+                    "type": "media",
+                    "variant": "竖幅照片，与左侧长文并排",
+                    "label": "Tailor's table with a tape measure"
+                  },
+                  {
+                    "type": "actions",
+                    "label": "Write to us"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "row",
+            "children": [
+              {
+                "type": "group",
+                "span": 6,
+                "children": [
+                  {
+                    "type": "prose",
+                    "source": "what-it-does-not-do"
+                  }
+                ]
+              },
+              {
+                "type": "group",
+                "span": 6,
+                "children": [
+                  {
+                    "type": "prose",
+                    "source": "who-runs-size-chart"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "footer"
+          }
+        ]
+      }
+    },
+    "/contact/": {
+      "root": {
+        "type": "shell",
+        "children": [
+          {
+            "type": "nav"
+          },
+          {
+            "type": "row",
+            "children": [
+              {
+                "type": "group",
+                "span": 6,
+                "children": [
+                  {
+                    "type": "hero",
+                    "label": "Contact Size Chart",
+                    "emphasis": "lead"
+                  },
+                  {
+                    "type": "prose",
+                    "source": "what-to-write-about"
+                  },
+                  {
+                    "type": "prose",
+                    "source": "what-we-cannot-help-with"
+                  },
+                  {
+                    "type": "prose",
+                    "source": "how-messages-are-handled"
+                  }
+                ]
+              },
+              {
+                "type": "group",
+                "span": 6,
+                "sticky": true,
+                "children": [
+                  {
+                    "type": "alert",
+                    "variant": "info",
+                    "label": "The status line under the form says whether your message was sent."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "footer"
+          }
+        ]
+      }
+    },
+    "/pricing/": {
+      "root": {
+        "type": "shell",
+        "children": [
+          {
+            "type": "nav"
+          },
+          {
+            "type": "row",
+            "children": [
+              {
+                "type": "group",
+                "span": 12,
+                "children": [
+                  {
+                    "type": "hero",
+                    "label": "Size Chart pricing",
+                    "emphasis": "lead"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "row",
+            "children": [
+              {
+                "type": "group",
+                "span": 12,
+                "children": [
+                  {
+                    "type": "cards",
+                    "variant": "三档并排，每月/每年切换，Plus 标为最受欢迎",
+                    "source": "plans",
+                    "emphasis": "lead"
+                  },
+                  {
+                    "type": "actions",
+                    "label": "Start free, Get Plus, Get Pro"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "row",
+            "children": [
+              {
+                "type": "group",
+                "span": 12,
+                "children": [
+                  {
+                    "type": "table",
+                    "source": "compare-plans",
+                    "label": "What separates the plans",
+                    "mobilePresentation": "cards"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "row",
+            "children": [
+              {
+                "type": "group",
+                "span": 12,
+                "children": [
+                  {
+                    "type": "prose",
+                    "source": "checkout-and-privacy"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "faq",
+            "label": "Billing questions"
+          },
+          {
+            "type": "footer"
+          }
+        ]
+      }
+    },
+    "/privacy/": {
+      "root": {
+        "type": "shell",
+        "children": [
+          {
+            "type": "nav"
+          },
+          {
+            "type": "row",
+            "children": [
+              {
+                "type": "group",
+                "span": 8,
+                "children": [
+                  {
+                    "type": "hero",
+                    "label": "Size Chart privacy",
+                    "emphasis": "lead"
+                  },
+                  {
+                    "type": "prose",
+                    "source": "what-stays-on-your-device"
+                  },
+                  {
+                    "type": "prose",
+                    "source": "what-a-paid-profile-holds"
+                  },
+                  {
+                    "type": "prose",
+                    "source": "your-choices"
+                  }
+                ]
+              },
+              {
+                "type": "group",
+                "span": 4,
+                "sticky": true,
+                "children": [
+                  {
+                    "type": "actions",
+                    "label": "Delete my data, Contact"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "footer"
+          }
+        ]
+      }
+    },
+    "/terms/": {
+      "root": {
+        "type": "shell",
+        "children": [
+          {
+            "type": "nav"
+          },
+          {
+            "type": "row",
+            "children": [
+              {
+                "type": "group",
+                "span": 8,
+                "children": [
+                  {
+                    "type": "hero",
+                    "label": "Size Chart terms",
+                    "emphasis": "lead"
+                  },
+                  {
+                    "type": "prose",
+                    "source": "what-the-site-offers"
+                  },
+                  {
+                    "type": "prose",
+                    "source": "independent-site"
+                  },
+                  {
+                    "type": "prose",
+                    "source": "plans-and-billing"
+                  },
+                  {
+                    "type": "prose",
+                    "source": "changes-and-questions"
+                  }
+                ]
+              },
+              {
+                "type": "group",
+                "span": 4,
+                "sticky": true,
+                "children": [
+                  {
+                    "type": "actions",
+                    "label": "Contact"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "footer"
+          }
+        ]
+      }
+    },
+    "/": {
+      "root": {
+        "type": "shell",
+        "children": [
+          {
+            "type": "nav"
+          },
+          {
+            "type": "row",
+            "variant": "仪表分栏：h1 与说明在左，整块仪表卡在右",
+            "children": [
+              {
+                "type": "group",
+                "span": 5,
+                "children": [
+                  {
+                    "type": "hero",
+                    "label": "Size chart: find your size in US, UK and EU",
+                    "emphasis": "lead"
+                  },
+                  {
+                    "type": "media",
+                    "variant": "窄幅真实照片，压在标题栏下方",
+                    "label": "Hands drawing a tape measure round a waist"
+                  }
+                ]
+              },
+              {
+                "type": "group",
+                "span": 7,
+                "children": [
+                  {
+                    "type": "tool",
+                    "source": "tool",
+                    "label": "Find your size",
+                    "emphasis": "lead",
+                    "capability": "size-lookup"
+                  },
+                  {
+                    "type": "actions",
+                    "label": "Copy result, Save result, Print / PDF"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "row",
+            "children": [
+              {
+                "type": "group",
+                "span": 4,
+                "children": [
+                  {
+                    "type": "prose",
+                    "source": "result-explained",
+                    "label": "What the result tells you"
+                  }
+                ]
+              },
+              {
+                "type": "group",
+                "span": 8,
+                "children": [
+                  {
+                    "type": "cards",
+                    "variant": "三条结论各一张窄卡，第四张是横跨的算例面板",
+                    "source": "result-explained"
+                  },
+                  {
+                    "type": "media",
+                    "variant": "宽幅照片，切在算例面板之上",
+                    "label": "Fitting-room mirror"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "row",
+            "children": [
+              {
+                "type": "group",
+                "span": 4,
+                "children": [
+                  {
+                    "type": "prose",
+                    "source": "category-tables",
+                    "label": "What is covered"
+                  }
+                ]
+              },
+              {
+                "type": "group",
+                "span": 8,
+                "children": [
+                  {
+                    "type": "table",
+                    "source": "category-tables",
+                    "label": "Standard rows the lookup reads",
+                    "mobilePresentation": "cards"
+                  },
+                  {
+                    "type": "cards",
+                    "variant": "六项覆盖，两列文字，无图标",
+                    "source": "category-tables"
+                  },
+                  {
+                    "type": "media",
+                    "variant": "横切整栏的宽幅照片",
+                    "label": "Trying on shoes"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "row",
+            "children": [
+              {
+                "type": "group",
+                "span": 6,
+                "children": [
+                  {
+                    "type": "prose",
+                    "source": "between-sizes"
+                  },
+                  {
+                    "type": "cards",
+                    "variant": "三条规则按序排列",
+                    "source": "between-sizes"
+                  }
+                ]
+              },
+              {
+                "type": "group",
+                "span": 6,
+                "children": [
+                  {
+                    "type": "media",
+                    "variant": "竖幅照片贴在文字栏右侧",
+                    "label": "Jeans waistband in hands"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "row",
+            "children": [
+              {
+                "type": "group",
+                "span": 12,
+                "children": [
+                  {
+                    "type": "prose",
+                    "source": "brand-direction",
+                    "label": "Brands size differently"
+                  },
+                  {
+                    "type": "table",
+                    "source": "brand-direction",
+                    "label": "The same label read across five regions",
+                    "mobilePresentation": "cards"
+                  },
+                  {
+                    "type": "cards",
+                    "variant": "四条说明分两列",
+                    "source": "brand-direction"
+                  },
+                  {
+                    "type": "media",
+                    "variant": "整栏宽幅照片，压在表格下方",
+                    "label": "Clothes rail with size labels"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "faq",
+            "label": "Questions about the size lookup"
+          },
+          {
+            "type": "footer"
+          }
+        ]
+      }
+    }
+  },
   "capabilities": [],
   "toolSpecs": [
-  {
-    "id": "size-lookup",
-    "title": "Find my size",
-    "jtbd": "From a category, a worn size or the visitor's bust/waist/hip/foot length in cm or in, and a target country or verified brand, return exactly one size, one between-sizes recommendation, and that brand's runs-small or runs-large note.",
-    "inputs": [
-      {
-        "id": "category",
-        "kind": "select",
-        "label": "Category",
-        "required": true,
-        "options": [
-          {
-            "value": "Women's tops",
-            "label": "Women's tops"
-          },
-          {
-            "value": "Women's dresses",
-            "label": "Women's dresses"
-          },
-          {
-            "value": "Men's tops",
-            "label": "Men's tops"
-          },
-          {
-            "value": "Women's jeans",
-            "label": "Women's jeans"
-          },
-          {
-            "value": "Women's shoe",
-            "label": "Women's shoe"
-          },
-          {
-            "value": "Men's shoe",
-            "label": "Men's shoe"
-          },
-          {
-            "value": "Bra",
-            "label": "Bra"
-          },
-          {
-            "value": "Kids' clothing",
-            "label": "Kids' clothing"
-          },
-          {
-            "value": "Ring",
-            "label": "Ring"
-          }
-        ]
+    {
+      "id": "size-lookup",
+      "title": "Find my size",
+      "jtbd": "From a category, a worn size or the visitor's bust/waist/hip/foot length in cm or in, and a target country or verified brand, return exactly one size, one between-sizes recommendation, and that brand's runs-small or runs-large note.",
+      "inputs": [
+        {
+          "id": "category",
+          "kind": "select",
+          "label": "Category",
+          "required": true,
+          "options": [
+            {
+              "value": "Women's tops",
+              "label": "Women's tops"
+            },
+            {
+              "value": "Women's dresses",
+              "label": "Women's dresses"
+            },
+            {
+              "value": "Men's tops",
+              "label": "Men's tops"
+            },
+            {
+              "value": "Women's jeans",
+              "label": "Women's jeans"
+            },
+            {
+              "value": "Women's shoe",
+              "label": "Women's shoe"
+            },
+            {
+              "value": "Men's shoe",
+              "label": "Men's shoe"
+            },
+            {
+              "value": "Bra",
+              "label": "Bra"
+            },
+            {
+              "value": "Kids' clothing",
+              "label": "Kids' clothing"
+            },
+            {
+              "value": "Ring",
+              "label": "Ring"
+            }
+          ]
+        },
+        {
+          "id": "shopping",
+          "kind": "select",
+          "label": "Shopping in",
+          "required": true,
+          "options": [
+            {
+              "value": "United States (US)",
+              "label": "United States (US)"
+            },
+            {
+              "value": "United Kingdom (UK)",
+              "label": "United Kingdom (UK)"
+            },
+            {
+              "value": "Europe (EU)",
+              "label": "Europe (EU)"
+            },
+            {
+              "value": "Japan (JP)",
+              "label": "Japan (JP)"
+            },
+            {
+              "value": "Zara",
+              "label": "Zara"
+            },
+            {
+              "value": "H&M",
+              "label": "H&M"
+            },
+            {
+              "value": "Uniqlo",
+              "label": "Uniqlo"
+            },
+            {
+              "value": "Gap",
+              "label": "Gap"
+            }
+          ]
+        },
+        {
+          "id": "start",
+          "kind": "select",
+          "label": "Starting point",
+          "required": true,
+          "options": [
+            {
+              "value": "A size I wear",
+              "label": "A size I wear"
+            },
+            {
+              "value": "My measurements",
+              "label": "My measurements"
+            }
+          ]
+        },
+        {
+          "id": "wornsize",
+          "kind": "text",
+          "label": "Size you wear",
+          "placeholder": "US 8, or 34B for a bra"
+        },
+        {
+          "id": "units",
+          "kind": "select",
+          "label": "Units",
+          "options": [
+            {
+              "value": "cm",
+              "label": "cm"
+            },
+            {
+              "value": "in",
+              "label": "in"
+            }
+          ]
+        },
+        {
+          "id": "bust",
+          "kind": "number",
+          "label": "Bust or chest"
+        },
+        {
+          "id": "waist",
+          "kind": "number",
+          "label": "Waist"
+        },
+        {
+          "id": "hip",
+          "kind": "number",
+          "label": "Hip"
+        },
+        {
+          "id": "footlength",
+          "kind": "number",
+          "label": "Foot length"
+        }
+      ],
+      "output": {
+        "label": "One size, the between-sizes rule and the brand note",
+        "description": "The answer panel: the single size to buy written as one label (for example UK 12) in the largest type on the page, a line naming the size it came from and the category and market it is read in, a rule"
       },
-      {
-        "id": "shopping",
-        "kind": "select",
-        "label": "Shopping in",
-        "required": true,
-        "options": [
-          {
-            "value": "United States (US)",
-            "label": "United States (US)"
+      "acceptance": [
+        {
+          "id": "worn-us8-uk",
+          "given": {
+            "category": "Women's tops",
+            "shopping": "United Kingdom (UK)",
+            "start": "A size I wear",
+            "wornsize": "US 8",
+            "units": "cm"
           },
-          {
-            "value": "United Kingdom (UK)",
-            "label": "United Kingdom (UK)"
+          "expect": [
+            {
+              "kind": "contains",
+              "value": "UK 12"
+            }
+          ]
+        },
+        {
+          "id": "worn-us40-eu-men",
+          "given": {
+            "category": "Men's tops",
+            "shopping": "Europe (EU)",
+            "start": "A size I wear",
+            "wornsize": "US 40",
+            "units": "cm"
           },
-          {
-            "value": "Europe (EU)",
-            "label": "Europe (EU)"
+          "expect": [
+            {
+              "kind": "contains",
+              "value": "EU 50"
+            }
+          ]
+        },
+        {
+          "id": "measurements-uk",
+          "given": {
+            "category": "Women's tops",
+            "shopping": "United Kingdom (UK)",
+            "start": "My measurements",
+            "bust": "95",
+            "waist": "74",
+            "hip": "101",
+            "units": "cm"
           },
-          {
-            "value": "Japan (JP)",
-            "label": "Japan (JP)"
+          "expect": [
+            {
+              "kind": "contains",
+              "value": "UK 12"
+            },
+            {
+              "kind": "contains",
+              "value": "larger"
+            }
+          ]
+        },
+        {
+          "id": "shoe-foot-24",
+          "given": {
+            "category": "Women's shoe",
+            "shopping": "United Kingdom (UK)",
+            "start": "My measurements",
+            "footlength": "24",
+            "units": "cm"
           },
-          {
-            "value": "Zara",
-            "label": "Zara"
+          "expect": [
+            {
+              "kind": "contains",
+              "value": "UK 4.5"
+            }
+          ]
+        },
+        {
+          "id": "brand-zara",
+          "given": {
+            "category": "Women's tops",
+            "shopping": "Zara",
+            "start": "A size I wear",
+            "wornsize": "US 8",
+            "units": "cm"
           },
-          {
-            "value": "H&M",
-            "label": "H&M"
-          },
-          {
-            "value": "Uniqlo",
-            "label": "Uniqlo"
-          },
-          {
-            "value": "Gap",
-            "label": "Gap"
-          }
-        ]
-      },
-      {
-        "id": "start",
-        "kind": "select",
-        "label": "Starting point",
-        "required": true,
-        "options": [
-          {
-            "value": "A size I wear",
-            "label": "A size I wear"
-          },
-          {
-            "value": "My measurements",
-            "label": "My measurements"
-          }
-        ]
-      },
-      {
-        "id": "wornsize",
-        "kind": "text",
-        "label": "Size you wear",
-        "placeholder": "US 8, or 34B for a bra"
-      },
-      {
-        "id": "units",
-        "kind": "select",
-        "label": "Units",
-        "options": [
-          {
-            "value": "cm",
-            "label": "cm"
-          },
-          {
-            "value": "in",
-            "label": "in"
-          }
-        ]
-      },
-      {
-        "id": "bust",
-        "kind": "number",
-        "label": "Bust or chest"
-      },
-      {
-        "id": "waist",
-        "kind": "number",
-        "label": "Waist"
-      },
-      {
-        "id": "hip",
-        "kind": "number",
-        "label": "Hip"
-      },
-      {
-        "id": "footlength",
-        "kind": "number",
-        "label": "Foot length"
-      }
+          "expect": [
+            {
+              "kind": "contains",
+              "value": "Zara"
+            },
+            {
+              "kind": "non-empty"
+            }
+          ]
+        }
+      ],
+      "execution": "client",
+      "privacy": "in-browser",
+      "privacyNote": "The lookup runs in your browser against a table shipped with the page. Nothing you type is uploaded, stored on a server or used to train anything."
+    }
+  ],
+  "runtimeRequirements": {
+    "requiresCapability": true,
+    "requiredCapabilityOperations": [],
+    "toolPromises": [
+      "From a category, a worn size or the visitor's bust/waist/hip/foot length in cm or in, and a target country or verified brand, return exactly one size, one between-sizes recommendation, and that brand's runs-small or runs-large note."
     ],
-    "output": {
-      "label": "One size, the between-sizes rule and the brand note",
-      "description": "The answer panel: the single size to buy written as one label (for example UK 12) in the largest type on the page, a line naming the size it came from and the category and market it is read in, a rule"
-    },
-    "acceptance": [
-      {
-        "id": "worn-us8-uk",
-        "given": {
-          "category": "Women's tops",
-          "shopping": "United Kingdom (UK)",
-          "start": "A size I wear",
-          "wornsize": "US 8",
-          "units": "cm"
-        },
-        "expect": [
-          {
-            "kind": "contains",
-            "value": "UK 12"
-          }
-        ]
-      },
-      {
-        "id": "worn-us40-eu-men",
-        "given": {
-          "category": "Men's tops",
-          "shopping": "Europe (EU)",
-          "start": "A size I wear",
-          "wornsize": "US 40",
-          "units": "cm"
-        },
-        "expect": [
-          {
-            "kind": "contains",
-            "value": "EU 50"
-          }
-        ]
-      },
-      {
-        "id": "measurements-uk",
-        "given": {
-          "category": "Women's tops",
-          "shopping": "United Kingdom (UK)",
-          "start": "My measurements",
-          "bust": "95",
-          "waist": "74",
-          "hip": "101",
-          "units": "cm"
-        },
-        "expect": [
-          {
-            "kind": "contains",
-            "value": "UK 12"
-          },
-          {
-            "kind": "contains",
-            "value": "larger"
-          }
-        ]
-      },
-      {
-        "id": "shoe-foot-24",
-        "given": {
-          "category": "Women's shoe",
-          "shopping": "United Kingdom (UK)",
-          "start": "My measurements",
-          "footlength": "24",
-          "units": "cm"
-        },
-        "expect": [
-          {
-            "kind": "contains",
-            "value": "UK 4.5"
-          }
-        ]
-      },
-      {
-        "id": "brand-zara",
-        "given": {
-          "category": "Women's tops",
-          "shopping": "Zara",
-          "start": "A size I wear",
-          "wornsize": "US 8",
-          "units": "cm"
-        },
-        "expect": [
-          {
-            "kind": "contains",
-            "value": "Zara"
-          },
-          {
-            "kind": "non-empty"
-          }
-        ]
-      }
-    ],
-    "execution": "client",
-    "privacy": "in-browser",
-    "privacyNote": "The lookup runs in your browser against a table shipped with the page. Nothing you type is uploaded, stored on a server or used to train anything."
-  }
-],
-  "runtimeRequirements": {"requiresCapability":true,"requiredCapabilityOperations":[],"toolPromises":["From a category, a worn size or the visitor's bust/waist/hip/foot length in cm or in, and a target country or verified brand, return exactly one size, one between-sizes recommendation, and that brand's runs-small or runs-large note."],"requiresAuth":true,"requiresBilling":true},
-  "runtimePrivacy": {"analytics":"aggregate","requiresConsent":false},
+    "requiresAuth": true,
+    "requiresBilling": true
+  },
+  "runtimePrivacy": {
+    "analytics": "aggregate",
+    "requiresConsent": false
+  },
   "demandSelectionHash": "dc9d2a12b6ab0cebb8a7cb1fff5b5992bf2cf38fb72ab9f54944c7dc3ef2ae88",
   "assetPlan": [
-  {
-    "path": "/images/tape-measure-waist.png",
-    "subject": "Hands drawing a soft measuring tape around a waist over a light shirt, daylight",
-    "purpose": "",
-    "alt": "Hands holding a soft tape measure around a waist, the inch and centimetre scales both facing out",
-    "source": "https://images.pexels.com/photos/6461076/pexels-photo-6461076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "sourcePage": "https://www.pexels.com/photo/a-person-using-a-measuring-tape-6461076/",
-    "license": "pexels-license",
-    "attribution": "Pavel Danilyuk via Pexels",
-    "kind": "decorative",
-    "role": "hero-subject",
-    "route": "/",
-    "sectionId": null,
-    "recordKey": null,
-    "generatedSvg": null,
-    "generationPrompt": null,
-    "fallbackQuery": null,
-    "treatment": "",
-    "shape": ""
-  },
-  {
-    "path": "/images/fitting-room-mirror.png",
-    "subject": "A fitting-room mirror with a rail of clothes and one garment held up to the light",
-    "purpose": "",
-    "alt": "A fitting room mirror beside a rail of clothes, one shirt held up in front of it",
-    "source": "https://images.pexels.com/photos/7679757/pexels-photo-7679757.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "sourcePage": "https://www.pexels.com/photo/photo-of-mirror-in-the-fitting-room-7679757/",
-    "license": "pexels-license",
-    "attribution": "MART PRODUCTION via Pexels",
-    "kind": "decorative",
-    "role": "section-media",
-    "route": "/",
-    "sectionId": "result-explained",
-    "recordKey": null,
-    "generatedSvg": null,
-    "generationPrompt": null,
-    "fallbackQuery": null,
-    "treatment": "",
-    "shape": ""
-  },
-  {
-    "path": "/images/shoe-trying-on.png",
-    "subject": "Hands pressing the toe of a new shoe on a foot in a shop",
-    "purpose": "",
-    "alt": "A hand pressing the toe of a shoe on a foot to check the fit",
-    "source": "https://images.pexels.com/photos/8400227/pexels-photo-8400227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "sourcePage": "https://www.pexels.com/photo/woman-trying-assorted-sandals-8400227/",
-    "license": "pexels-license",
-    "attribution": "Ron Lach via Pexels",
-    "kind": "decorative",
-    "role": "section-media",
-    "route": "/",
-    "sectionId": "category-tables",
-    "recordKey": null,
-    "generatedSvg": null,
-    "generationPrompt": null,
-    "fallbackQuery": null,
-    "treatment": "",
-    "shape": ""
-  },
-  {
-    "path": "/images/jeans-waistband.png",
-    "subject": "Two hands holding the waistband of a pair of jeans, the top button unfastened",
-    "purpose": "",
-    "alt": "Two hands holding up the waistband of a pair of jeans, the top button open",
-    "source": "https://images.pexels.com/photos/5234224/pexels-photo-5234224.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "sourcePage": "https://www.pexels.com/photo/hand-holding-the-woman-s-jeans-5234224/",
-    "license": "pexels-license",
-    "attribution": "Anna Tarazevich via Pexels",
-    "kind": "decorative",
-    "role": "section-media",
-    "route": "/",
-    "sectionId": "between-sizes",
-    "recordKey": null,
-    "generatedSvg": null,
-    "generationPrompt": null,
-    "fallbackQuery": null,
-    "treatment": "",
-    "shape": ""
-  },
-  {
-    "path": "/images/clothes-rail-tags.png",
-    "subject": "A rail of garments with size tags and brand labels visible at the neck",
-    "purpose": "",
-    "alt": "Garments on a rail with their size tags and brand labels showing at the neck",
-    "source": "https://images.pexels.com/photos/9594681/pexels-photo-9594681.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "sourcePage": "https://www.pexels.com/photo/clothes-in-a-rack-9594681/",
-    "license": "pexels-license",
-    "attribution": "Ron Lach via Pexels",
-    "kind": "decorative",
-    "role": "section-media",
-    "route": "/",
-    "sectionId": "brand-direction",
-    "recordKey": null,
-    "generatedSvg": null,
-    "generationPrompt": null,
-    "fallbackQuery": null,
-    "treatment": "",
-    "shape": ""
-  },
-  {
-    "path": "/images/tailor-table-tape.png",
-    "subject": "A tailor's worktable with a tape measure, a pencil and a paper pattern",
-    "purpose": "",
-    "alt": "A worktable with a soft tape measure, a pencil and a paper pattern laid out",
-    "source": "https://images.pexels.com/photos/7778194/pexels-photo-7778194.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "sourcePage": "https://www.pexels.com/photo/photo-of-tape-measure-on-white-surface-7778194/",
-    "license": "pexels-license",
-    "attribution": "Ron Lach via Pexels",
-    "kind": "decorative",
-    "role": "section-media",
-    "route": "/about/",
-    "sectionId": "how-a-result-is-made",
-    "recordKey": null,
-    "generatedSvg": null,
-    "generationPrompt": null,
-    "fallbackQuery": null,
-    "treatment": "",
-    "shape": ""
-  },
-  {
-    "path": "/images/entities/women-s-tops.svg",
-    "subject": "Women's tops",
-    "purpose": "",
-    "alt": "Women's tops",
-    "source": "ai-generated-original",
-    "sourcePage": null,
-    "license": "ai-generated-original",
-    "attribution": "",
-    "kind": "decorative",
-    "role": "entity-icon",
-    "route": null,
-    "sectionId": null,
-    "recordKey": "women-s-tops",
-    "generatedSvg": null,
-    "generationPrompt": null,
-    "fallbackQuery": null
-  },
-  {
-    "path": "/images/entities/men-s-tops.svg",
-    "subject": "Men's tops",
-    "purpose": "",
-    "alt": "Men's tops",
-    "source": "ai-generated-original",
-    "sourcePage": null,
-    "license": "ai-generated-original",
-    "attribution": "",
-    "kind": "decorative",
-    "role": "entity-icon",
-    "route": null,
-    "sectionId": null,
-    "recordKey": "men-s-tops",
-    "generatedSvg": null,
-    "generationPrompt": null,
-    "fallbackQuery": null
-  },
-  {
-    "path": "/images/entities/womens-jeans-waist-30.svg",
-    "subject": "Women's jeans (waist)",
-    "purpose": "",
-    "alt": "Women's jeans (waist)",
-    "source": "ai-generated-original",
-    "sourcePage": null,
-    "license": "ai-generated-original",
-    "attribution": "",
-    "kind": "decorative",
-    "role": "entity-icon",
-    "route": null,
-    "sectionId": null,
-    "recordKey": "womens-jeans-waist-30",
-    "generatedSvg": null,
-    "generationPrompt": null,
-    "fallbackQuery": null
-  },
-  {
-    "path": "/images/entities/womens-shoe-us-7.svg",
-    "subject": "Women's shoe",
-    "purpose": "",
-    "alt": "Women's shoe",
-    "source": "ai-generated-original",
-    "sourcePage": null,
-    "license": "ai-generated-original",
-    "attribution": "",
-    "kind": "decorative",
-    "role": "entity-icon",
-    "route": null,
-    "sectionId": null,
-    "recordKey": "womens-shoe-us-7",
-    "generatedSvg": null,
-    "generationPrompt": null,
-    "fallbackQuery": null
-  },
-  {
-    "path": "/images/entities/mens-shoe-us-9.svg",
-    "subject": "Men's shoe",
-    "purpose": "",
-    "alt": "Men's shoe",
-    "source": "ai-generated-original",
-    "sourcePage": null,
-    "license": "ai-generated-original",
-    "attribution": "",
-    "kind": "decorative",
-    "role": "entity-icon",
-    "route": null,
-    "sectionId": null,
-    "recordKey": "mens-shoe-us-9",
-    "generatedSvg": null,
-    "generationPrompt": null,
-    "fallbackQuery": null
-  },
-  {
-    "path": "/images/entities/saved-measurement-profiles.svg",
-    "subject": "Saved measurement profiles",
-    "purpose": "",
-    "alt": "Saved measurement profiles",
-    "source": "ai-generated-original",
-    "sourcePage": null,
-    "license": "ai-generated-original",
-    "attribution": "",
-    "kind": "decorative",
-    "role": "entity-icon",
-    "route": null,
-    "sectionId": null,
-    "recordKey": "saved-measurement-profiles",
-    "generatedSvg": null,
-    "generationPrompt": null,
-    "fallbackQuery": null
-  },
-  {
-    "path": "/images/entities/followed-brands.svg",
-    "subject": "Followed brands",
-    "purpose": "",
-    "alt": "Followed brands",
-    "source": "ai-generated-original",
-    "sourcePage": null,
-    "license": "ai-generated-original",
-    "attribution": "",
-    "kind": "decorative",
-    "role": "entity-icon",
-    "route": null,
-    "sectionId": null,
-    "recordKey": "followed-brands",
-    "generatedSvg": null,
-    "generationPrompt": null,
-    "fallbackQuery": null
-  },
-  {
-    "path": "/images/entities/comparison-pdf-exports-per-month.svg",
-    "subject": "Comparison PDF exports per month",
-    "purpose": "",
-    "alt": "Comparison PDF exports per month",
-    "source": "ai-generated-original",
-    "sourcePage": null,
-    "license": "ai-generated-original",
-    "attribution": "",
-    "kind": "decorative",
-    "role": "entity-icon",
-    "route": null,
-    "sectionId": null,
-    "recordKey": "comparison-pdf-exports-per-month",
-    "generatedSvg": null,
-    "generationPrompt": null,
-    "fallbackQuery": null
-  },
-  {
-    "path": "/images/entities/billing-period.svg",
-    "subject": "Billing period",
-    "purpose": "",
-    "alt": "Billing period",
-    "source": "ai-generated-original",
-    "sourcePage": null,
-    "license": "ai-generated-original",
-    "attribution": "",
-    "kind": "decorative",
-    "role": "entity-icon",
-    "route": null,
-    "sectionId": null,
-    "recordKey": "billing-period",
-    "generatedSvg": null,
-    "generationPrompt": null,
-    "fallbackQuery": null
-  },
-  {
-    "path": "/images/entities/free.svg",
-    "subject": "Free",
-    "purpose": "",
-    "alt": "Free",
-    "source": "ai-generated-original",
-    "sourcePage": null,
-    "license": "ai-generated-original",
-    "attribution": "",
-    "kind": "decorative",
-    "role": "entity-icon",
-    "route": null,
-    "sectionId": null,
-    "recordKey": "free",
-    "generatedSvg": null,
-    "generationPrompt": null,
-    "fallbackQuery": null
-  },
-  {
-    "path": "/images/entities/plus.svg",
-    "subject": "Plus",
-    "purpose": "",
-    "alt": "Plus",
-    "source": "ai-generated-original",
-    "sourcePage": null,
-    "license": "ai-generated-original",
-    "attribution": "",
-    "kind": "decorative",
-    "role": "entity-icon",
-    "route": null,
-    "sectionId": null,
-    "recordKey": "plus",
-    "generatedSvg": null,
-    "generationPrompt": null,
-    "fallbackQuery": null
-  },
-  {
-    "path": "/images/entities/pro.svg",
-    "subject": "Pro",
-    "purpose": "",
-    "alt": "Pro",
-    "source": "ai-generated-original",
-    "sourcePage": null,
-    "license": "ai-generated-original",
-    "attribution": "",
-    "kind": "decorative",
-    "role": "entity-icon",
-    "route": null,
-    "sectionId": null,
-    "recordKey": "pro",
-    "generatedSvg": null,
-    "generationPrompt": null,
-    "fallbackQuery": null
-  }
-],
+    {
+      "path": "/images/tape-measure-waist.png",
+      "subject": "Hands drawing a soft measuring tape around a waist over a light shirt, daylight",
+      "purpose": "",
+      "alt": "Hands holding a soft tape measure around a waist, the inch and centimetre scales both facing out",
+      "source": "https://images.pexels.com/photos/6461076/pexels-photo-6461076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "sourcePage": "https://www.pexels.com/photo/a-person-using-a-measuring-tape-6461076/",
+      "license": "pexels-license",
+      "attribution": "Pavel Danilyuk via Pexels",
+      "kind": "decorative",
+      "role": "hero-subject",
+      "route": "/",
+      "sectionId": null,
+      "recordKey": null,
+      "generatedSvg": null,
+      "generationPrompt": null,
+      "fallbackQuery": null,
+      "treatment": "",
+      "shape": ""
+    },
+    {
+      "path": "/images/fitting-room-mirror.png",
+      "subject": "A fitting-room mirror with a rail of clothes and one garment held up to the light",
+      "purpose": "",
+      "alt": "A fitting room mirror beside a rail of clothes, one shirt held up in front of it",
+      "source": "https://images.pexels.com/photos/7679757/pexels-photo-7679757.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "sourcePage": "https://www.pexels.com/photo/photo-of-mirror-in-the-fitting-room-7679757/",
+      "license": "pexels-license",
+      "attribution": "MART PRODUCTION via Pexels",
+      "kind": "decorative",
+      "role": "section-media",
+      "route": "/",
+      "sectionId": "result-explained",
+      "recordKey": null,
+      "generatedSvg": null,
+      "generationPrompt": null,
+      "fallbackQuery": null,
+      "treatment": "",
+      "shape": ""
+    },
+    {
+      "path": "/images/shoe-trying-on.png",
+      "subject": "Hands pressing the toe of a new shoe on a foot in a shop",
+      "purpose": "",
+      "alt": "A hand pressing the toe of a shoe on a foot to check the fit",
+      "source": "https://images.pexels.com/photos/8400227/pexels-photo-8400227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "sourcePage": "https://www.pexels.com/photo/woman-trying-assorted-sandals-8400227/",
+      "license": "pexels-license",
+      "attribution": "Ron Lach via Pexels",
+      "kind": "decorative",
+      "role": "section-media",
+      "route": "/",
+      "sectionId": "category-tables",
+      "recordKey": null,
+      "generatedSvg": null,
+      "generationPrompt": null,
+      "fallbackQuery": null,
+      "treatment": "",
+      "shape": ""
+    },
+    {
+      "path": "/images/jeans-waistband.png",
+      "subject": "Two hands holding the waistband of a pair of jeans, the top button unfastened",
+      "purpose": "",
+      "alt": "Two hands holding up the waistband of a pair of jeans, the top button open",
+      "source": "https://images.pexels.com/photos/5234224/pexels-photo-5234224.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "sourcePage": "https://www.pexels.com/photo/hand-holding-the-woman-s-jeans-5234224/",
+      "license": "pexels-license",
+      "attribution": "Anna Tarazevich via Pexels",
+      "kind": "decorative",
+      "role": "section-media",
+      "route": "/",
+      "sectionId": "between-sizes",
+      "recordKey": null,
+      "generatedSvg": null,
+      "generationPrompt": null,
+      "fallbackQuery": null,
+      "treatment": "",
+      "shape": ""
+    },
+    {
+      "path": "/images/clothes-rail-tags.png",
+      "subject": "A rail of garments with size tags and brand labels visible at the neck",
+      "purpose": "",
+      "alt": "Garments on a rail with their size tags and brand labels showing at the neck",
+      "source": "https://images.pexels.com/photos/9594681/pexels-photo-9594681.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "sourcePage": "https://www.pexels.com/photo/clothes-in-a-rack-9594681/",
+      "license": "pexels-license",
+      "attribution": "Ron Lach via Pexels",
+      "kind": "decorative",
+      "role": "section-media",
+      "route": "/",
+      "sectionId": "brand-direction",
+      "recordKey": null,
+      "generatedSvg": null,
+      "generationPrompt": null,
+      "fallbackQuery": null,
+      "treatment": "",
+      "shape": ""
+    },
+    {
+      "path": "/images/tailor-table-tape.png",
+      "subject": "A tailor's worktable with a tape measure, a pencil and a paper pattern",
+      "purpose": "",
+      "alt": "A worktable with a soft tape measure, a pencil and a paper pattern laid out",
+      "source": "https://images.pexels.com/photos/7778194/pexels-photo-7778194.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "sourcePage": "https://www.pexels.com/photo/photo-of-tape-measure-on-white-surface-7778194/",
+      "license": "pexels-license",
+      "attribution": "Ron Lach via Pexels",
+      "kind": "decorative",
+      "role": "section-media",
+      "route": "/about/",
+      "sectionId": "how-a-result-is-made",
+      "recordKey": null,
+      "generatedSvg": null,
+      "generationPrompt": null,
+      "fallbackQuery": null,
+      "treatment": "",
+      "shape": ""
+    },
+    {
+      "path": "/images/entities/women-s-tops.svg",
+      "subject": "Women's tops",
+      "purpose": "",
+      "alt": "Women's tops",
+      "source": "ai-generated-original",
+      "sourcePage": null,
+      "license": "ai-generated-original",
+      "attribution": "",
+      "kind": "decorative",
+      "role": "entity-icon",
+      "route": null,
+      "sectionId": null,
+      "recordKey": "women-s-tops",
+      "generatedSvg": null,
+      "generationPrompt": null,
+      "fallbackQuery": null
+    },
+    {
+      "path": "/images/entities/men-s-tops.svg",
+      "subject": "Men's tops",
+      "purpose": "",
+      "alt": "Men's tops",
+      "source": "ai-generated-original",
+      "sourcePage": null,
+      "license": "ai-generated-original",
+      "attribution": "",
+      "kind": "decorative",
+      "role": "entity-icon",
+      "route": null,
+      "sectionId": null,
+      "recordKey": "men-s-tops",
+      "generatedSvg": null,
+      "generationPrompt": null,
+      "fallbackQuery": null
+    },
+    {
+      "path": "/images/entities/womens-jeans-waist-30.svg",
+      "subject": "Women's jeans (waist)",
+      "purpose": "",
+      "alt": "Women's jeans (waist)",
+      "source": "ai-generated-original",
+      "sourcePage": null,
+      "license": "ai-generated-original",
+      "attribution": "",
+      "kind": "decorative",
+      "role": "entity-icon",
+      "route": null,
+      "sectionId": null,
+      "recordKey": "womens-jeans-waist-30",
+      "generatedSvg": null,
+      "generationPrompt": null,
+      "fallbackQuery": null
+    },
+    {
+      "path": "/images/entities/womens-shoe-us-7.svg",
+      "subject": "Women's shoe",
+      "purpose": "",
+      "alt": "Women's shoe",
+      "source": "ai-generated-original",
+      "sourcePage": null,
+      "license": "ai-generated-original",
+      "attribution": "",
+      "kind": "decorative",
+      "role": "entity-icon",
+      "route": null,
+      "sectionId": null,
+      "recordKey": "womens-shoe-us-7",
+      "generatedSvg": null,
+      "generationPrompt": null,
+      "fallbackQuery": null
+    },
+    {
+      "path": "/images/entities/mens-shoe-us-9.svg",
+      "subject": "Men's shoe",
+      "purpose": "",
+      "alt": "Men's shoe",
+      "source": "ai-generated-original",
+      "sourcePage": null,
+      "license": "ai-generated-original",
+      "attribution": "",
+      "kind": "decorative",
+      "role": "entity-icon",
+      "route": null,
+      "sectionId": null,
+      "recordKey": "mens-shoe-us-9",
+      "generatedSvg": null,
+      "generationPrompt": null,
+      "fallbackQuery": null
+    },
+    {
+      "path": "/images/entities/saved-measurement-profiles.svg",
+      "subject": "Saved measurement profiles",
+      "purpose": "",
+      "alt": "Saved measurement profiles",
+      "source": "ai-generated-original",
+      "sourcePage": null,
+      "license": "ai-generated-original",
+      "attribution": "",
+      "kind": "decorative",
+      "role": "entity-icon",
+      "route": null,
+      "sectionId": null,
+      "recordKey": "saved-measurement-profiles",
+      "generatedSvg": null,
+      "generationPrompt": null,
+      "fallbackQuery": null
+    },
+    {
+      "path": "/images/entities/followed-brands.svg",
+      "subject": "Followed brands",
+      "purpose": "",
+      "alt": "Followed brands",
+      "source": "ai-generated-original",
+      "sourcePage": null,
+      "license": "ai-generated-original",
+      "attribution": "",
+      "kind": "decorative",
+      "role": "entity-icon",
+      "route": null,
+      "sectionId": null,
+      "recordKey": "followed-brands",
+      "generatedSvg": null,
+      "generationPrompt": null,
+      "fallbackQuery": null
+    },
+    {
+      "path": "/images/entities/comparison-pdf-exports-per-month.svg",
+      "subject": "Comparison PDF exports per month",
+      "purpose": "",
+      "alt": "Comparison PDF exports per month",
+      "source": "ai-generated-original",
+      "sourcePage": null,
+      "license": "ai-generated-original",
+      "attribution": "",
+      "kind": "decorative",
+      "role": "entity-icon",
+      "route": null,
+      "sectionId": null,
+      "recordKey": "comparison-pdf-exports-per-month",
+      "generatedSvg": null,
+      "generationPrompt": null,
+      "fallbackQuery": null
+    },
+    {
+      "path": "/images/entities/billing-period.svg",
+      "subject": "Billing period",
+      "purpose": "",
+      "alt": "Billing period",
+      "source": "ai-generated-original",
+      "sourcePage": null,
+      "license": "ai-generated-original",
+      "attribution": "",
+      "kind": "decorative",
+      "role": "entity-icon",
+      "route": null,
+      "sectionId": null,
+      "recordKey": "billing-period",
+      "generatedSvg": null,
+      "generationPrompt": null,
+      "fallbackQuery": null
+    },
+    {
+      "path": "/images/entities/free.svg",
+      "subject": "Free",
+      "purpose": "",
+      "alt": "Free",
+      "source": "ai-generated-original",
+      "sourcePage": null,
+      "license": "ai-generated-original",
+      "attribution": "",
+      "kind": "decorative",
+      "role": "entity-icon",
+      "route": null,
+      "sectionId": null,
+      "recordKey": "free",
+      "generatedSvg": null,
+      "generationPrompt": null,
+      "fallbackQuery": null
+    },
+    {
+      "path": "/images/entities/plus.svg",
+      "subject": "Plus",
+      "purpose": "",
+      "alt": "Plus",
+      "source": "ai-generated-original",
+      "sourcePage": null,
+      "license": "ai-generated-original",
+      "attribution": "",
+      "kind": "decorative",
+      "role": "entity-icon",
+      "route": null,
+      "sectionId": null,
+      "recordKey": "plus",
+      "generatedSvg": null,
+      "generationPrompt": null,
+      "fallbackQuery": null
+    },
+    {
+      "path": "/images/entities/pro.svg",
+      "subject": "Pro",
+      "purpose": "",
+      "alt": "Pro",
+      "source": "ai-generated-original",
+      "sourcePage": null,
+      "license": "ai-generated-original",
+      "attribution": "",
+      "kind": "decorative",
+      "role": "entity-icon",
+      "route": null,
+      "sectionId": null,
+      "recordKey": "pro",
+      "generatedSvg": null,
+      "generationPrompt": null,
+      "fallbackQuery": null
+    }
+  ],
   "recipeCss": ":root{--background:#113B38;--surface:#1B4B47;--surface-deep:#0E3330;--field:#143F3C;--text:#F4F1E6;--muted:#BFD6CF;--accent:#F5C449;--ink:#16211F;--secondary:#A9D3C9;--line:#2C5F5A;--line-strong:#7FA9A1;--radius:10px;--radius-sm:6px;--maxw:1280px;--s14:14px;--s17:17px;--s19:19px;--s30:30px;--s48:48px;--s60:60px;--ease:cubic-bezier(0.2,0.7,0.3,1)}\n*,*::before,*::after{box-sizing:border-box}\nhtml{-webkit-text-size-adjust:100%}\nbody{margin:0;background:var(--background);color:var(--text);font-family:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:var(--s17);line-height:1.6;font-variant-numeric:tabular-nums}\nh1,h2,h3{font-family:'Archivo',system-ui,sans-serif;font-weight:700;letter-spacing:-0.02em;line-height:1.08;margin:0}\nh1{font-size:var(--s48)}h2{font-size:var(--s30)}h3{font-size:var(--s19);line-height:1.28;letter-spacing:-0.01em}\np{margin:0 0 .9em;max-width:68ch}\na{color:var(--text);text-underline-offset:3px;text-decoration-thickness:1px}\n:focus-visible{outline:3px solid var(--accent);outline-offset:2px}\n.wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}\n.site-head{display:flex;align-items:center;gap:32px;padding:14px 40px;max-width:var(--maxw);margin:0 auto}\n.brand{display:flex;align-items:center;gap:10px;font-family:'Archivo',sans-serif;font-weight:700;font-size:var(--s19);letter-spacing:-0.02em;text-decoration:none;padding:4px 0}\n.brand svg{width:28px;height:28px;display:block}\n.head-links{display:flex;gap:26px;margin-left:4px}\n.head-links a{text-decoration:none;padding:12px 2px;font-size:var(--s17)}\n.head-links a:hover{text-decoration:underline;text-decoration-thickness:2px}\n.head-links a:active{color:var(--secondary)}\n.head-act{margin-left:auto}\n.head-act a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:2px solid var(--line-strong);border-radius:999px;font-weight:600;text-decoration:none;font-size:var(--s14)}\n.head-act a:hover{border-color:var(--text);background:var(--surface)}\n.head-act a:active{background:var(--field)}\n.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:var(--radius-sm);border:2px solid transparent;font:inherit;font-weight:600;font-size:var(--s17);cursor:pointer;transition:background-color .18s var(--ease),color .18s var(--ease),border-color .18s var(--ease),transform .12s var(--ease)}\n.btn-primary{background:var(--accent);color:var(--ink);width:100%}\n.btn-primary:hover{background:#FFD264}\n.btn-primary:active{background:#E3B23C;transform:translateY(1px)}\n.btn-primary:disabled,.btn-primary[aria-disabled='true']{background:#3B6B64;color:#CFE2DB;border-color:#7FA9A1;cursor:not-allowed}\n.btn-primary[aria-disabled='true']:hover{background:#3B6B64}\nhtml[data-state='answered'] .btn-primary[aria-disabled='true']{background:var(--accent);color:var(--ink);border-color:transparent;cursor:pointer}\nhtml[data-state='answered'] .btn-primary[aria-disabled='true']:hover{background:#FFD264}\n.btn-ghost{background:transparent;border:2px solid var(--ink);color:var(--ink);min-height:44px;padding:0 16px;font-size:var(--s14)}\n.btn-ghost:hover{background:rgba(17,32,30,0.14)}\n.btn-ghost:active{background:rgba(17,32,30,0.26);transform:translateY(1px)}\n.field{display:block}\n.field>span{display:block;font-size:var(--s14);font-weight:600;margin-bottom:6px;color:var(--muted)}\nselect,input[type='text'],input[type='number']{width:100%;min-height:46px;padding:0 12px;border-radius:var(--radius-sm);border:2px solid var(--line-strong);background:var(--field);color:var(--text);font:inherit;font-size:var(--s17);appearance:none}\n.sel{position:relative;display:block}\n.sel::after{content:'';position:absolute;right:14px;top:calc(50% + 11px);width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:7px solid var(--secondary);transform:translateY(-50%);pointer-events:none}\nselect:hover,input[type='text']:hover,input[type='number']:hover{border-color:var(--text)}\nselect:focus,input[type='text']:focus,input[type='number']:focus,select:active,input:active{border-color:var(--accent)}\nselect:disabled,input:disabled{border-color:var(--line);color:#8FB3AB;cursor:not-allowed}\n.first{max-width:var(--maxw);margin:0 auto;padding:6px 40px 44px;display:grid;grid-template-columns:repeat(12,1fr);gap:18px 24px}\n.first>h1{grid-column:1/6;grid-row:1}\n.opening{grid-column:1/6;grid-row:2;font-size:var(--s17);margin:0}\n.intro-photo{grid-column:1/6;grid-row:3;margin:6px 0 0;border-radius:var(--radius);overflow:hidden;background:var(--surface)}\n.intro-photo img{display:block;width:100%;height:196px;object-fit:cover}\n.toolcol{grid-column:6/13;grid-row:1/4;display:grid;gap:14px;align-content:start}\n.tool-card{background:var(--surface);border-radius:var(--radius);padding:22px;display:grid;gap:16px}\n.tool-card h2{font-size:var(--s19);letter-spacing:-0.01em;margin:0}\n.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px}\n.hint{margin:0;font-size:var(--s14);color:var(--muted)}\n.answer{border-radius:var(--radius);padding:20px 22px 16px;background:var(--field);transition:background-color .3s var(--ease),color .3s var(--ease)}\n.answer-empty{margin:0;color:var(--muted);font-size:var(--s17);max-width:44ch}\n.answer-full,.answer-error{display:none}\nhtml[data-state='answered'] .answer{background:var(--accent);color:var(--ink)}\nhtml[data-state='answered'] .answer-empty{display:none}\nhtml[data-state='answered'] .answer-full{display:flex;flex-direction:column}\nhtml[data-state='error'] .answer-empty{display:none}\nhtml[data-state='error'] .answer-error{display:block;background:var(--field)}\n.answer-error p{margin:0;color:var(--text);font-size:var(--s17);max-width:52ch}\n.answer-full>*{order:1}\n.answer-full .result-actions{order:2}\n.answer-full .tape{order:3}\n.answer-label{font-size:var(--s14);font-weight:600;margin:0;color:rgba(17,32,30,0.75)}\n.size{font-family:'Archivo',sans-serif;font-weight:700;font-size:var(--s60);line-height:1;margin:0 0 4px;letter-spacing:-0.03em}\n.size-meta{font-size:var(--s14);margin:0 0 10px;color:rgba(17,32,30,0.8)}\n.rule{font-size:var(--s17);margin:0 0 6px;max-width:46ch}\n.brand-note{font-size:var(--s14);margin:0 0 12px}\n.result-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap}\n.result-actions a{font-size:var(--s14);color:var(--ink);padding:6px 0}\n.tape{display:block;width:100%;height:auto;margin:10px 0 0}\n.band{padding:60px 0}\n.band-surface{background:var(--surface-deep)}\n.lede{font-size:var(--s19);max-width:62ch}\n.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:30px 32px;margin:26px 0 0}\n.note h3{margin-bottom:6px}\n.note p{margin:0;color:var(--muted);max-width:46ch}\n.panel{background:var(--surface);border-radius:var(--radius);padding:24px;margin:26px 0 0}\n.panel h3{margin-bottom:8px}\n.panel p{margin:0;color:var(--muted);max-width:72ch}\n.tablewrap{overflow-x:auto;border-radius:var(--radius-sm)}\ntable{width:100%;border-collapse:collapse;font-size:var(--s17);margin-top:16px}\ncaption{text-align:left;font-size:var(--s14);color:var(--muted);padding-bottom:10px}\nth,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line)}\nthead th{font-size:var(--s14);font-weight:600;color:var(--secondary)}\ntbody td:first-child{font-weight:600}\ntbody tr:hover{background:var(--surface)}\nfigure{margin:28px 0 0}\nfigure img{display:block;width:100%;height:100%;object-fit:cover;border-radius:var(--radius)}\n.split{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:start}\n.split figure{margin:0;height:100%}\n.split figure img{height:100%;min-height:320px}\n.faq dt{font-weight:600;margin-top:20px}\n.faq dd{margin:6px 0 0;color:var(--muted);max-width:68ch}\n.site-foot{background:var(--surface-deep);padding:48px 0 32px}\n.foot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}\n.foot-grid h3{font-family:'Instrument Sans',sans-serif;font-size:var(--s14);color:var(--secondary);letter-spacing:0}\n.foot-grid ul{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px;font-size:var(--s14)}\n.foot-grid a{padding:4px 0;display:inline-block}\n.foot-note{font-size:var(--s14);color:var(--muted);max-width:70ch;margin:32px 0 0}\n@media (max-width:900px){.wrap{padding-left:20px;padding-right:20px}.site-head{flex-wrap:nowrap;gap:10px;padding:10px 20px}.brand{font-size:var(--s17)}.head-links{margin-left:auto;gap:14px}.head-links a{font-size:15px;padding:12px 0}.head-links a[href='/']{display:none}.head-act{display:none}.first{grid-template-columns:1fr;padding:4px 20px 28px}.first>h1{grid-column:1;grid-row:1;font-size:var(--s30)}.toolcol{grid-column:1;grid-row:2}.opening{grid-column:1;grid-row:3}.intro-photo{grid-column:1;grid-row:4}.intro-photo img{height:170px}.size{font-size:38px}.size-meta,.brand-note{font-size:13px}.rule{font-size:15px;line-height:1.45}.grid3{grid-template-columns:1fr}.split{grid-template-columns:1fr}h2{font-size:24px}.foot-grid{grid-template-columns:1fr 1fr}.band{padding:40px 0}.tablewrap{border:2px solid var(--line);background:var(--surface-deep)}table{min-width:560px}}\n@media (max-width:520px){.fields{gap:10px}.field>span{font-size:13px}select,input[type='text'],input[type='number']{font-size:16px;min-height:44px}.tool-card{padding:16px;gap:12px}.answer{padding:16px}}\n@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}",
   "qualityContractVersion": "site-factory-v2.1@2.1.0",
   "runtimeCapabilityTruth": {
-  "executableCapabilityIds": [
-    "size-lookup"
+    "executableCapabilityIds": [
+      "size-lookup"
+    ],
+    "authE2E": false,
+    "billingE2E": false,
+    "backendMode": "WORKER_REQUIRED"
+  },
+  "fontLinks": [
+    "https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap",
+    "https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap"
   ],
-  "authE2E": false,
-  "billingE2E": false,
-  "backendMode": "WORKER_REQUIRED"
-},
-  "fontLinks": ["https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap","https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap"],
   "ogImage": "/images/tape-measure-waist.png",
   "brandLogo": "/brand/logo.svg",
   "footerGroups": [
-  {
-    "title": "Size chart",
-    "links": [
-      {
-        "label": "Size chart",
-        "href": "/"
-      },
-      {
-        "label": "Pricing",
-        "href": "/pricing/"
-      }
-    ]
-  },
-  {
-    "title": "About us",
-    "links": [
-      {
-        "label": "About Size Chart",
-        "href": "/about/"
-      },
-      {
-        "label": "Contact",
-        "href": "/contact/"
-      }
-    ]
-  },
-  {
-    "title": "The small print",
-    "links": [
-      {
-        "label": "Privacy",
-        "href": "/privacy/"
-      },
-      {
-        "label": "Terms",
-        "href": "/terms/"
-      }
-    ]
-  }
-],
-  "footerNote": "Size Chart is an independent size reference. Brand names appear only to identify the chart being discussed, and no brand endorses or sponsors this site. Sizes are estimates read from published charts — the label on the garment you are sent always wins."
+    {
+      "title": "Size chart",
+      "links": [
+        {
+          "label": "Size chart",
+          "href": "/"
+        },
+        {
+          "label": "Pricing",
+          "href": "/pricing/"
+        }
+      ]
+    },
+    {
+      "title": "About us",
+      "links": [
+        {
+          "label": "About Size Chart",
+          "href": "/about/"
+        },
+        {
+          "label": "Contact",
+          "href": "/contact/"
+        }
+      ]
+    },
+    {
+      "title": "The small print",
+      "links": [
+        {
+          "label": "Privacy",
+          "href": "/privacy/"
+        },
+        {
+          "label": "Terms",
+          "href": "/terms/"
+        }
+      ]
+    }
+  ],
+  "contactEmail": "hello@sizechartonline.com",
+  "footerNote": "Size Chart is an independent size reference. Brand names appear only to identify the chart being discussed, and no brand endorses or sponsors this site. Sizes are estimates read from published charts — the label on the garment you are sent always wins.",
+  "publicSalesAllowed": true
 }
