@@ -227,20 +227,19 @@ export function HomePage({ content, config, route }: PageProps) {
                       </div>
                       <SectionBody section={{ ...section, body: undefined }} />
                     </div>
-                    <figure>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src="/images/fitting-room-mirror.png"
-                        alt="A fitting room mirror with a rail of clothes beside it and one shirt held up in front"
-                        width={900}
-                        height={1200}
-                        loading="lazy"
-                      />
-                      <figcaption>
-                        The mirror is where the size question starts: one shirt that fits, and no
-                        label to read.
-                      </figcaption>
-                    </figure>
+                    <div className="split-media">
+                      <figure>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src="/images/fitting-room-mirror.png"
+                          alt="A fitting room mirror with a rail of clothes beside it and one shirt held up in front"
+                          width={900}
+                          height={1200}
+                          loading="lazy"
+                        />
+                      </figure>
+                      <p className="fig-caption">{t.mirrorCaption}</p>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -273,7 +272,7 @@ export function HomePage({ content, config, route }: PageProps) {
           <section className="band band-surface" id="questions">
             <div className="wrap">
               <div className="section-head">
-                <h2>Questions about the lookup</h2>
+                <h2>{t.homeFaqHeading}</h2>
               </div>
               <dl className="faq">
                 {content.faq.map((entry, index) => (

@@ -24,6 +24,9 @@ const primary = {
   previewNotice: "Preview build: this is the version being checked, not the live site.",
   pageUpdated: "Last updated",
   faqHeading: "Questions people ask first",
+  homeFaqHeading: "Questions about the lookup",
+  mirrorCaption:
+    "The mirror is where the size question starts: one shirt that fits, and no label to read.",
   askAboutData: "Ask about your data",
 
   // Data tables and their reading notes
