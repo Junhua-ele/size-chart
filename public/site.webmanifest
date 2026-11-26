@@ -1,0 +1,16 @@
+{
+  "name": "Size Chart",
+  "short_name": "Size Chart",
+  "description": "Get one clear size for any country or brand, free and with no account. Enter a size you wear or your own measurements, and see what to do between sizes.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#113b38",
+  "theme_color": "#113b38",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ]
+}

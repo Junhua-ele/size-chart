@@ -1,0 +1,590 @@
+{
+  "title": "Size Chart: Find Your Size in US, UK and EU",
+  "description": "Size chart lookup: enter a size you wear or your bust, waist and hip, pick a country or brand, and get one size, the rule for between two sizes, and how the brand runs.",
+  "h1": "Size chart: find your size in US, UK and EU",
+  "heroText": "Enter a category, a size you already wear, or your own bust, waist, hip or foot length, pick the country you are shopping in or a brand, and you get one size back, not a table to scan. It runs in your browser with no account and nothing to install.",
+  "ctas": [
+    {
+      "label": "Find my size",
+      "href": "/",
+      "primary": true
+    },
+    {
+      "label": "See how a result is built",
+      "href": "/about/",
+      "primary": false
+    }
+  ],
+  "sections": [
+    {
+      "id": "tool",
+      "title": "Tool",
+      "body": "Pick a category, give either a size you wear or your measurements in cm or in, then choose the country or brand you are buying from. The answer appears here, one size at a time.",
+      "items": [
+        {
+          "title": "What the tool needs",
+          "body": "A category, one starting point, and a destination country or brand. Nothing else is asked for, and nothing is sent anywhere."
+        },
+        {
+          "title": "What a starting point can be",
+          "body": "A worn size such as a US 8, or body numbers: bust, waist and hip in cm or inches for clothing, foot length for shoes, band and cup for bras."
+        },
+        {
+          "title": "A bra size is one size",
+          "body": "For bras the band and the cup letter come back together, so a 34B stays 34B rather than being split into a band to buy and a cup to guess."
+        },
+        {
+          "title": "Sizes it covers",
+          "body": "US, UK and EU labels are the common path; the same tables also carry the European national scales and JP rows where a category has them."
+        }
+      ]
+    },
+    {
+      "id": "result-explained",
+      "title": "What the result tells you",
+      "body": "Three lines come back, and each one answers a different question you would otherwise ask in a second tab.",
+      "items": [
+        {
+          "title": "One size",
+          "body": "The single size to buy in the country or brand you picked, never a range or two options to weigh."
+        },
+        {
+          "title": "Between two sizes",
+          "body": "If your numbers land on a border, you get the larger size and the rule that chose it, so you can see why."
+        },
+        {
+          "title": "How the brand runs",
+          "body": "For a brand we have checked, a note saying its clothing runs small or large, with the date we last checked it."
+        },
+        {
+          "title": "All three in a row",
+          "body": "A worked example: in women's clothing you measure a bust of 95 cm, a waist of 74 cm and a hip of 101 cm, and you are shopping from the UK. The result reads: UK 12, a size up if you are between two sizes, and the brand note if you picked a brand. The same numbers on a [size chart table](/about/) put you in the S column, not M."
+        },
+        {
+          "title": "Where each line stands",
+          "body": "The brand line only appears for a brand we have checked. For a country-only lookup you get two lines and are never shown a note about a brand you did not ask about."
+        }
+      ]
+    },
+    {
+      "id": "category-tables",
+      "title": "What is covered",
+      "body": "Each category is read on its own terms, because a shirt and a pair of jeans do not share a scale.",
+      "items": [
+        {
+          "title": "Clothing, women and men",
+          "body": "Tops, dresses and outerwear by bust or chest, waist and hip in cm and inches, plus letter sizes across US, UK and EU. A women's US 8 is UK 12 and EU 40; a men's chest size is the same number in the US, 10 higher in the EU, and JP L at US 40."
+        },
+        {
+          "title": "Jeans and trousers",
+          "body": "Waist sizes as they are sold on the label, from US 26 to 34 and the matching UK, EU and JP rows. A US waist 30 sits on UK 12, EU 40 and JP 76."
+        },
+        {
+          "title": "Shoes",
+          "body": "Foot length in cm matched to women's and men's US, UK and EU shoe sizes, the usual place a half size is lost in a conversion. A women's US 7 is UK 4.5 and EU 37.5; a men's US 9 is UK 8 and EU 42.5."
+        },
+        {
+          "title": "Bras",
+          "body": "Band in inches or cm and cup letter, so a bra size stays one size rather than becoming two."
+        },
+        {
+          "title": "Kids",
+          "body": "Children's clothing and shoe sizes from height, with the next size up named when a child sits between two."
+        },
+        {
+          "title": "Rings",
+          "body": "Inside diameter and circumference in mm for a ring size you can check with a strip of paper."
+        }
+      ],
+      "table": {
+        "caption": "Standard rows the lookup reads, one label at a time",
+        "columns": [
+          "Category",
+          "US",
+          "UK",
+          "EU",
+          "JP",
+          "Size label"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "Women's tops",
+              "8",
+              "12",
+              "40",
+              "13",
+              "M"
+            ],
+            "status": "working",
+            "recordKey": "women-s-tops",
+            "evidenceRefs": [
+              "ev_087"
+            ],
+            "observedAt": "2026-11-26",
+            "sourceUrl": "https://mysizecharts.com/clothing"
+          },
+          {
+            "cells": [
+              "Men's tops",
+              "40",
+              "40",
+              "50",
+              "—",
+              "M"
+            ],
+            "status": "working",
+            "recordKey": "men-s-tops",
+            "evidenceRefs": [
+              "ev_087"
+            ],
+            "observedAt": "2026-11-26",
+            "sourceUrl": "https://mysizecharts.com/clothing"
+          },
+          {
+            "cells": [
+              "Women's jeans (waist)",
+              "30",
+              "12",
+              "40",
+              "70",
+              "—"
+            ],
+            "status": "working",
+            "recordKey": "womens-jeans-waist-30",
+            "evidenceRefs": [
+              "ev_072"
+            ],
+            "observedAt": "2026-11-26",
+            "sourceUrl": "https://worldsizechart.com/"
+          },
+          {
+            "cells": [
+              "Women's shoe",
+              "7",
+              "4.5",
+              "37.5",
+              "24",
+              "—"
+            ],
+            "status": "working",
+            "recordKey": "womens-shoe-us-7",
+            "evidenceRefs": [
+              "ev_072"
+            ],
+            "observedAt": "2026-11-26",
+            "sourceUrl": "https://worldsizechart.com/"
+          },
+          {
+            "cells": [
+              "Men's shoe",
+              "9",
+              "8",
+              "42.5",
+              "27",
+              "—"
+            ],
+            "status": "working",
+            "recordKey": "mens-shoe-us-9",
+            "evidenceRefs": [
+              "ev_072"
+            ],
+            "observedAt": "2026-11-26",
+            "sourceUrl": "https://worldsizechart.com/"
+          }
+        ],
+        "lastCheckedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "between-sizes",
+      "title": "When you are between two sizes",
+      "body": "A measurement that sits on the border is where most wrong orders come from, so the tool gives a rule instead of a shrug.",
+      "items": [
+        {
+          "title": "Clothing and coats",
+          "body": "Take the larger size. A loose seam can be taken in; a tight one cannot be let out, and the bigger size keeps room to move."
+        },
+        {
+          "title": "Shoes",
+          "body": "Take the larger size too, and measure both feet while standing, because most people have a longer foot on one side."
+        },
+        {
+          "title": "The answer stays one size",
+          "body": "You never get told to try both. The larger size stands as the recommendation, and the rule is printed under it."
+        },
+        {
+          "title": "When you have fewer numbers",
+          "body": "A worn size alone is enough to start from. Adding your own bust, waist and hip in cm or in moves the answer onto your body rather than another brand's label; [how to measure yourself](/about/) matters more than the conversion once you do."
+        },
+        {
+          "title": "When the two sizes differ by a whole scale",
+          "body": "US, UK and EU pull apart as the numbers grow: a women's US 16 is UK 20 and EU 48, so a border case near the top of the range matters more than one near the bottom."
+        }
+      ]
+    },
+    {
+      "id": "brand-direction",
+      "title": "Brands size differently",
+      "body": "The same letter on two labels can sit two centimetres apart, so a size from one brand is a starting point, not a fact about another.",
+      "items": [
+        {
+          "title": "Run small or run large",
+          "body": "Each brand we check carries a one-line note on whether its tops, jeans or shoes tend to fall small or large against the standard chart."
+        },
+        {
+          "title": "Sources and check dates",
+          "body": "The note is built from the brand's own published chart and from public fit comments, and it carries the date we last checked. Anything older than 90 days is taken down rather than left to drift; the [sources and check dates](/about/) for each row are listed beside it."
+        },
+        {
+          "title": "Independence",
+          "body": "Size Chart is an independent reference. Brand names appear only to identify the chart being discussed, and no brand endorses or sponsors anything here."
+        },
+        {
+          "title": "The direction only moves one size",
+          "body": "A runs-small note shifts the answer one step, never two. Two steps is a different garment, and the note is about a label, not about a cut."
+        }
+      ],
+      "table": {
+        "caption": "Women's tops and dresses: the same label read across five regions, with the body measurement behind it",
+        "columns": [
+          "US",
+          "UK",
+          "EU",
+          "Italy",
+          "France",
+          "Bust (cm)"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "0",
+              "4",
+              "32",
+              "36",
+              "32",
+              "78 to 81"
+            ],
+            "status": "working",
+            "recordKey": "women-tops-xs-us0",
+            "evidenceRefs": [
+              "ev_087"
+            ],
+            "observedAt": "2026-11-26",
+            "sourceUrl": "https://mysizecharts.com/clothing"
+          },
+          {
+            "cells": [
+              "2",
+              "6",
+              "34",
+              "38",
+              "34",
+              "82 to 85"
+            ],
+            "status": "working",
+            "recordKey": "women-tops-xs-us2",
+            "evidenceRefs": [
+              "ev_087"
+            ],
+            "observedAt": "2026-11-26",
+            "sourceUrl": "https://mysizecharts.com/clothing"
+          },
+          {
+            "cells": [
+              "4",
+              "8",
+              "36",
+              "40",
+              "36",
+              "86 to 89"
+            ],
+            "status": "working",
+            "recordKey": "women-tops-s-us4",
+            "evidenceRefs": [
+              "ev_087"
+            ],
+            "observedAt": "2026-11-26",
+            "sourceUrl": "https://mysizecharts.com/clothing"
+          },
+          {
+            "cells": [
+              "6",
+              "10",
+              "38",
+              "42",
+              "38",
+              "90 to 93"
+            ],
+            "status": "working",
+            "recordKey": "women-tops-s-us6",
+            "evidenceRefs": [
+              "ev_087"
+            ],
+            "observedAt": "2026-11-26",
+            "sourceUrl": "https://mysizecharts.com/clothing"
+          },
+          {
+            "cells": [
+              "8",
+              "12",
+              "40",
+              "44",
+              "40",
+              "94 to 97"
+            ],
+            "status": "working",
+            "recordKey": "women-tops-m-us8",
+            "evidenceRefs": [
+              "ev_087"
+            ],
+            "observedAt": "2026-11-26",
+            "sourceUrl": "https://mysizecharts.com/clothing"
+          },
+          {
+            "cells": [
+              "10",
+              "14",
+              "42",
+              "46",
+              "42",
+              "98 to 101"
+            ],
+            "status": "working",
+            "recordKey": "women-tops-m-us10",
+            "evidenceRefs": [
+              "ev_087"
+            ],
+            "observedAt": "2026-11-26",
+            "sourceUrl": "https://mysizecharts.com/clothing"
+          },
+          {
+            "cells": [
+              "12",
+              "16",
+              "44",
+              "48",
+              "44",
+              "102 to 105"
+            ],
+            "status": "working",
+            "recordKey": "women-tops-l-us12",
+            "evidenceRefs": [
+              "ev_087"
+            ],
+            "observedAt": "2026-11-26",
+            "sourceUrl": "https://mysizecharts.com/clothing"
+          },
+          {
+            "cells": [
+              "14",
+              "18",
+              "46",
+              "50",
+              "46",
+              "106 to 110"
+            ],
+            "status": "working",
+            "recordKey": "women-tops-l-us14",
+            "evidenceRefs": [
+              "ev_087"
+            ],
+            "observedAt": "2026-11-26",
+            "sourceUrl": "https://mysizecharts.com/clothing"
+          },
+          {
+            "cells": [
+              "16",
+              "20",
+              "48",
+              "52",
+              "48",
+              "111 to 116"
+            ],
+            "status": "working",
+            "recordKey": "women-tops-xl-us16",
+            "evidenceRefs": [
+              "ev_087"
+            ],
+            "observedAt": "2026-11-26",
+            "sourceUrl": "https://mysizecharts.com/clothing"
+          },
+          {
+            "cells": [
+              "18",
+              "22",
+              "50",
+              "54",
+              "50",
+              "117 to 122"
+            ],
+            "status": "working",
+            "recordKey": "women-tops-xl-us18",
+            "evidenceRefs": [
+              "ev_087"
+            ],
+            "observedAt": "2026-11-26",
+            "sourceUrl": "https://mysizecharts.com/clothing"
+          }
+        ],
+        "lastCheckedAt": "2026-11-26"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "question": "Is Size Chart free?",
+      "answer": "Every lookup is free: the size, the between-sizes rule and the brand note, with no account and no card. A paid plan only adds saving your measurements, following brands, comparison exports and change alerts, and it leaves the free result exactly as it is; [what each plan adds](/pricing/) is on one page."
+    },
+    {
+      "question": "Where does my measurement go when I type it in?",
+      "answer": "Nowhere. The lookup runs inside your browser against a static table, so your bust, waist, hip or foot length is not uploaded, stored on a server or used to train anything. Close the tab and it is gone unless you saved it to a plan."
+    },
+    {
+      "question": "Does the tool know the fit of a specific item?",
+      "answer": "No. It reads the label a brand publishes and the fit comments people leave publicly about that label, so it can say a brand tends to run small or large, never that one jacket will suit you. The item you are looking at can run differently from the brand's other pieces."
+    },
+    {
+      "question": "Where do the brand notes come from?",
+      "answer": "Each brand's own published size chart, read and dated by us. The same table also carries fit comments gathered from public sources, and the note never claims a whole model family fits one way."
+    },
+    {
+      "question": "Can I use the tool without a ruler handy?",
+      "answer": "Yes. Enter a size you already wear in a brand you know, and the tool translates it into the country or brand you are buying from. It is a starting point, and adding a bust, waist or hip measurement tightens the answer."
+    },
+    {
+      "question": "How current are the brand notes?",
+      "answer": "Each note carries the date we last read the chart, and a note goes down once it is older than 90 days rather than staying up out of date. A brand that quietly changes its chart between seasons is the usual reason a note can read wrong."
+    },
+    {
+      "question": "Can I print or copy my result?",
+      "answer": "Yes. Copy the result as text or print the page, and the size, the rule you were given and the date are included, so you have them in the shop or at the checkout."
+    },
+    {
+      "question": "How accurate is a size from another brand's label?",
+      "answer": "Less accurate than your own numbers. Labels are the least standardised measure in clothing, which is where vanity sizing comes from, so a translated label is an estimate and a measured bust, waist and hip is the stronger input."
+    },
+    {
+      "question": "How do conversions between US, UK and EU work?",
+      "answer": "For women's clothing, UK sizes run four numbers above US and EU sizes run 32 above a US size across the chart; men's tops share the US and UK number and add 10 in the EU. Shoes and children's sizes follow their own rows, so the tool reads them separately."
+    },
+    {
+      "question": "How do I measure myself?",
+      "answer": "Measure bust over the fullest part, waist at the narrowest point of the torso and hip at the fullest part of the seat, tape level all round, in cm or inches. Put those three into the tool for clothing, or a foot length for shoes."
+    }
+  ],
+  "schema": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Size Chart",
+        "url": "https://site.example/",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "Organization",
+        "name": "Size Chart",
+        "url": "https://site.example/"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Size Chart",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any modern browser",
+        "url": "https://site.example/",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Size chart lookup that returns one size, a between-sizes rule and a brand note for US, UK and EU sizing, free with no account."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Size Chart free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every lookup is free: the size, the between-sizes rule and the brand note, with no account and no card. A paid plan only adds saving your measurements, following brands, comparison exports and change alerts, and it leaves the free result exactly as it is."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where does my measurement go when I type it in?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nowhere. The lookup runs inside your browser against a static table, so your bust, waist, hip or foot length is not uploaded, stored on a server or used to train anything. Close the tab and it is gone unless you saved it to a plan."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the tool know the fit of a specific item?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. It reads the label a brand publishes and the fit comments people leave publicly about that label, so it can say a brand tends to run small or large, never that one jacket will suit you. The item you are looking at can run differently from the brand's other pieces."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where do the brand notes come from?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Each brand's own published size chart, read and dated by us. The same table also carries fit comments gathered from public sources, and the note never claims a whole model family fits one way."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use the tool without a ruler handy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Enter a size you already wear in a brand you know, and the tool translates it into the country or brand you are buying from. It is a starting point, and adding a bust, waist or hip measurement tightens the answer."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How current are the brand notes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Each note carries the date we last read the chart, and a note goes down once it is older than 90 days rather than staying up out of date. A brand that quietly changes its chart between seasons is the usual reason a note can read wrong."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I print or copy my result?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Copy the result as text or print the page, and the size, the rule you were given and the date are included, so you have them in the shop or at the checkout."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How accurate is a size from another brand's label?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Less accurate than your own numbers. Labels are the least standardised measure in clothing, which is where vanity sizing comes from, so a translated label is an estimate and a measured bust, waist and hip is the stronger input."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do conversions between US, UK and EU work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For women's clothing, UK sizes run four numbers above US and EU sizes run 32 above a US size across the chart; men's tops share the US and UK number and add 10 in the EU. Shoes and children's sizes follow their own rows, so the tool reads them separately."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I measure myself?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Measure bust over the fullest part, waist at the narrowest point of the torso and hip at the fullest part of the seat, tape level all round, in cm or inches. Put those three into the tool for clothing, or a foot length for shoes."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

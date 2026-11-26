@@ -1,0 +1,206 @@
+{
+  "version": 1,
+  "updatedAt": "2026-11-26T15:02:56.293Z",
+  "assets": {
+    "/images/clothes-rail-tags.png": {
+      "path": "/images/clothes-rail-tags.png",
+      "width": 934,
+      "height": 1300,
+      "orientation": "portrait",
+      "dominantColors": [
+        "#9b9592",
+        "#798278",
+        "#868a87",
+        "#99938e",
+        "#6a746a"
+      ],
+      "contentDescription": "A green t-shirt hangs from a wooden hanger on a grey metal rail, with a large paper brand tag attached to the neckline.",
+      "subjectTags": [
+        "clothing",
+        "t-shirt",
+        "hanger",
+        "tag",
+        "rail"
+      ],
+      "composition": "full-scene",
+      "textDensity": "some",
+      "qualityScore": 85,
+      "suitableRoles": [
+        "hero-subject",
+        "section-media",
+        "gallery-media"
+      ],
+      "usage": "page",
+      "annotator": "vlm",
+      "annotatedAt": "2026-11-26T15:02:56.293Z",
+      "sourceEtag": "ced3f326a672268dd46b264edd4a34c7"
+    },
+    "/images/fitting-room-mirror.png": {
+      "path": "/images/fitting-room-mirror.png",
+      "width": 867,
+      "height": 1300,
+      "orientation": "portrait",
+      "dominantColors": [
+        "#c4c9cb",
+        "#452401",
+        "#d3d7db",
+        "#bec2c5",
+        "#969b9d"
+      ],
+      "contentDescription": "A black-framed mirror reflects a clothing rail with garments and a white curtain, with a blurred garment in the foreground.",
+      "subjectTags": [
+        "mirror",
+        "fitting-room",
+        "clothing-rail",
+        "curtain",
+        "apparel",
+        "interior"
+      ],
+      "composition": "full-scene",
+      "textDensity": "none",
+      "qualityScore": 90,
+      "suitableRoles": [
+        "section-media",
+        "gallery-media"
+      ],
+      "usage": "page",
+      "annotator": "vlm",
+      "annotatedAt": "2026-11-26T15:02:56.293Z",
+      "sourceEtag": "b943b0503930c50838ce91efbc1df8ab"
+    },
+    "/images/jeans-waistband.png": {
+      "path": "/images/jeans-waistband.png",
+      "width": 867,
+      "height": 1300,
+      "orientation": "portrait",
+      "dominantColors": [
+        "#dad6dd",
+        "#c7bdbc",
+        "#e2dde2",
+        "#cac3c7",
+        "#8698a8"
+      ],
+      "contentDescription": "A hand pulls at the unfastened waistband of light blue jeans on a person wearing an open white shirt and bra; a bare midriff is visible.",
+      "subjectTags": [
+        "jeans",
+        "waistband",
+        "hand",
+        "denim",
+        "fitting",
+        "midriff"
+      ],
+      "composition": "full-scene",
+      "textDensity": "none",
+      "qualityScore": 91,
+      "suitableRoles": [
+        "section-media",
+        "gallery-media"
+      ],
+      "usage": "page",
+      "annotator": "vlm",
+      "annotatedAt": "2026-11-26T15:02:56.293Z",
+      "sourceEtag": "536c40299bcb4689e5f25c19fc01de77"
+    },
+    "/images/shoe-trying-on.png": {
+      "path": "/images/shoe-trying-on.png",
+      "width": 867,
+      "height": 1300,
+      "orientation": "portrait",
+      "dominantColors": [
+        "#acaaa4",
+        "#969792",
+        "#75746a",
+        "#8a8a85",
+        "#6e675a"
+      ],
+      "contentDescription": "Two hands hold a yellow slide sandal and a red heeled sandal near feet wearing blue strappy sandals and light blue jeans on a painted wood floor.",
+      "subjectTags": [
+        "sandals",
+        "feet",
+        "hands",
+        "shoes",
+        "shopping",
+        "floor"
+      ],
+      "composition": "full-scene",
+      "textDensity": "none",
+      "qualityScore": 92,
+      "suitableRoles": [
+        "section-media",
+        "gallery-media"
+      ],
+      "usage": "page",
+      "annotator": "vlm",
+      "annotatedAt": "2026-11-26T15:02:56.293Z",
+      "sourceEtag": "77a076c379b2395ef2fd84eefaa7e8c3"
+    },
+    "/images/tailor-table-tape.png": {
+      "path": "/images/tailor-table-tape.png",
+      "width": 867,
+      "height": 1300,
+      "orientation": "portrait",
+      "dominantColors": [
+        "#857c73",
+        "#8b837b",
+        "#766c63",
+        "#82766c",
+        "#7c736a"
+      ],
+      "contentDescription": "A white measuring tape with black numbers is loosely coiled on a flat, off-white surface.",
+      "subjectTags": [
+        "measuring-tape",
+        "tailoring",
+        "sewing",
+        "tool"
+      ],
+      "composition": "isolated-subject",
+      "textDensity": "some",
+      "qualityScore": 80,
+      "suitableRoles": [
+        "section-media",
+        "gallery-media",
+        "decorative-texture"
+      ],
+      "usage": "page",
+      "annotator": "vlm",
+      "annotatedAt": "2026-11-26T15:02:56.293Z",
+      "sourceEtag": "0700f57eb433137a0dd24efe9d8f1801"
+    },
+    "/images/tape-measure-waist.png": {
+      "path": "/images/tape-measure-waist.png",
+      "width": 1880,
+      "height": 1255,
+      "orientation": "landscape",
+      "dominantColors": [
+        "#0a0c0b",
+        "#151412",
+        "#b4876c",
+        "#11110f",
+        "#ae836c"
+      ],
+      "contentDescription": "Hands draw a yellow measuring tape around a waist over a black top; the tape's inch and centimetre markings are visible.",
+      "subjectTags": [
+        "measuring-tape",
+        "waist",
+        "hands",
+        "measurement",
+        "clothing",
+        "fitting"
+      ],
+      "composition": "full-scene",
+      "textDensity": "some",
+      "qualityScore": 92,
+      "suitableRoles": [
+        "section-media",
+        "gallery-media"
+      ],
+      "usage": "page",
+      "annotator": "vlm",
+      "annotatedAt": "2026-11-26T15:02:56.293Z",
+      "sourceEtag": "e7c9258c2c638cf4f4f75edde7d9616c"
+    }
+  },
+  "vision": {
+    "lastVlmSuccessAt": "2026-11-26T15:02:56.293Z"
+  }
+}

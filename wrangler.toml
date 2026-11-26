@@ -1,0 +1,63 @@
+name = "shipsite-site-prj-38da255b-281-size-chart"
+main = "worker.mjs"
+compatibility_date = "2026-07-01"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+
+[assets]
+directory = "dist"
+binding = "ASSETS"
+run_worker_first = true
+# An address the site does not have gets the built 404.html with status 404,
+# not an empty body (Mashup Maker's blank 404, 2026-11-24).
+not_found_handling = "404-page"
+
+[observability]
+enabled = true
+
+[version_metadata]
+binding = "CF_VERSION_METADATA"
+
+[vars]
+NEXT_PUBLIC_SITE_URL = "https://prj-38da255b-281-size-chart.shipsite-preview.dev"
+SHIPSITE_ENVIRONMENT = "production"
+
+[env.preview]
+name = "shipsite-site-prj-38da255b-281-size-chart-preview"
+workers_dev = true
+
+[env.preview.assets]
+directory = "dist"
+binding = "ASSETS"
+run_worker_first = true
+not_found_handling = "404-page"
+
+[env.preview.observability]
+enabled = true
+
+[env.preview.version_metadata]
+binding = "CF_VERSION_METADATA"
+
+[env.preview.vars]
+NEXT_PUBLIC_SITE_URL = "https://prj-38da255b-281-size-chart.shipsite-preview.dev"
+SHIPSITE_ENVIRONMENT = "preview"
+
+[env.production]
+name = "shipsite-site-prj-38da255b-281-size-chart"
+workers_dev = true
+
+[env.production.assets]
+directory = "dist"
+binding = "ASSETS"
+run_worker_first = true
+not_found_handling = "404-page"
+
+[env.production.observability]
+enabled = true
+
+[env.production.version_metadata]
+binding = "CF_VERSION_METADATA"
+
+[env.production.vars]
+NEXT_PUBLIC_SITE_URL = "https://prj-38da255b-281-size-chart.shipsite-preview.dev"
+SHIPSITE_ENVIRONMENT = "production"

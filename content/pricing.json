@@ -1,0 +1,166 @@
+{
+  "title": "Size Chart Pricing: Free Size Conversion, Plus and Pro",
+  "description": "Free size chart conversion for one country or brand at a time. Plus and Pro add saved profiles, followed brands and comparison PDF exports. Cancel anytime.",
+  "h1": "Size Chart pricing",
+  "heroText": "Choose a plan by how many sizes you track: someone converting a size before a purchase, a shopper who follows several brands, or a household running many countries at once. The comparison table below carries what separates the plans.",
+  "ctas": [
+    {
+      "label": "Start free",
+      "href": "/",
+      "primary": true
+    },
+    {
+      "label": "Get Plus",
+      "href": "/pricing/",
+      "primary": false,
+      "action": "checkout",
+      "product": "plus-monthly",
+      "provider": "stripe"
+    },
+    {
+      "label": "Get Plus yearly",
+      "href": "/pricing/",
+      "primary": false,
+      "action": "checkout",
+      "product": "plus-yearly",
+      "provider": "stripe"
+    },
+    {
+      "label": "Get Pro",
+      "href": "/pricing/",
+      "primary": false,
+      "action": "checkout",
+      "product": "pro-monthly",
+      "provider": "stripe"
+    },
+    {
+      "label": "Get Pro yearly",
+      "href": "/pricing/",
+      "primary": false,
+      "action": "checkout",
+      "product": "pro-yearly",
+      "provider": "stripe"
+    }
+  ],
+  "sections": [
+    {
+      "id": "plans",
+      "title": "Plans",
+      "body": "Every plan runs the same conversion on one screen; the paid plans add the records that keep a season's shopping in one place.",
+      "items": [
+        {
+          "title": "Free",
+          "body": "$0. One conversion at a time, no account, nothing saved. For someone checking a single size before a purchase."
+        },
+        {
+          "title": "Plus",
+          "body": "$7.99 a month, or $79 a year. For a shopper who follows ten brands and keeps a few people's measurements on file."
+        },
+        {
+          "title": "Plus yearly",
+          "body": "$79 a year, beside the $7.99 a month plan. For someone who keeps the same profiles all year and would rather pay once."
+        },
+        {
+          "title": "Pro",
+          "body": "$14.99 a month, or $149 a year. For a household or frequent international buyer who exports comparisons every week."
+        },
+        {
+          "title": "Pro yearly",
+          "body": "$149 a year, beside the $14.99 a month plan. For a buyer who runs comparisons across fifty brands all year."
+        }
+      ]
+    },
+    {
+      "id": "compare-plans",
+      "title": "What separates the plans",
+      "body": "The rows below are the only differences between Free, Plus and Pro. Everything a conversion returns is the same on all three.",
+      "table": {
+        "caption": "Saved profiles, followed brands and comparison exports per plan",
+        "columns": [
+          "Feature",
+          "Free",
+          "Plus",
+          "Pro"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "Saved measurement profiles",
+              "0",
+              "5",
+              "20"
+            ],
+            "recordKey": "saved-measurement-profiles",
+            "observedAt": "2026-11-26T13:51:07.607Z"
+          },
+          {
+            "cells": [
+              "Followed brands",
+              "0",
+              "10",
+              "50"
+            ],
+            "recordKey": "followed-brands",
+            "observedAt": "2026-11-26T13:51:07.607Z"
+          },
+          {
+            "cells": [
+              "Comparison PDF exports per month",
+              "0",
+              "20",
+              "100"
+            ],
+            "recordKey": "comparison-pdf-exports-per-month",
+            "observedAt": "2026-11-26T13:51:07.607Z"
+          },
+          {
+            "cells": [
+              "Billing period",
+              "Not applicable",
+              "Monthly or yearly",
+              "Monthly or yearly"
+            ],
+            "recordKey": "billing-period",
+            "observedAt": "2026-11-26T13:51:07.607Z"
+          }
+        ],
+        "lastCheckedAt": "2026-11-26T13:51:07.607Z"
+      }
+    },
+    {
+      "id": "checkout-and-privacy",
+      "title": "Checkout and your data",
+      "body": "Secure checkout, cancel anytime. Card details are handled by the payment provider and never reach this site; what a paid plan keeps, and how to have it deleted, is set out on the [privacy page](/privacy/). How to raise a refund, a cancellation or a wrong charge is on the [contact page](/contact/)."
+    }
+  ],
+  "faq": [
+    {
+      "question": "What does a saved profile hold?",
+      "answer": "A person's category and measurements, so a size can be looked up next season without measuring again. A profile is private to the account that made it and can be deleted from that account."
+    },
+    {
+      "question": "Can I cancel or change a plan?",
+      "answer": "Yes. A paid plan renews each month or each year and can be cancelled at any time from the account page, and the plan stays active until the period already paid for ends. An annual plan is not refunded for the months left unused."
+    },
+    {
+      "question": "What is the $1 first month?",
+      "answer": "It is a one-time introductory price for new customers on the monthly Plus plan. After the first month, every billing period is charged at the regular monthly price until the plan is cancelled."
+    },
+    {
+      "question": "Is there a refund if a chart was wrong?",
+      "answer": "If a published brand chart we showed was wrong and it led to a purchase you would not have made, write through the [contact page](/contact/) with the result and the brand. Each case is reviewed on its own, and the contact page says what to include."
+    }
+  ],
+  "schema": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Size Chart pricing",
+    "url": "https://site.example/pricing/",
+    "description": "Free size conversion, Plus and Pro plans with saved profiles, followed brands and comparison exports.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Size Chart",
+      "url": "https://site.example/"
+    }
+  }
+}

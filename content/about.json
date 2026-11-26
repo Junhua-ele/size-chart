@@ -1,0 +1,111 @@
+{
+  "title": "Size chart data sources: About",
+  "description": "Size Chart turns measurements and brand charts into one size in US, UK and EU sizing. Where the data comes from, how a result is made and who runs the site.",
+  "h1": "Size chart data sources: about",
+  "heroText": "Size Chart is a sizing reference for anyone standing between two sizes in an unfamiliar system, or in a brand they have never bought before. It answers one question at a time: given a worn size or measurements, which single size should you order in this country or this brand.",
+  "ctas": [
+    {
+      "label": "Find your size",
+      "href": "/",
+      "primary": true
+    },
+    {
+      "label": "See the plans",
+      "href": "/pricing/",
+      "primary": false
+    }
+  ],
+  "sections": [
+    {
+      "id": "where-the-data-comes-from",
+      "title": "Where the sizing data comes from",
+      "body": "Country tables are built from published national standards. Brand charts are read from the brand's own size page, then checked again before a runs-small or runs-large note is shown.",
+      "items": [
+        {
+          "title": "Ring size and kids",
+          "body": "Ring size follows a circumference measured in mm on a ring that already fits, and kids' sizes are read from height and age on the brand's table rather than from an adult size. Some brands size kids into a 2T to 5T range instead of by height, so the table used is the one the brand publishes."
+        }
+      ]
+    },
+    {
+      "id": "how-a-result-is-made",
+      "title": "How a result is made",
+      "body": "The tool reads a worn size in a category or your measurements in cm or in, plus the country or brand you shop in, and returns one answer. It runs inside the page you already have open.",
+      "items": [
+        {
+          "title": "Where the numbers go",
+          "body": "The match happens in your browser, and no figure you enter is sent anywhere to produce it."
+        }
+      ]
+    },
+    {
+      "id": "what-it-does-not-do",
+      "title": "What Size Chart does not do",
+      "body": "Some jobs around sizing are left out on purpose, so an answer stays one size rather than a menu.",
+      "items": [
+        {
+          "title": "No photo of your body",
+          "body": "You type measurements or a worn size. The tool never asks for a photo of your body."
+        },
+        {
+          "title": "No shop",
+          "body": "Size Chart sells no clothing and holds no stock, prices or delivery dates for any garment named on its pages."
+        },
+        {
+          "title": "No single universal size",
+          "body": "There is no one international size. Vanity sizing has moved letter sizes in some markets over time, so the tool shows the chart's answer for the country or brand you chose rather than a compromise."
+        }
+      ]
+    },
+    {
+      "id": "who-runs-size-chart",
+      "title": "Who runs Size Chart",
+      "body": "Size Chart is an independent site run by its owner, self-funded, with no retailer or brand behind it.",
+      "items": [
+        {
+          "title": "Why it exists",
+          "body": "Because one dress can be a UK 12, a US 8 and an EU 40. A chart that stops at the number makes a fitting-room call from bad information."
+        },
+        {
+          "title": "Reaching the owner",
+          "body": "The [contact page](/contact/) carries the message form the owner reads: a wrong answer, a missing brand, a billing question or a request to delete your data."
+        },
+        {
+          "title": "Brand names and independence",
+          "body": "Brand names here name the chart being converted and nothing more. No brand reviewed this copy or paid for its place, so each sizing is the brand's own rather than ours."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Why do some brands run small or large?",
+      "answer": "Brands cut garments to their own pattern, and letter sizes drift. A label that runs small in one line can be true to size in the next, which is why a note here belongs to the brand and category together, never to the brand alone."
+    },
+    {
+      "question": "What happens when a brand changes its chart?",
+      "answer": "The published measurements are read again and the chart's last checked date changes. Where the new chart moves a size, the answer follows the chart rather than the old one, so a check date older than a season is worth comparing against the garment's own label."
+    },
+    {
+      "question": "What does the browser-based match mean for privacy?",
+      "answer": "Nothing you type while measuring is uploaded to produce a size. The conversion is worked out in the page itself, so a measurement of your chest, waist or hips stays on your device. The only data stored is what you choose to save in a profile on a paid plan."
+    }
+  ],
+  "schema": {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "Size chart data sources: about",
+    "url": "https://site.example/about/",
+    "description": "Where Size Chart's sizing data comes from, how a result is made and who runs the site.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Size Chart",
+      "url": "https://site.example/"
+    },
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Size Chart",
+      "url": "https://site.example/"
+    }
+  }
+}

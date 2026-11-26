@@ -1,0 +1,24 @@
+{
+  "available": [
+    "/images/clothes-rail-tags.png",
+    "/images/fitting-room-mirror.png",
+    "/images/jeans-waistband.png",
+    "/images/shoe-trying-on.png",
+    "/images/tailor-table-tape.png",
+    "/images/tape-measure-waist.png",
+    "/images/vision-manifest.json",
+    "/images/entities/women-s-tops.svg",
+    "/images/entities/men-s-tops.svg",
+    "/images/entities/womens-jeans-waist-30.svg",
+    "/images/entities/womens-shoe-us-7.svg",
+    "/images/entities/mens-shoe-us-9.svg",
+    "/images/entities/saved-measurement-profiles.svg",
+    "/images/entities/followed-brands.svg",
+    "/images/entities/comparison-pdf-exports-per-month.svg",
+    "/images/entities/billing-period.svg",
+    "/images/entities/free.svg",
+    "/images/entities/plus.svg",
+    "/images/entities/pro.svg"
+  ],
+  "missing": []
+}

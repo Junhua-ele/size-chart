@@ -1,0 +1,85 @@
+{
+  "title": "Contact Size Chart: Send a Message About a Size",
+  "description": "Write to Size Chart about a size that looks wrong, a brand we do not carry, a paid plan or a deletion request, and find out what to include.",
+  "h1": "Contact Size Chart",
+  "heroText": "Size Chart is an independent site, and every message that arrives through the form on this page is read by the person who runs it. Say which kind of message it is and include the details listed below, so the first reply can act on it.",
+  "ctas": [
+    {
+      "label": "Open the message form",
+      "href": "/contact/",
+      "primary": true
+    },
+    {
+      "label": "See how a size is worked out",
+      "href": "/about/",
+      "primary": false
+    }
+  ],
+  "sections": [
+    {
+      "id": "what-to-write-about",
+      "title": "What to write in about",
+      "body": "Almost every message is one of the four kinds below; what each one needs is listed with it. What a size is worked out from is on the [about page](/about/), and what a paid plan covers is on the [pricing page](/pricing/).",
+      "items": [
+        {
+          "title": "A size answer that looks wrong",
+          "body": "Send the category, the measurements you entered in cm or in, the country or brand you chose, and the size you expected. The reply says which step disagreed."
+        },
+        {
+          "title": "A brand or country not listed",
+          "body": "Name the brand, the category you shop in, and the brand's published chart if you can paste it. That chart, with its own measurements, is what a brand sizing note is built from."
+        },
+        {
+          "title": "A paid plan or a billing question",
+          "body": "Give the email address used at checkout and the plan name. Receipts, charges and cancellations are answered within one business day by the same person who reads sizing reports."
+        },
+        {
+          "title": "A privacy or deletion request",
+          "body": "Name the profile or account to remove and give its email address. Saved data is deleted within 30 days of the request."
+        }
+      ]
+    },
+    {
+      "id": "what-we-cannot-help-with",
+      "title": "What we cannot help with",
+      "body": "The site converts published measurements into one size and does not sell, ship, alter or exchange clothing; an order belongs to the shop that took it, which is also where a return is decided.",
+      "items": [
+        {
+          "title": "Returns and exchanges",
+          "body": "The retailer handles order numbers, delivery and garment faults. A right size from a chart does not guarantee a fit in a particular cut."
+        },
+        {
+          "title": "Changing a brand's sizing",
+          "body": "We cannot change how a brand labels its clothes. If a garment you own fits differently from the chart, send the measurement and the chart is read again."
+        }
+      ]
+    },
+    {
+      "id": "how-messages-are-handled",
+      "title": "How messages are handled",
+      "body": "Every message goes through the form on this page and lands in a mailbox the owner reads.",
+      "items": [
+        {
+          "title": "When an answer comes",
+          "body": "Billing and access questions within one business day. A sizing correction takes longer, because the brand's chart has to be checked against its own publication before a change goes live; the [about page](/about/) says where those charts come from."
+        },
+        {
+          "title": "What is kept",
+          "body": "A message is kept so a reply can refer to it and a fixed answer can be traced back to the report. Nothing you send is published, and you can ask for it to be deleted at any time."
+        }
+      ]
+    }
+  ],
+  "schema": {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Size Chart",
+    "url": "https://site.example/contact/",
+    "description": "How to reach Size Chart and what to include in a message.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Size Chart",
+      "url": "https://site.example/"
+    }
+  }
+}

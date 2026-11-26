@@ -1,0 +1,126 @@
+{
+  "title": "Size Chart Terms: Using the Size Conversions and Plans",
+  "description": "The terms for using Size Chart: how its size conversions are meant to be used, what a paid plan covers, and why each brand's own chart wins.",
+  "h1": "Size Chart terms",
+  "heroText": "These terms explain what Size Chart offers, how far you can rely on a size it returns, and what a paid plan pays for. Using the site means you accept them.",
+  "ctas": [
+    {
+      "label": "Find your size",
+      "href": "/",
+      "primary": true
+    },
+    {
+      "label": "See the plans",
+      "href": "/pricing/",
+      "primary": false
+    }
+  ],
+  "sections": [
+    {
+      "id": "what-the-site-offers",
+      "title": "What the site offers",
+      "body": "Size Chart converts a worn size or measurements into one size for a country or a verified brand, using published country tables and brand charts.",
+      "items": [
+        {
+          "title": "A guide, not a guarantee",
+          "body": "A chart is a guide to fit, and a garment cut differently from the chart it was listed under can still fit another way. Check the brand's label before a final purchase."
+        },
+        {
+          "title": "The brand's chart wins",
+          "body": "Where a brand's own published chart differs from a size shown here, the brand's chart and the garment's label are the authority. Write to us so the difference gets checked."
+        }
+      ]
+    },
+    {
+      "id": "independent-site",
+      "title": "An independent site",
+      "body": "Size Chart is independent and is not affiliated with, endorsed by or partnered with any brand whose chart it converts. Brand and product names are used only to name the chart being converted.",
+      "items": [
+        {
+          "title": "Data and corrections",
+          "body": "Charts are read from published sources and re-checked from time to time. We can fix or withdraw a chart at any time without notice."
+        },
+        {
+          "title": "Fair use of the site",
+          "body": "The pages, tables and conversions are for personal sizing decisions. Copying them wholesale into another product or reselling them is not allowed."
+        }
+      ]
+    },
+    {
+      "id": "plans-and-billing",
+      "title": "Plans and billing",
+      "body": "A paid plan is sold by subscription through a secure checkout, renews for the period chosen until cancelled, and its limits are the ones listed on the [pricing page](/pricing/).",
+      "items": [
+        {
+          "title": "Limits",
+          "body": "Saved profiles, followed brands and comparison exports are limited by plan and reset each billing period."
+        }
+      ],
+      "table": {
+        "caption": "What each plan covers",
+        "columns": [
+          "Plan",
+          "Billing",
+          "What it covers"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "Free",
+              "No charge",
+              "Conversions without an account"
+            ],
+            "recordKey": "free",
+            "observedAt": "2026-11-26T13:51:07.607Z"
+          },
+          {
+            "cells": [
+              "Plus",
+              "Monthly or yearly",
+              "Saved profiles, followed brands and comparison exports"
+            ],
+            "recordKey": "plus",
+            "observedAt": "2026-11-26T13:51:07.607Z"
+          },
+          {
+            "cells": [
+              "Pro",
+              "Monthly or yearly",
+              "The larger limits for a household or frequent international buyer"
+            ],
+            "recordKey": "pro",
+            "observedAt": "2026-11-26T13:51:07.607Z"
+          }
+        ],
+        "lastCheckedAt": "2026-11-26T13:51:07.607Z"
+      }
+    },
+    {
+      "id": "changes-and-questions",
+      "title": "Changes and questions",
+      "body": "These terms can change as the site does, and the version shown here is the one that applies.",
+      "items": [
+        {
+          "title": "Anything unclear",
+          "body": "Send a question through the [contact page](/contact/) before relying on a term you are unsure of. Wording in these terms follows the [privacy page](/privacy/) where the two meet."
+        },
+        {
+          "title": "Wearing a size is your call",
+          "body": "The site gives a number and a recommendation. Deciding to buy, return or keep a garment is yours."
+        }
+      ]
+    }
+  ],
+  "schema": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Size Chart terms",
+    "url": "https://site.example/terms/",
+    "description": "Terms for using Size Chart, its conversions and its paid plans.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Size Chart",
+      "url": "https://site.example/"
+    }
+  }
+}

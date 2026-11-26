@@ -1,0 +1,99 @@
+{
+  "title": "Size Chart Privacy: What the Site Stores",
+  "description": "Size Chart works out a size in your browser. What is stored on a free plan, what a paid profile keeps, and how to have it deleted.",
+  "h1": "Size Chart privacy",
+  "heroText": "Size Chart is built so that working out a size needs no account and sends nothing to a server. This page says what is stored when you use the site, and what you can ask to have removed.",
+  "ctas": [
+    {
+      "label": "Find your size",
+      "href": "/",
+      "primary": true
+    },
+    {
+      "label": "Ask for your data to be deleted",
+      "href": "/contact/",
+      "primary": false
+    }
+  ],
+  "sections": [
+    {
+      "id": "what-stays-on-your-device",
+      "title": "What stays on your device",
+      "body": "The size conversion runs in the page, and every measurement you type while converting is worked out there without being sent anywhere.",
+      "items": [
+        {
+          "title": "Measurement you type",
+          "body": "Chest, waist, hips and foot length are matched against the chart in your browser, so the figure itself does not leave the device to produce an answer."
+        },
+        {
+          "title": "A browser setting",
+          "body": "A small preference, such as your last chosen unit or country, may be kept in your browser so the tool opens the way you used it last time. Clearing site data removes it."
+        },
+        {
+          "title": "On a shared computer",
+          "body": "Nothing saved on the free plan survives beyond your browser session unless you choose to save it, so a visitor who uses a public machine leaves no profile behind."
+        }
+      ]
+    },
+    {
+      "id": "what-a-paid-profile-holds",
+      "title": "What a paid profile holds",
+      "body": "A paid plan stores only what keeps your sizing in one place between visits.",
+      "items": [
+        {
+          "title": "Profiles and brands",
+          "body": "The measurements filed under a named profile, the brands you follow, and the dates each brand's chart was last checked."
+        },
+        {
+          "title": "Exports",
+          "body": "The comparison PDFs you generate during a billing period, kept so they can be downloaded again."
+        },
+        {
+          "title": "Payment details",
+          "body": "Card details go to a secure payment provider and are not stored on this site. The site keeps the plan and the email address the checkout used."
+        }
+      ]
+    },
+    {
+      "id": "your-choices",
+      "title": "Your choices",
+      "body": "You can use the whole conversion without an account, and you can ask for stored data to be deleted whenever you like.",
+      "items": [
+        {
+          "title": "Deleting a profile",
+          "body": "A saved profile and its measurements are removed within 30 days of a request made through the [contact page](/contact/). Following brands is removed at the same time unless you keep the account."
+        },
+        {
+          "title": "Billing emails",
+          "body": "Receipts and plan notices are sent to the address used at checkout. They are not used for marketing, and there is no newsletter to unsubscribe from."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Is a measurement uploaded to work out a size?",
+      "answer": "No. The conversion is worked out in the page on your own screen, and the measurement you type never has to leave your device to return a size. A saved profile on a paid plan is the only measurement that is stored, and only because you chose to save it."
+    },
+    {
+      "question": "What is kept when I pay for a plan?",
+      "answer": "The plan name, the email address used at checkout and the profiles you saved. Card details are held by the payment provider, not this site, and the export files you make belong to you."
+    },
+    {
+      "question": "Could someone else see my profiles?",
+      "answer": "Profiles are private to the account that made them and are never shown on a public page. No brand, retailer or third party receives a profile or a measurement from it."
+    }
+  ],
+  "schema": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Size Chart privacy",
+    "url": "https://site.example/privacy/",
+    "description": "What Size Chart stores, what stays in the browser, and how to have data deleted.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Size Chart",
+      "url": "https://site.example/"
+    }
+  }
+}

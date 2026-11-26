@@ -1,0 +1,55 @@
+{
+ "collection": "brands",
+ "observedAt": "2026-11-26T15:03:30.178Z",
+ "recordCount": 3,
+ "records": [
+  {
+   "name": "XS",
+   "fields": {
+    "us": "0",
+    "uk": "4",
+    "eu": "32",
+    "italy": "36",
+    "france": "32",
+    "bust-cm": "78 to 81",
+    "us-uk": "32",
+    "chest-in": "32 to 34",
+    "chest-cm": "81 to 86",
+    "neck-cm": "36 to 37"
+   },
+   "sourceUrl": "https://mysizecharts.com/clothing"
+  },
+  {
+   "name": "XL",
+   "fields": {
+    "us": "16",
+    "uk": "20",
+    "eu": "48",
+    "italy": "52",
+    "france": "48",
+    "bust-cm": "111 to 116",
+    "us-uk": "46",
+    "chest-in": "46 to 48",
+    "chest-cm": "117 to 122",
+    "neck-cm": "44 to 45"
+   },
+   "sourceUrl": "https://mysizecharts.com/clothing"
+  },
+  {
+   "name": "XXL",
+   "fields": {
+    "us": "20",
+    "uk": "24",
+    "eu": "52",
+    "italy": "56",
+    "france": "52",
+    "bust-cm": "123 to 128",
+    "us-uk": "50",
+    "chest-in": "50 to 52",
+    "chest-cm": "127 to 132",
+    "neck-cm": "46 to 47"
+   },
+   "sourceUrl": "https://mysizecharts.com/clothing"
+  }
+ ]
+}
