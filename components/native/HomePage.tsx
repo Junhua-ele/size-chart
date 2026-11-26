@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import type { PageContent, Route, SiteConfig } from "../../lib/content";
 import { SiteFooter, SiteHeader } from "../site/SiteChrome";
-import { uiStringsFor } from "../../lib/ui-strings";
+import { uiStringsFor, type UiStrings } from "../../lib/ui-strings";
 import { SizeLookupTool } from "./SizeLookupTool";
 import { RichText } from "./rich";
 
@@ -33,13 +33,26 @@ function itemBody(item: Item): string | undefined {
   return typeof item === "string" ? item : (item.body ?? item.text);
 }
 
-function DataTable({ table }: { table: Table }) {
+function DataTable({ table, t, first }: { table: Table; t: UiStrings; first: boolean }) {
   const caption = table.caption ?? "";
   const columns = table.columns ?? [];
   const rows = table.rows ?? [];
   const sourceUrl = rows.find((row) => row.sourceUrl)?.sourceUrl;
   const checked = table.lastCheckedAt;
   const sourceHost = sourceUrl ? sourceUrl.replace(/^https?:\/\//, "").replace(/\/.*$/, "") : "";
+  const checkedLabel = checked
+    ? new Date(checked).toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        timeZone: "UTC",
+      })
+    : "";
+  const source = sourceUrl ? (
+    <a href={sourceUrl} rel="nofollow noopener" target="_blank">
+      {sourceHost}
+    </a>
+  ) : null;
   return (
     <div>
       <div className="tablewrap">
@@ -67,26 +80,36 @@ function DataTable({ table }: { table: Table }) {
       </div>
       {checked || sourceUrl ? (
         <p className="table-meta">
-          {checked ? (
+          {first ? (
             <>
-              Checked{" "}
-              <time dateTime={checked}>
-                {new Date(checked).toLocaleDateString("en-GB", {
-                  day: "numeric",
-                  month: "long",
-                  year: "numeric",
-                })}
-              </time>
+              {checked ? (
+                <>
+                  {t.tableChecked}{" "}
+                  <time dateTime={checked}>{checkedLabel}</time>
+                </>
+              ) : null}
+              {checked && sourceUrl ? " \u00b7 " : null}
+              {sourceUrl ? (
+                <>
+                  {t.tableSource} {source}
+                </>
+              ) : null}
+              {checked || sourceUrl ? " \u00b7 " : null}
+              {t.tableRecheck}
             </>
-          ) : null}
-          {checked && sourceUrl ? " · " : null}
-          {sourceUrl ? (
-            <a href={sourceUrl} rel="nofollow noopener" target="_blank">
-              Source: {sourceHost}
-            </a>
-          ) : null}
-          {" · "}
-          Sizes are re-checked every 90 days; the label on the garment wins.
+          ) : (
+            <>
+              {t.tableRowsFrom} {source}
+              {checked ? (
+                <>
+                  {", "}
+                  {t.tableLastChecked}{" "}
+                  <time dateTime={checked}>{checkedLabel}</time>
+                </>
+              ) : null}
+              {"."}
+            </>
+          )}
         </p>
       ) : null}
     </div>
@@ -134,7 +157,11 @@ function SectionBody({ section }: { section: Section }) {
   );
 }
 
+// The page states its reading note once: the first table carries the full
+// note (checked date, source, the 90-day rule), the next one names its own
+// source and date without repeating the same sentences.
 export function HomePage({ content, config, route }: PageProps) {
+  const firstTable = ((content.sections ?? []) as unknown as Section[]).find((x) => x.table)?.table;
   const t = uiStringsFor(config.language ?? "en");
   const sections = (content.sections ?? []) as Section[];
 
@@ -234,7 +261,7 @@ export function HomePage({ content, config, route }: PageProps) {
                 <SectionBody section={{ ...section, body: undefined }} />
                 {section.table ? (
                   <div style={{ marginTop: 24 }}>
-                    <DataTable table={section.table} />
+                    <DataTable table={section.table} t={t} first={section.table === firstTable} />
                   </div>
                 ) : null}
               </div>

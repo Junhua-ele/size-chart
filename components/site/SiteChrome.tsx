@@ -1,4 +1,6 @@
-import { isPreviewDeployment } from "../../lib/site-config";
+"use client";
+
+import { usePathname } from "next/navigation";
 import type { SiteConfig } from "../../lib/site-config";
 import { uiStringsFor } from "../../lib/ui-strings";
 
@@ -6,6 +8,11 @@ import { uiStringsFor } from "../../lib/ui-strings";
 // links and the small print are written once. The link set is the config's
 // nav plus the two pages a visitor looks for at the top of a reference site
 // (About, Contact); the footer carries every page the site publishes.
+//
+// The bar marks the page the visitor is on itself (usePathname), so no page
+// has to remember to tell it where it is. It is a client component for that
+// one reason; it imports the string table and the config's shape only, never
+// the site config's data, which the page passes in as props.
 
 type ChromeProps = {
   config: SiteConfig;
@@ -13,6 +20,11 @@ type ChromeProps = {
 };
 
 type ChromeLink = { label: string; href: string };
+
+/** True on any build that is not the production one (the platform's own env var). */
+function isPreviewDeployment(): boolean {
+  return process.env.NEXT_PUBLIC_BUILD_ENV !== "production";
+}
 
 export function headerLinks(config: SiteConfig): ChromeLink[] {
   const t = uiStringsFor(config.language ?? "en");
@@ -32,13 +44,16 @@ export function headerLinks(config: SiteConfig): ChromeLink[] {
 }
 
 function isCurrent(href: string, currentPath: string): boolean {
-  if (href === "/") return currentPath === "/" || currentPath === "";
-  return currentPath === href || currentPath === href.replace(/\/$/, "");
+  const path = currentPath.replace(/\/+$/, "") || "/";
+  const target = href.replace(/\/+$/, "") || "/";
+  return path === target;
 }
 
-export function SiteHeader({ config, currentPath = "/" }: ChromeProps) {
+export function SiteHeader({ config, currentPath }: ChromeProps) {
   const t = uiStringsFor(config.language ?? "en");
+  const pathname = usePathname();
   const links = headerLinks(config);
+  const path = currentPath ?? pathname ?? "/";
   return (
     <header className="site-head" data-site-header>
       {isPreviewDeployment() ? (
@@ -57,7 +72,7 @@ export function SiteHeader({ config, currentPath = "/" }: ChromeProps) {
             <a
               key={link.href}
               href={link.href}
-              aria-current={isCurrent(link.href, currentPath) ? "page" : undefined}
+              aria-current={isCurrent(link.href, path) ? "page" : undefined}
             >
               {link.label}
             </a>

@@ -1,7 +1,9 @@
 import type { SiteConfig, Route } from "../../lib/site-config";
 import type { PageContent } from "../../lib/content";
 import { SiteHeader, SiteFooter } from "../site/SiteChrome";
+import { uiStringsFor } from "../../lib/ui-strings";
 import { RichText, itemTitle, itemBody, type CopyItem } from "./rich";
+import { PageUpdated } from "./PageUpdated";
 
 type Section = {
   id: string;
@@ -13,12 +15,14 @@ type Section = {
 type Props = { content: PageContent; config: SiteConfig; route: Route };
 
 export function PrivacyPage({ content, config, route }: Props) {
-  const sections =((content.sections ?? []) as unknown as Section[]);
+  const t = uiStringsFor(config.language ?? "en");
+  const sections = (content.sections ?? []) as unknown as Section[];
+  const faq = (content.faq ?? []) as { question: string; answer: string }[];
 
   return (
     <>
       <a className="skip-link" href="#main">
-        Skip to content
+        {t.skipToContent}
       </a>
       <SiteHeader config={config} currentPath={route.path} />
       <main id="main">
@@ -26,6 +30,7 @@ export function PrivacyPage({ content, config, route }: Props) {
           <div className="wrap">
             <h1>{content.h1}</h1>
             <p>{content.heroText}</p>
+            <PageUpdated language={config.language ?? "en"} />
           </div>
         </section>
 
@@ -83,14 +88,34 @@ export function PrivacyPage({ content, config, route }: Props) {
             </div>
             <div className="page-ctas">
               <a className="btn btn-primary" href="/#tool">
-                Find your size
+                {t.findYourSize}
               </a>
               <a className="text-link" href="/contact/">
-                Ask about your data
+                {t.askAboutData}
               </a>
             </div>
           </div>
         </section>
+
+        {faq.length > 0 ? (
+          <section className="band band-surface">
+            <div className="wrap">
+              <div className="section-head">
+                <h2>{t.faqHeading}</h2>
+              </div>
+              <dl className="faq">
+                {faq.map((entry, i) => (
+                  <div key={i}>
+                    <dt>{entry.question}</dt>
+                    <dd>
+                      <RichText text={entry.answer} />
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </section>
+        ) : null}
       </main>
       <SiteFooter config={config} />
     </>

@@ -187,6 +187,10 @@ async function tool(page) {
   await setField(page, "shopping", "United Kingdom (UK)");
   await setField(page, "wornsize", "not a size");
   await page.locator('[data-jtbd-action="lookup"]').first().click();
+  // The press answers after its working moment: wait for the answer, then read it.
+  await page.waitForSelector("[data-tool-working]", { timeout: 3000 }).catch(() => {});
+  await page.waitForSelector("[data-tool-working]", { state: "detached", timeout: 5000 }).catch(() => {});
+  await page.waitForSelector('[role="alert"]', { state: "visible", timeout: 5000 }).catch(() => {});
   const alert = (await page.locator('[role="alert"]').first().innerText().catch(() => "")) || "";
   record("invalid input explained", alert.trim().length > 0, alert.replace(/\s+/g, " ").slice(0, 90));
 
@@ -198,6 +202,7 @@ async function tool(page) {
     const chip = document.querySelector("[data-sample-chip]");
     return !!chip && /sample/i.test(chip.textContent || "");
   }, null, { timeout: 5000 }).catch(() => {});
+  await page.waitForSelector(".answer-actions", { state: "visible", timeout: 5000 }).catch(() => {});
   const backChip = (await page.locator("[data-sample-chip]").first().textContent())?.trim() ?? "";
   record("back to the sample", hasBack && /sample/i.test(backChip), `chip "${backChip}"`);
 

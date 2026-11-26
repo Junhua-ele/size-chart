@@ -3,6 +3,7 @@ import type { PageContent } from "../../lib/content";
 import type { Route } from "../../lib/site-config";
 import { SiteHeader, SiteFooter } from "../site/SiteChrome";
 import { RichText, itemTitle, itemBody, type CopyItem } from "./rich";
+import { PageUpdated } from "./PageUpdated";
 
 type Section = {
   id: string;
@@ -28,6 +29,7 @@ export function AboutPage({ content, config, route }: Props) {
           <div className="wrap">
             <h1>{content.h1}</h1>
             <p>{content.heroText}</p>
+            <PageUpdated language={config.language ?? "en"} />
             <div className="page-ctas">
               <a className="btn btn-primary" href="/#tool">
                 Find your size

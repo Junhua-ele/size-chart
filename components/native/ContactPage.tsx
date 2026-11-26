@@ -4,6 +4,7 @@ import { SiteHeader, SiteFooter } from "../site/SiteChrome";
 import { ContactForm } from "./ContactForm";
 import { RichText, itemTitle, itemBody, type CopyItem } from "./rich";
 import { uiStringsFor } from "../../lib/ui-strings";
+import { PageUpdated } from "./PageUpdated";
 
 type Section = { id: string; title: string; body?: string; items?: CopyItem[] };
 type Props = { content: PageContent; config: SiteConfig; route: Route };
@@ -24,6 +25,7 @@ export function ContactPage({ content, config, route }: Props) {
           <div className="wrap">
             <h1>{content.h1}</h1>
             <p>{content.heroText}</p>
+            <PageUpdated language={config.language ?? "en"} />
           </div>
         </section>
 

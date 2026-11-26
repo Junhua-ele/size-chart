@@ -64,8 +64,18 @@ enabled = true
 binding = "CF_VERSION_METADATA"
 
 [env.production.vars]
-NEXT_PUBLIC_SITE_URL = "https://prj-38da255b-281-size-chart.shipsite-preview.dev"
+NEXT_PUBLIC_SITE_URL = "https://sizechartonline.com"
 SHIPSITE_ENVIRONMENT = "production"
+
+# The owner's domain, on the production Worker only. The top level and
+# [env.preview] declare no route, so the preview never answers on it.
+[[env.production.routes]]
+pattern = "sizechartonline.com/*"
+zone_name = "sizechartonline.com"
+
+[[env.production.routes]]
+pattern = "www.sizechartonline.com/*"
+zone_name = "sizechartonline.com"
 
 [[env.production.d1_databases]]
 binding = "DB"

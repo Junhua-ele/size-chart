@@ -31,7 +31,10 @@ async function run(page, given) {
   }
   const started = Date.now();
   await page.locator('[data-jtbd-action="lookup"]').first().click();
-  await page.waitForTimeout(260);
+  // The tool names the job for a moment before the answer lands: wait for the
+  // working state to appear and clear, then read the answer it left behind.
+  const busy = await page.waitForSelector("[data-tool-working]", { timeout: 3000 }).catch(() => null);
+  if (busy) await page.waitForSelector("[data-tool-working]", { state: "detached", timeout: 5000 });
   const ms = Date.now() - started;
   return {
     ms,

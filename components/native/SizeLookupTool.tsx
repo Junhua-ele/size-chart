@@ -54,6 +54,7 @@ export function SizeLookupTool({ t }: { t: UiStrings }) {
   // the visitor sees the job named and a bar before the answer lands.
   const [working, setWorking] = useState(false);
   const outputRef = useRef<HTMLDivElement | null>(null);
+  const timerRef = useRef<number | null>(null);
   const [phone, setPhone] = useState(false);
 
   useEffect(() => {
@@ -64,6 +65,13 @@ export function SizeLookupTool({ t }: { t: UiStrings }) {
     return () => query.removeEventListener("change", sync);
   }, []);
 
+  useEffect(
+    () => () => {
+      if (timerRef.current !== null) window.clearTimeout(timerRef.current);
+    },
+    [],
+  );
+
   const category = findCategory(fields.category) ?? CATEGORIES[0];
   const extraField = category.measure in MEASURE_FIELD ? MEASURE_FIELD[category.measure] : null;
   const edited = JSON.stringify(fields) !== JSON.stringify(SAMPLE);
@@ -73,6 +81,13 @@ export function SizeLookupTool({ t }: { t: UiStrings }) {
   }
 
   function resetToSample() {
+    // A press that is still working must not land on top of the sample the
+    // visitor just asked for: the pending lookup is dropped with it.
+    if (timerRef.current !== null) {
+      window.clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+    setWorking(false);
     setFields(SAMPLE);
     const result = lookupSize(SAMPLE, { cm: "cm", in: "in" });
     setAnswer(result.ok ? result : null);
@@ -83,15 +98,18 @@ export function SizeLookupTool({ t }: { t: UiStrings }) {
   function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (working) return;
+    if (timerRef.current !== null) window.clearTimeout(timerRef.current);
     setWorking(true);
     setError(null);
-    window.setTimeout(() => {
-      finishLookup();
+    const given = fields;
+    timerRef.current = window.setTimeout(() => {
+      timerRef.current = null;
+      finishLookup(given);
     }, 320);
   }
 
-  function finishLookup() {
-    const result = lookupSize(fields, { cm: "cm", in: "in" });
+  function finishLookup(given: Fields) {
+    const result = lookupSize(given, { cm: "cm", in: "in" });
     setWorking(false);
     if (result.ok) {
       setAnswer(result);

@@ -22,6 +22,16 @@ const primary = {
   closeMenu: "Close menu",
   primaryNav: "Primary",
   previewNotice: "Preview build: this is the version being checked, not the live site.",
+  pageUpdated: "Last updated",
+  faqHeading: "Questions people ask first",
+  askAboutData: "Ask about your data",
+
+  // Data tables and their reading notes
+  tableChecked: "Checked",
+  tableSource: "Source:",
+  tableRecheck: "Sizes are re-checked every 90 days; the label on the garment wins.",
+  tableRowsFrom: "Rows read from",
+  tableLastChecked: "last checked",
 
   // The tool: what it is
   toolTitle: "Find my size",
