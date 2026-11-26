@@ -201,7 +201,22 @@ export type SiteConfig = {
   contactEmail?: string | null;
 };
 
-export const siteConfig = rawSiteConfig as unknown as SiteConfig;
+/** The design stage's composition notes are instructions to the builder, not
+ * page data: they never reach a page's payload (nor a client component's). */
+function withoutDesignNotes<T>(value: T): T {
+  if (Array.isArray(value)) return value.map((item) => withoutDesignNotes(item)) as unknown as T;
+  if (value && typeof value === "object") {
+    const out: Record<string, unknown> = {};
+    for (const [key, item] of Object.entries(value as Record<string, unknown>)) {
+      if (key === "variant" || key === "designNote" || key === "composition" || key === "routeCompositions") continue;
+      out[key] = withoutDesignNotes(item);
+    }
+    return out as unknown as T;
+  }
+  return value;
+}
+
+export const siteConfig = withoutDesignNotes(rawSiteConfig) as unknown as SiteConfig;
 
 // Route paths are compared after normalization. The catch-all segment array
 // never carries a trailing slash, while route contracts frequently do

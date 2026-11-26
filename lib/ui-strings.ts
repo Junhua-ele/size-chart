@@ -10,26 +10,124 @@
 // `uiStringsFor(language)` to its "use client" tool as a prop; the tool
 // renders `t.someKey`. This module imports nothing, so a client component
 // that does import it ships only these strings, never lib/site-config.json.
-// A new language is then a data change: add its entry below and its pages
-// under /{code}/, and no component changes.
 //
 // The site's to write and extend: the starter ships it empty.
 
 /** Every string the site's code uses, in the primary language. */
 const primary = {
-  // toolStart: "Start",
-  // toolErrorTooLarge: "This file is over {limit}. Trim it or pick a smaller one.",
-} satisfies Record<string, string>;
+  // Page chrome
+  skipToContent: "Skip to the size chart",
+  signIn: "Sign in",
+  menu: "Menu",
+  closeMenu: "Close menu",
+  primaryNav: "Primary",
+  previewNotice: "Preview build: this is the version being checked, not the live site.",
+
+  // The tool: what it is
+  toolTitle: "Find my size",
+  toolLede: "Give a size you already wear, or a bust and waist. One answer comes back, with the rule behind it.",
+  toolCategory: "What are you buying",
+  toolShopping: "Shopping from",
+  toolStart: "Starting with",
+  toolStartWorn: "A size I wear",
+  toolStartMeasure: "My measurements",
+  toolStartFlat: "A garment that fits me",
+  toolFlatBust: "Chest width, laid flat",
+  toolFlatWaist: "Waist width, laid flat",
+  toolFlatHip: "Hip width, laid flat",
+  toolFlatHint:
+    "Lay the garment flat, measure straight across seam to seam, and we double it: flat × 2 = the body around it.",
+  toolWornSize: "Worn size, e.g. US 8 or M",
+  toolUnits: "Measurements in",
+  toolBust: "Bust (under the arms)",
+  toolWaist: "Waist (narrowest)",
+  toolHip: "Hip (widest)",
+  toolFoot: "Foot length",
+  toolUnderband: "Underband",
+  toolHeight: "Height",
+  toolFinger: "Finger circumference",
+  toolMeasureHint: "Measure over underwear, tape level, and leave a finger under the tape.",
+  toolStartAction: "Find my size",
+  toolStartWaits: "Add a size or a measurement",
+  toolWorking: "Finding your size…",
+
+  // The tool: result
+  toolResultEmpty: "Your size lands here: one label, the same size in eight regions, and the chart rows it came from.",
+  toolSampleChip: "Sample",
+  toolEditedChip: "Edited",
+  toolBackToSample: "Back to the sample",
+  toolLoadSample: "Load the sample",
+  toolSampleCredit:
+    "Sample: an example body (95 cm bust, 74 cm waist, 101 cm hip). The charts it is read against come from the published guides listed on the About page.",
+  toolYourSize: "Your size",
+  toolRegions: "The same size where you shop",
+  toolBrand: "Brand direction",
+  toolChart: "The rows around your size",
+  toolMethod: "How this number was reached",
+  toolCopy: "Copy result",
+  toolCopied: "Copied",
+  toolPrint: "Print",
+  toolPdf: "Save as PDF",
+  toolSave: "Save this size",
+  toolStickyCopy: "Copy this size",
+  toolStickySize: "Your size",
+
+  // The tool: errors
+  toolErrorCategory: "Pick what you are buying, then find the size.",
+  toolErrorNoInput: "Add the size you already wear, or one measurement in centimetres.",
+  toolErrorRange: "That measurement is outside the chart this site carries. Check the number and the units.",
+  toolErrorNumber: "Use a number for the measurement, for example 95.",
+  toolFixIt: "Fix it above and press Find my size again.",
+
+  // Contact form
+  contactName: "Your name",
+  contactEmail: "Your email",
+  contactMessage: "Your message",
+  contactSend: "Send the message",
+  contactSending: "Sending…",
+  contactSent: "Thank you — your message is stored and a real person reads it.",
+  contactFailed: "That did not send. Your message is not stored yet — try again, or write to hello@sizes.us.",
+  contactNeedsEmail: "Add an email address so a reply can reach you.",
+
+  // Pricing
+  billingMonthly: "Monthly",
+  billingYearly: "Yearly",
+  billingSave: "Save {percent}%",
+  thenPerMonth: "then {price}/month",
+  billedYearly: "billed {price} yearly",
+  perMonth: "a month",
+  mostPopular: "Most popular",
+  choosePlan: "Choose {plan}",
+  currentPlan: "Your plan",
+
+  // Billing toggle and plan cards
+  billingLabel: "Billing period",
+  billingMonthlyWord: "monthly",
+  billingYearlyWord: "yearly",
+  twoMonthsFree: "2 months free",
+  perMonthShort: "/month",
+  firstMonth: "/first month",
+  newCustomersOnly: "new customers only",
+  planIncludes: "What it includes",
+
+  // Contact form
+  contactFormTitle: "Send a message",
+  contactNeedsBoth: "Add a message and an email address so a reply can reach you.",
+  contactRateLimited: "Too many messages from this connection just now — try again in a few minutes.",
+  contactAsideTitle: "What to send",
+  pricesInUsd: "Prices in US dollars",
+  cancelAnytime: "Cancel any time from your billing portal",
+  findYourSize: "Find your size",
+  navAbout: "About",
+  navContact: "Contact",
+  footerBlurb: "An independent size lookup: one size back, with the rule behind it, in eight regions.",
+};
 
 export type UiStringKey = keyof typeof primary;
 export type UiStrings = Record<UiStringKey, string>;
 
-/** Each secondary language, keyed by its locale code ("es", "pt"). Written
- * for that market, not translated word for word: its examples, units and
- * genres are the ones its visitors know. A key left out shows the primary
- * text, which QA reports on that locale's pages. */
-const translations: Record<string, Partial<UiStrings>> = {
-};
+/** Each secondary language, keyed by its locale code ("es", "pt"). */
+const translations: Record<string, Partial<UiStrings>> = {};
 
 /** The strings of one language, the primary text filling any key it lacks. */
 export function uiStringsFor(language: string): UiStrings {

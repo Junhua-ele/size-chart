@@ -1,1 +1,118 @@
-{}
+{
+  "/images/clothes-rail-tags.png": {
+    "width": 934,
+    "height": 1300,
+    "variants": [
+      {
+        "src": "/images/derived/clothes-rail-tags.w480.avif",
+        "width": 480,
+        "format": "avif"
+      },
+      {
+        "src": "/images/derived/clothes-rail-tags.w480.webp",
+        "width": 480,
+        "format": "webp"
+      }
+    ]
+  },
+  "/images/fitting-room-mirror.png": {
+    "width": 867,
+    "height": 1300,
+    "variants": [
+      {
+        "src": "/images/derived/fitting-room-mirror.w480.avif",
+        "width": 480,
+        "format": "avif"
+      },
+      {
+        "src": "/images/derived/fitting-room-mirror.w480.webp",
+        "width": 480,
+        "format": "webp"
+      }
+    ]
+  },
+  "/images/jeans-waistband.png": {
+    "width": 867,
+    "height": 1300,
+    "variants": [
+      {
+        "src": "/images/derived/jeans-waistband.w480.avif",
+        "width": 480,
+        "format": "avif"
+      },
+      {
+        "src": "/images/derived/jeans-waistband.w480.webp",
+        "width": 480,
+        "format": "webp"
+      }
+    ]
+  },
+  "/images/shoe-trying-on.png": {
+    "width": 867,
+    "height": 1300,
+    "variants": [
+      {
+        "src": "/images/derived/shoe-trying-on.w480.avif",
+        "width": 480,
+        "format": "avif"
+      },
+      {
+        "src": "/images/derived/shoe-trying-on.w480.webp",
+        "width": 480,
+        "format": "webp"
+      }
+    ]
+  },
+  "/images/tailor-table-tape.png": {
+    "width": 867,
+    "height": 1300,
+    "variants": [
+      {
+        "src": "/images/derived/tailor-table-tape.w480.avif",
+        "width": 480,
+        "format": "avif"
+      },
+      {
+        "src": "/images/derived/tailor-table-tape.w480.webp",
+        "width": 480,
+        "format": "webp"
+      }
+    ]
+  },
+  "/images/tape-measure-waist.png": {
+    "width": 1880,
+    "height": 1255,
+    "variants": [
+      {
+        "src": "/images/derived/tape-measure-waist.w480.avif",
+        "width": 480,
+        "format": "avif"
+      },
+      {
+        "src": "/images/derived/tape-measure-waist.w960.avif",
+        "width": 960,
+        "format": "avif"
+      },
+      {
+        "src": "/images/derived/tape-measure-waist.w1440.avif",
+        "width": 1440,
+        "format": "avif"
+      },
+      {
+        "src": "/images/derived/tape-measure-waist.w480.webp",
+        "width": 480,
+        "format": "webp"
+      },
+      {
+        "src": "/images/derived/tape-measure-waist.w960.webp",
+        "width": 960,
+        "format": "webp"
+      },
+      {
+        "src": "/images/derived/tape-measure-waist.w1440.webp",
+        "width": 1440,
+        "format": "webp"
+      }
+    ]
+  }
+}

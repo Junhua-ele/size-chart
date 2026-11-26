@@ -89,7 +89,7 @@
         },
         {
           "title": "Kids",
-          "body": "Children's clothing and shoe sizes from height, with the next size up named when a child sits between two."
+          "body": "Children's clothing sizes from height and age, with the next size up named when a child sits between two."
         },
         {
           "title": "Rings",
@@ -147,7 +147,7 @@
               "30",
               "12",
               "40",
-              "70",
+              "76",
               "—"
             ],
             "status": "working",

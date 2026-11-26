@@ -42,6 +42,11 @@ binding = "CF_VERSION_METADATA"
 NEXT_PUBLIC_SITE_URL = "https://prj-38da255b-281-size-chart.shipsite-preview.dev"
 SHIPSITE_ENVIRONMENT = "preview"
 
+[[env.preview.d1_databases]]
+binding = "DB"
+database_name = "size-chart-preview"
+database_id = "da532835-64c0-4e34-997b-ea75363c14be"
+
 [env.production]
 name = "shipsite-site-prj-38da255b-281-size-chart"
 workers_dev = true
@@ -61,3 +66,8 @@ binding = "CF_VERSION_METADATA"
 [env.production.vars]
 NEXT_PUBLIC_SITE_URL = "https://prj-38da255b-281-size-chart.shipsite-preview.dev"
 SHIPSITE_ENVIRONMENT = "production"
+
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "size-chart-production"
+database_id = "7a137006-d551-43ff-8473-86df6a8e9196"

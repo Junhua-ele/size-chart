@@ -88,7 +88,7 @@
     },
     {
       "question": "What does the browser-based match mean for privacy?",
-      "answer": "Nothing you type while measuring is uploaded to produce a size. The conversion is worked out in the page itself, so a measurement of your chest, waist or hips stays on your device. The only data stored is what you choose to save in a profile on a paid plan."
+      "answer": "Nothing you type while measuring is uploaded to produce a size. The conversion is worked out in the page itself, so a measurement of your chest, waist or hips stays on your device. Two things are stored, and only when you choose to send them: a profile or a saved brand on a paid plan, and a message you send through the contact form, which is kept until it is answered and then deleted."
     }
   ],
   "schema": {
