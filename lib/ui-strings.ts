@@ -58,6 +58,8 @@ const primary = {
   toolFoot: "Foot length",
   toolUnderband: "Underband",
   toolHeight: "Height",
+  toolRingDiameter: "Inside diameter of a ring that fits (mm)",
+  toolChildAge: "Child age (years)",
   toolFinger: "Finger circumference",
   toolMeasureHint: "Measure over underwear, tape level, and leave a finger under the tape.",
   toolStartAction: "Find my size",

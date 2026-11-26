@@ -14,7 +14,7 @@ _(none yet)_
 _(none yet)_
 
 ## Product decisions
-_(none yet)_
+- 2026-11-26 · The size lookup never shows a result before the visitor acts: the result area stays empty and the sample arrives only from "Load the sample", marked as a sample (parity T9 read against the platform's plain-tool rule P21, — why: T9 asks for a prefilled example; P21 (blocking) forbids a result shown before input. The press-to-load sample satisfies T9's evidence without breaking P21, and QA's tool-state review measured it that way. (from run_7467ba84-b81)
 
 ## Open issues
 _(none yet)_

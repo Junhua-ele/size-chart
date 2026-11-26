@@ -378,6 +378,8 @@ export const BRANDS: BrandRecord[] = [
 ];
 
 export type LookupInput = {
+  age?: string;
+  diameter?: string;
   category: string;
   shopping: string;
   start: string;
@@ -555,7 +557,27 @@ export function lookupSize(input: LookupInput, unitLabels: { cm: string; in: str
         hip: doubled(input.flatHip),
       }
     : input;
-  const measurements = measurementsFromInput(category, read);
+  const derived: string[] = [];
+  const extraInputs = input as LookupInput & { age?: string; diameter?: string };
+  let readWithDerived: LookupInput = read;
+  const blank = (v?: string) => v === undefined || v.trim() === "";
+  if (category.id === "ring" && blank(read.finger)) {
+    const d = parseNumber(extraInputs.diameter ?? "");
+    if (d !== null) {
+      const c = round1(d * Math.PI);
+      readWithDerived = { ...readWithDerived, finger: String(c) };
+      derived.push(`A ring's inside diameter x 3.1416 = ${round1(d)} x 3.1416 = ${c} mm circumference, the figure the chart is read in.`);
+    }
+  }
+  if (category.id === "kids-clothing" && blank(read.height)) {
+    const a = parseNumber(extraInputs.age ?? "");
+    if (a !== null) {
+      const h = round1(80 + 6 * a);
+      readWithDerived = { ...readWithDerived, height: String(h) };
+      derived.push(`Age x 6 cm + 80 = ${round1(a)} x 6 + 80 = ${h} cm standing height, the band the kids' chart publishes for that age.`);
+    }
+  }
+  const measurements = measurementsFromInput(category, readWithDerived);
   const wornText = input.wornSize && input.wornSize.trim() !== "" ? input.wornSize : "";
   const viaWorn = flat || input.start === "My measurements" ? false : input.start === "A size I wear" ? true : null;
   let index = -1;
@@ -718,6 +740,7 @@ export function lookupSize(input: LookupInput, unitLabels: { cm: string; in: str
       : `Every row is printed in ${unitLabels.cm} and ${unitLabels.in} side by side — one table, not two.`,
     `The rule: ${category.measure === "foot" ? "a foot length settles the shoe row" : `${MEASURE_LABEL[category.measure]} settles the row`}, other measurements only move it, and two sizes that disagree resolve to the larger.`,
   ];
+  if (derived.length) method.push(...derived);
   if (brand) method.push(`${brand.sourceLabel} — read ${formatDate(brand.checkedAt)}.`);
   if (flat)
     method.push(

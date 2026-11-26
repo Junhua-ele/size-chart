@@ -75,7 +75,7 @@
       "title": "What separates the plans",
       "body": "The rows below are the only differences between Free, Plus and Pro. Everything a conversion returns is the same on all three.",
       "table": {
-        "caption": "Saved profiles, followed brands and comparison exports per plan",
+        "caption": "Saved profiles, followed brands, change alerts and comparison exports per plan",
         "columns": [
           "Feature",
           "Free",
@@ -112,6 +112,14 @@
             ],
             "recordKey": "comparison-pdf-exports-per-month",
             "observedAt": "2026-11-26T13:51:07.607Z"
+          },
+          {
+            "cells": [
+              "Alerts when a followed brand's chart changes",
+              "No",
+              "Yes",
+              "Yes"
+            ]
           },
           {
             "cells": [

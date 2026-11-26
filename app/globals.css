@@ -271,27 +271,20 @@ img {
   width: 100%;
 }
 .btn-primary:hover {
-  background: #e9bf3d;
+  background: #dcae2e;
 }
 .btn-primary:active {
   background: #d3a92a;
+}
+.btn-primary:active {
+  background: #d3a92a;
+  transform: translateY(1px);
 }
 .btn-primary:disabled,
 .btn-primary[aria-disabled="true"] {
   /* Not ready keeps its shape and its words; only its strength fades. */
   background: #e3d9a8;
   color: #4a4034;
-  cursor: not-allowed;
-}
-.btn-primary:active {
-  background: #e3b23c;
-  transform: translateY(1px);
-}
-.btn-primary:disabled,
-.btn-primary[aria-disabled="true"] {
-  background: #3b6b64;
-  color: #cfe2db;
-  border-color: var(--line-strong);
   cursor: not-allowed;
 }
 
@@ -1651,7 +1644,7 @@ table.data tbody th {
     grid-template-columns: 1fr;
   }
   .head-links {
-    gap: 0;
+    gap: 10px;
   }
   .head-links a {
     padding: 0 9px;

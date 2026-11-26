@@ -17,6 +17,8 @@ import {
 const FLAT_MEASURES = new Set(["bust", "waist", "hip"]);
 
 const SAMPLE = {
+  age: "",
+  diameter: "",
   category: "Women's tops",
   shopping: "United Kingdom (UK)",
   start: "A size I wear",
@@ -105,7 +107,7 @@ export function SizeLookupTool({ t }: { t: UiStrings }) {
     timerRef.current = window.setTimeout(() => {
       timerRef.current = null;
       finishLookup(given);
-    }, 320);
+    }, 520);
   }
 
   function finishLookup(given: Fields) {
@@ -426,6 +428,20 @@ export function SizeLookupTool({ t }: { t: UiStrings }) {
               </label>
             ) : null}
 
+            {category.id === "ring" ? (
+              <label className="field">
+                <span className="field-label">{t.toolRingDiameter}</span>
+                <input name="diameter" data-tool-input="diameter" type="number" inputMode="decimal" min={1} value={fields.diameter} onChange={(e) => set("diameter", e.target.value)} />
+              </label>
+            ) : null}
+
+            {category.id === "kids-clothing" ? (
+              <label className="field">
+                <span className="field-label">{t.toolChildAge}</span>
+                <input name="age" data-tool-input="age" type="number" inputMode="decimal" min={1} value={fields.age} onChange={(e) => set("age", e.target.value)} />
+              </label>
+            ) : null}
+
             {extraField ? (
               <label className="field">
                 <span className="field-label">{t[extraField.label]}</span>
@@ -465,6 +481,7 @@ export function SizeLookupTool({ t }: { t: UiStrings }) {
           </p>
         </form>
 
+        <div className="tool-answer" data-tool-output ref={outputRef}>
         {working ? (
           <div
             className="tool-working"
@@ -479,16 +496,14 @@ export function SizeLookupTool({ t }: { t: UiStrings }) {
             <span className="tool-working-bar" />
           </div>
         ) : null}
-
-        <div className="tool-answer" data-tool-output ref={outputRef}>
-          {error ? (
+          {error && !working ? (
             <div className="answer-error" role="alert">
               <p className="answer-error-text">{t[error]}</p>
               <p className="answer-error-fix">{t.toolFixIt}</p>
             </div>
           ) : null}
 
-          {answer ? (
+          {answer && !working ? (
             <>
               <div className="answer-top">
                 <p className="answer-eyebrow">{t.toolYourSize}</p>
