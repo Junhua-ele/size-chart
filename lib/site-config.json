@@ -1631,5 +1631,11 @@
   ],
   "contactEmail": "hello@sizechartonline.com",
   "footerNote": "Size Chart is an independent size reference. Brand names appear only to identify the chart being discussed, and no brand endorses or sponsors this site. Sizes are estimates read from published charts — the label on the garment you are sent always wins.",
-  "publicSalesAllowed": true
+  "publicSalesAllowed": true,
+  "analyticsTags": {
+    "plausible": {
+      "src": "https://plausible.shipsolo.io/js/script.js",
+      "domain": "sizechartonline.com"
+    }
+  }
 }

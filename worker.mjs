@@ -447,24 +447,44 @@ async function handleApi(request, env, url) {
     const planId = String(url.searchParams.get("plan") ?? "");
     const plan = PLANS[planId];
     if (!plan) return redirect(`${siteBase(request, env)}/pricing/`, 303);
+    // A sale belongs to an account, so sign-in comes before anything else that
+    // could stop the visitor: the plan they pressed travels inside the return
+    // address, and the pricing page opens that plan's checkout by itself once
+    // the sign-in has set the session. Never the provider's page alone, and
+    // never a bare /pricing/ where the buyer has to press buy a second time.
+    const resumed = url.searchParams.get("resume") === "1";
+    const user = await currentUser(request, env);
+    if (!user) {
+      // The sign-in returns to this very checkout for the same plan, so the
+      // buyer signs in and lands on the plan they pressed instead of a bare
+      // /pricing/ where they would have to press buy a second time.
+      if (resumed) {
+        // One round only: the sign-in came back without a session, so the page
+        // says so in people's words instead of looping through Google again.
+        if (wantsJson(request)) return json({ ok: false, error: "sign_in_required" }, 401);
+        return redirect(`/pricing/?checkout=signedout&plan=${encodeURIComponent(plan.id)}`, 303);
+      }
+      // First press, signed out: the site's own sign-in page, with the plan in
+      // its address. Google's page is never the end of this chain on its own
+      // (an unregistered callback host would strand the buyer there), and the
+      // page names the plan it is going on to and carries it in the return
+      // address of its sign-in button: /api/pay/checkout?plan=<id>&resume=1.
+      const back = `/api/pay/checkout?plan=${encodeURIComponent(plan.id)}&resume=1`;
+      const signInUrl = `/api/auth/google?return=${encodeURIComponent(back)}`;
+      if (wantsJson(request)) return json({ ok: false, error: "sign_in_required", signInUrl }, 401);
+      return redirect(`/signin/?plan=${encodeURIComponent(plan.id)}`, 303);
+    }
     const config = providerConfig(env);
     if (!config.merchant || !config.key || !config.apiKey) {
       // No complete key set on this Worker yet: a page in people's words, never
-      // raw JSON and never an error status a visitor's browser would show.
-      if (!wantsJson(request)) return redirect("/pricing/?checkout=unavailable", 303);
+      // raw JSON and never an error status a visitor's browser would show. The
+      // plan is named so the notice matches the plan they pressed.
+      if (!wantsJson(request)) {
+        return redirect(`/pricing/?checkout=unavailable&plan=${encodeURIComponent(plan.id)}`, 303);
+      }
       return json({ ok: false, error: "api_key_missing" }, 503);
     }
     const base = siteBase(request, env);
-    // A sale belongs to an account: a signed-out visitor is sent to sign in
-    // first and comes straight back here, never to the provider's page alone.
-    const user = await currentUser(request, env);
-    if (!user) {
-      const back = `/api/pay/checkout?plan=${plan.id}`;
-      const origin = new URL(request.url).origin;
-      const signInUrl = `${origin}/api/auth/google?return=${encodeURIComponent(back)}`;
-      if (wantsJson(request)) return json({ ok: false, error: "sign_in_required", signInUrl }, 401);
-      return redirect(signInUrl, 302);
-    }
     const merchantOrderId = `sc_${plan.id}_${Date.now().toString(36)}`;
     const result = await waffoCall(config, "/api/v1/order/create", {
       paymentRequestId: merchantOrderId,
@@ -494,8 +514,8 @@ async function handleApi(request, env, url) {
         return json({ ok: false, error: "checkout_unavailable", message: "The payment page did not open, so nothing has been charged." }, 502);
       }
       // Stay on the host the visitor is already on: this is a page of theirs,
-      // not a move to another site.
-      return redirect("/pricing/?checkout=unavailable", 303);
+      // not a move to another site. The plan travels with them.
+      return redirect(`/pricing/?checkout=unavailable&plan=${encodeURIComponent(plan.id)}`, 303);
     }
     return redirect(checkoutUrl, 303);
   }
@@ -751,6 +771,52 @@ export default {
         return json({ ok: false, error: "server_error" }, 500);
       }
       return json({ ok: false, error: "not_found" }, 404);
+    }
+
+    // The site's own sign-in page. A buyer who pressed Buy signed out lands
+    // here with the plan in the address, sees which plan they are going on to,
+    // and signs in: the button's return address is that plan's checkout, so the
+    // buyer never comes back to a bare /pricing/ to press Buy again.
+    if (url.pathname === "/signin" || url.pathname === "/signin/") {
+      if (request.method !== "GET" && request.method !== "HEAD") {
+        return new Response("Method Not Allowed", {
+          status: 405,
+          headers: { Allow: "GET, HEAD", "Cache-Control": "no-store" },
+        });
+      }
+      if (url.pathname === "/signin") {
+        return new Response(null, {
+          status: 308,
+          headers: { Location: `/signin/${url.search}`, "Cache-Control": "no-store" },
+        });
+      }
+      try {
+        const planId = String(url.searchParams.get("plan") ?? "");
+        const plan = PLANS[planId] ?? null;
+        const afterSignIn = plan
+          ? `/api/pay/checkout?plan=${encodeURIComponent(plan.id)}&resume=1`
+          : returnPath(url.searchParams.get("return")) || "/";
+        const signedIn = await currentUser(request, env).catch(() => null);
+        if (signedIn) return redirect(afterSignIn, 303);
+        const signInHref = `/api/auth/google?return=${encodeURIComponent(afterSignIn)}`;
+        const button = `<p><a href="${escapeHtml(signInHref)}" data-shipsite-google-login style="display:inline-block;background:#f5c449;color:#113b38;font-weight:700;padding:14px 22px;border-radius:10px;text-decoration:none">Continue with Google</a></p>`;
+        const price = plan ? ` (${(plan.amountCents / 100).toFixed(2)} ${plan.currency})` : "";
+        const body = plan
+          ? `<p>You pressed Buy for <strong>${escapeHtml(plan.name)}</strong>${escapeHtml(price)}. Sign in and we go straight on to that plan's checkout: the plan is kept, so you never press Buy a second time, and nothing is charged until you confirm it on the payment page.</p>${button}<p>Changed your mind? <a href="/pricing/">Back to the plans</a>. The size lookup stays free and needs no account.</p>`
+          : `<p>Sign in to Size Chart. An account keeps the measurement profiles you save, the brands you follow and the comparison PDFs you print, on every device.</p>${button}<p>The size lookup stays free and needs no account: <a href="/">open the lookup</a>.</p>`;
+        const signInPage = page(plan ? "Sign in to go on to checkout" : "Sign in to Size Chart", body);
+        const signInHeaders = new Headers(signInPage.headers);
+        signInHeaders.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
+        signInHeaders.set("X-Content-Type-Options", "nosniff");
+        signInHeaders.set("Referrer-Policy", "no-referrer");
+        signInHeaders.set("Permissions-Policy", "camera=(), microphone=(self), geolocation=()");
+        if (env.SHIPSITE_ENVIRONMENT !== "preview") signInHeaders.set("X-Frame-Options", "DENY");
+        else signInHeaders.set("X-Robots-Tag", "noindex, nofollow");
+        return new Response(signInPage.body, { status: 200, headers: signInHeaders });
+      } catch (error) {
+        console.error(`signin-error:${error?.message ?? error}`);
+        return redirect("/pricing/", 303);
+      }
     }
 
     const response = await env.ASSETS.fetch(request);

@@ -288,6 +288,11 @@ export function PageRenderer({ route, content, config, locale }: { route: Route;
   const ogCard = shareCard(content.hero?.src) ?? shareCard(config.ogImage) ?? shareCard(config.brandLogo);
   const ogImage = ogCard?.src ?? config.brandLogo ?? null;
   const fontLinks = config.fontLinks ?? [];
+  // The owner's analytics tag, read from lib/site-config.json analyticsTags so
+  // the page carries the id QA reads there (and the CSP manifest allows it).
+  const siteAnalytics =
+    ((config as unknown as { analyticsTags?: { plausible?: { src?: string; domain?: string } } })
+      .analyticsTags) ?? null;
   // The site's recipe as a cached file (scripts/emit-static-assets.mjs,
   // lib/static-assets.ts). Inlined, it rode every page three times: once in
   // <head> and twice more in the React data, the page's and the 404
@@ -415,6 +420,17 @@ export function PageRenderer({ route, content, config, locale }: { route: Route;
             The page's whole look is the site's own: its recipe below and the
             styles its engineer writes. */}
         {recipeStyles ? (recipeStylesHref ? <link rel="stylesheet" href={recipeStylesHref} /> : <style data-shipsite-sheet="recipe" dangerouslySetInnerHTML={{ __html: recipeStyles }} />) : null}
+        {/* The owner's analytics, from lib/site-config.json. Counted, not
+            personalised: the visitor's own measurements never leave their
+            device (see /privacy/). */}
+        {siteAnalytics?.plausible?.src ? (
+          <script
+            defer
+            data-domain={siteAnalytics.plausible.domain ?? undefined}
+            data-shipsite-analytics="plausible"
+            src={siteAnalytics.plausible.src}
+          />
+        ) : null}
       </head>
       <body data-composition="native-authored">
         {/* Nothing is stamped around the page: the skip link, the preview

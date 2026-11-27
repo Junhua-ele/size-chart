@@ -124,6 +124,14 @@ const primary = {
   firstMonth: "/first month",
   newCustomersOnly: "new customers only",
   planIncludes: "What it includes",
+  checkoutResuming: "Signed in. Opening the checkout for {plan}…",
+  checkoutSignedOut: "That sign-in did not finish, so nothing has been charged. Sign in again to go on to the {plan} checkout, or come back to it from this page when you are ready.",
+  checkoutSignInAgain: "Sign in and go on to checkout",
+  checkoutUnavailable: "The payment page did not open, so nothing has been charged.",
+  checkoutUnavailablePlan:
+    "The payment page for {plan} did not open, so nothing has been charged.",
+  checkoutUnavailableFixBefore: "Write to us through the",
+  checkoutUnavailableFixAfter: "and we will finish the order by hand.",
 
   // Contact form
   contactFormTitle: "Send a message",

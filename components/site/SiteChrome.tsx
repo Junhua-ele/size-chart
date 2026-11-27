@@ -79,7 +79,15 @@ export function SiteHeader({ config, currentPath }: ChromeProps) {
           ))}
         </nav>
         <div className="head-act">
-          <a className="head-signin" href="/api/auth/google" data-shipsite-google-login>
+          {/* A plain sign-in comes back to the page it was pressed on, with no
+              plan and no checkout: only a buy press carries those. */}
+          <a
+            className="head-signin"
+            href={`/api/auth/google?return=${encodeURIComponent(
+              path === "/" ? "/" : `${path.replace(/\/+$/, "")}/`,
+            )}`}
+            data-shipsite-google-login
+          >
             {t.signIn}
           </a>
           <a className="head-cta" href="/#tool">

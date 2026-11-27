@@ -22,20 +22,96 @@ const NUMBERS = {
   pro: { month: 14.99, year: 149, annual: 12.42 },
 };
 
+type ResumeState = "none" | "resuming" | "signedOut";
+
+// A buy press travels through sign-in as /pricing/?plan=plus&resume=checkout,
+// so the plan pressed has to be recognised again on the way back.
+const PLAN_LABELS: Record<string, string> = {
+  plus: "Plus monthly",
+  "plus-annual": "Plus yearly",
+  pro: "Pro monthly",
+  "pro-annual": "Pro yearly",
+};
+
+// One resume per plan on a page load: a second attempt would push the visitor
+// through sign-in again, which is the loop the guard prevents.
+let resumeAttempt: string | null = null;
+
 export function PricingPage({ content, config, route }: Props) {
   const t = uiStringsFor(config.language || "en");
   const [billing, setBilling] = useState<Billing>("month");
   // A checkout that could not open comes back here with ?checkout=unavailable
   // so the visitor reads what happened in the page, not on a bare error page.
   const [unavailable, setUnavailable] = useState(false);
+  // The plan a buy press carried through sign-in, and how that resume stands.
+  const [resumeState, setResumeState] = useState<ResumeState>("none");
+  const [resumePlan, setResumePlan] = useState<string>("");
   useEffect(() => {
     if (typeof window === "undefined") return;
     const params = new URLSearchParams(window.location.search);
+    const plan = params.get("plan") ?? "";
+    const planKnown = plan in PLAN_LABELS;
+    if (planKnown) setBilling(plan.endsWith("-annual") ? "year" : "month");
     setUnavailable(params.get("checkout") === "unavailable" || params.get("checkout") === "required");
+    if (planKnown) setResumePlan(plan);
+    if (!planKnown || params.get("resume") !== "checkout") return;
+    if (resumeAttempt === plan) {
+      // This plan was already resumed once on this load: stop at the honest
+      // state instead of sending the visitor through sign-in a second time.
+      setResumeState("signedOut");
+      return;
+    }
+    resumeAttempt = plan;
+    setResumeState("resuming");
+    // The resume is spent the moment it starts: the address loses ?resume=checkout
+    // so a trip back here (a cancelled sign-in, the Back button) never starts it
+    // a second time and never loops through sign-in again.
+    const spent = new URL(window.location.href);
+    spent.searchParams.delete("resume");
+    window.history.replaceState(null, "", `${spent.pathname}${spent.search}`);
+    let live = true;
+    fetch("/api/auth/me", { headers: { Accept: "application/json" }, cache: "no-store" })
+      .then((response) => (response.ok ? response.json() : null))
+      .then((data: { signedIn?: boolean } | null) => {
+        if (!live) return;
+        if (data && data.signedIn) {
+          // Signed in: the checkout route finishes the job for this plan, and
+          // a signed-in visitor is never sent back through sign-in.
+          window.location.replace(`/api/pay/checkout?plan=${encodeURIComponent(plan)}`);
+          return;
+        }
+        resumeAttempt = null;
+        setResumeState("signedOut");
+      })
+      .catch(() => {
+        if (!live) return;
+        resumeAttempt = null;
+        setResumeState("signedOut");
+      });
+    return () => {
+      live = false;
+    };
   }, []);
   const sections =((content.sections ?? []) as unknown as Section[]);
   const faq = (content.faq ?? []) as { question: string; answer: string }[];
 
+  // A sign-in that came back without a session lands here with the plan it
+  // carried: say so in people's words, never a spinner and never a second trip
+  // through Google unless the visitor presses the link themselves.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("checkout") !== "signedout") return;
+    const plan = params.get("plan") ?? "";
+    if (!PLAN_LABELS[plan]) return;
+    setResumePlan(plan);
+    setResumeState("signedOut");
+  }, []);
+
+  const resumeLabel = PLAN_LABELS[resumePlan] ?? "";
+  const resumeSignInHref = `/api/auth/google?return=${encodeURIComponent(
+    `/pricing/?plan=${resumePlan}&resume=checkout`,
+  )}`;
   return (
     <>
       <a className="skip-link" href="#main">
@@ -72,12 +148,26 @@ export function PricingPage({ content, config, route }: Props) {
               <p className="billing-note">{t.twoMonthsFree}</p>
             </div>
 
+              {resumeState === "resuming" ? (
+                <p className="checkout-note" role="status" data-checkout-resume="resuming">
+                  {formatMessage(t.checkoutResuming, { plan: resumeLabel })}
+                </p>
+              ) : null}
+              {resumeState === "signedOut" ? (
+                <p className="checkout-note" role="status" data-checkout-resume="signed-out">
+                  {formatMessage(t.checkoutSignedOut, { plan: resumeLabel })}{" "}
+                  <a href={resumeSignInHref}>{t.checkoutSignInAgain}</a>
+                </p>
+              ) : null}
               {unavailable ? (
-          <p className="checkout-note" role="status">
-            The payment page did not open, so nothing has been charged. Write to us through the{" "}
-            <a href="/contact/">contact form</a> and we will finish the order by hand.
-          </p>
-        ) : null}
+                <p className="checkout-note" role="status" data-checkout-resume="unavailable">
+                  {resumeLabel
+                    ? formatMessage(t.checkoutUnavailablePlan, { plan: resumeLabel })
+                    : t.checkoutUnavailable}{" "}
+                  {t.checkoutUnavailableFixBefore} <a href="/contact/">contact form</a>{" "}
+                  {t.checkoutUnavailableFixAfter}
+                </p>
+              ) : null}
       <div className="plans">
               <article className="plan">
                 <h2 className="plan-name">Free</h2>
