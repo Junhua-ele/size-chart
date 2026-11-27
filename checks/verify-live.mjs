@@ -328,7 +328,7 @@ async function site(browser) {
   await tool(page);
 
   // Every other page, opened the way a visitor opens it: from the header.
-  for (const route of ["/about/", "/contact/", "/pricing/", "/privacy/", "/terms/"]) {
+  for (const route of ["/about/", "/contact/", "/pricing/", "/privacy/", "/refund/", "/terms/"]) {
     await page.goto(`${BASE}/`, { waitUntil: "load" });
     const link = page.locator(`header a[href="${route}"], footer a[href="${route}"]`).first();
     const inChrome = (await link.count()) > 0;

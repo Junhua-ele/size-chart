@@ -180,6 +180,33 @@
       "verdict": "not_applicable",
       "publicExposure": true,
       "lastModified": "2026-11-26"
+    },
+    {
+      "path": "/refund/",
+      "contentKey": "refund",
+      "title": "Size Chart Refund Policy: Charges, Cancellations and Refunds",
+      "description": "How Size Chart handles a duplicate charge, an unused paid period and a cancellation, what to send with a request, and how to reach us about a Plus or Pro charge.",
+      "index": true,
+      "canonical": "/refund/",
+      "navLabel": "Size Chart Refund Policy: Charges, Cancellations and Refunds",
+      "routeArchetype": "legal",
+      "indexPolicy": "index",
+      "routeCompositionRequired": true,
+      "compositionIdOrTemplateFamily": "route:/refund/",
+      "coverageMode": "inherited_template",
+      "representativeScreenId": null,
+      "designIrHash": "f564ad4f32fefdc1bbca5605f84942c5940e61601fa91b145fbbf1b7011f4322",
+      "requiredStates": [
+        "ready"
+      ],
+      "requiredActions": [
+        "navigate_document",
+        "return_to_product"
+      ],
+      "copyContractRef": "copy:f564ad4f32fefdc1bbca5605f84942c5940e61601fa91b145fbbf1b7011f4322",
+      "verdict": "not_applicable",
+      "publicExposure": true,
+      "lastModified": "2026-11-27"
     }
   ],
   "nav": [
@@ -1625,6 +1652,10 @@
         {
           "label": "Terms",
           "href": "/terms/"
+        },
+        {
+          "label": "Refund policy",
+          "href": "/refund/"
         }
       ]
     }

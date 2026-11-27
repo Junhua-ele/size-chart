@@ -49,7 +49,7 @@
     {
       "id": "plans-and-billing",
       "title": "Plans and billing",
-      "body": "A paid plan is sold by subscription through a secure checkout, renews for the period chosen until cancelled, and its limits are the ones listed on the [pricing page](/pricing/).",
+      "body": "A paid plan is sold by subscription through a secure checkout, renews for the period chosen until cancelled, and its limits are the ones listed on the [pricing page](/pricing/). How a charge is refunded, and what cancelling does, is set out in the [refund policy](/refund/).",
       "items": [
         {
           "title": "Limits",

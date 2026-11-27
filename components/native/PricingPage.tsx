@@ -294,6 +294,9 @@ export function PricingPage({ content, config, route }: Props) {
               >
                 Manage or cancel a plan
               </a>
+              <a className="text-link" href="/refund/">
+                {t.refundPolicy}
+              </a>
             </p>
           </div>
         </section>

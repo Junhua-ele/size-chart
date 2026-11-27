@@ -9,6 +9,7 @@ import { AboutPage } from "./AboutPage";
 import { ContactPage } from "./ContactPage";
 import { PricingPage } from "./PricingPage";
 import { PrivacyPage } from "./PrivacyPage";
+import { RefundPage } from "./RefundPage";
 import { TermsPage } from "./TermsPage";
 
 // AUTO-COMPOSED by the per-route native authoring pass — entries are
@@ -27,6 +28,7 @@ export const nativeRoutes: Record<string, ComponentType<NativeRouteProps>> = {
   "/contact/": ContactPage,
   "/pricing/": PricingPage,
   "/privacy/": PrivacyPage,
+  "/refund/": RefundPage,
   "/terms/": TermsPage,
 };
 

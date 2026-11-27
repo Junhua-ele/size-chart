@@ -140,6 +140,7 @@ const primary = {
   contactAsideTitle: "What to send",
   pricesInUsd: "Prices in US dollars",
   cancelAnytime: "Cancel any time from your billing portal",
+  refundPolicy: "Refund policy",
   findYourSize: "Find your size",
   navAbout: "About",
   navContact: "Contact",

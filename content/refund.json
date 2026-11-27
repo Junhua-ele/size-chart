@@ -1,0 +1,141 @@
+{
+  "title": "Size Chart Refund Policy: Charges, Cancellations and Refunds",
+  "description": "How Size Chart handles a duplicate charge, an unused paid period and a cancellation, what to send with a request, and how to reach us about a Plus or Pro charge.",
+  "h1": "Size Chart refund policy",
+  "heroText": "This policy covers the money side of Size Chart: a charge that went through twice, a paid period you have not used, and what a cancellation does. Plans and prices are the ones already on the pricing page; nothing here adds a price, a discount or a plan of its own.",
+  "ctas": [
+    {
+      "label": "See the plans",
+      "href": "/pricing/",
+      "primary": true
+    },
+    {
+      "label": "Ask about a charge",
+      "href": "/contact/",
+      "primary": false
+    }
+  ],
+  "sections": [
+    {
+      "id": "what-this-policy-covers",
+      "title": "What this policy covers",
+      "body": "Size Chart sells two paid plans beside a free one, and both are sold by subscription through the secure checkout. What each plan costs and what it keeps is set out on the [pricing page](/pricing/), and the terms of the subscription are in the [terms](/terms/). This page adds only the money side: what is refunded, what is not, and how to ask.",
+      "items": [
+        {
+          "title": "The plans it refers to",
+          "body": "Free costs nothing. Plus is $7.99 a month or $79 a year, and Pro is $14.99 a month or $149 a year, billed through that checkout."
+        },
+        {
+          "title": "Where the money goes",
+          "body": "Card details are handled by the payment provider and never reach this site, so an approved refund is issued by that provider back to the same card the charge came from."
+        }
+      ]
+    },
+    {
+      "id": "duplicate-or-wrong-charges",
+      "title": "A duplicate or an erroneous charge",
+      "body": "A charge that went through twice for the same plan, or a charge for a plan you did not choose, is refunded in full.",
+      "items": [
+        {
+          "title": "Send us the payment record",
+          "body": "Give the date of each charge, the amount and the plan name. The payment record is matched against the account, and a charge that repeats a payment already taken for the same period is refunded in full."
+        },
+        {
+          "title": "A charge you do not recognise",
+          "body": "If the email address on the receipt is not one you used here, write anyway. We trace the account behind the charge and say what it paid for before anything else happens."
+        }
+      ]
+    },
+    {
+      "id": "an-unused-paid-period",
+      "title": "A first request for a paid period you have not used",
+      "body": "A first request made in the current billing period, for a paid period you have not used, is reviewed and refunded. The request is read on its own facts: when the plan last renewed, and whether anything the plan pays for has been used since.",
+      "items": [
+        {
+          "title": "What counts as unused",
+          "body": "A period is unused when no saved profile, followed brand or comparison export has been made in it. Write in the period the charge belongs to, so the record still shows that."
+        },
+        {
+          "title": "A later request",
+          "body": "A request for a period that has already been used, or a second one after a period has been refunded, is answered on the facts of that period and is not refunded as a matter of course."
+        },
+        {
+          "title": "A yearly plan",
+          "body": "A yearly plan is one billing period, so a first request made inside its first weeks is read on the same facts as a monthly one: what the plan has paid for and whether any of it has been used."
+        }
+      ]
+    },
+    {
+      "id": "cancelling-a-plan",
+      "title": "Cancelling a plan",
+      "body": "Cancelling stops the next renewal, and the plan stays usable with its limits until the period already paid for ends. Cancelling is not a refund.",
+      "items": [
+        {
+          "title": "What cancelling does",
+          "body": "The next charge is not taken, and nothing else changes that day: the saved profiles, followed brands and comparison exports stay available for the rest of the paid period."
+        },
+        {
+          "title": "How to cancel",
+          "body": "Cancel from the billing portal on the [pricing page](/pricing/), or write through the [contact page](/contact/) and ask. A plan cancelled before its renewal date does not renew."
+        }
+      ]
+    },
+    {
+      "id": "limits-and-resets",
+      "title": "Limits reset each billing period",
+      "body": "The saved profiles, followed brands and comparison exports a plan covers are counted per billing period and reset when the period renews. A period that has already been used in that way is not refunded, which is the same rule stated on the [pricing page](/pricing/).",
+      "items": [
+        {
+          "title": "What the limits are",
+          "body": "The numbers per plan are listed with each plan on the pricing page, and they are read from there rather than restated here."
+        },
+        {
+          "title": "A limit reached early",
+          "body": "Reaching a limit mid-period is not a fault in the plan: nothing is charged for it, and the count starts again at the next renewal."
+        }
+      ]
+    },
+    {
+      "id": "your-statutory-rights",
+      "title": "Your statutory rights",
+      "body": "Nothing on this page removes a right the law gives you. Consumers in the European Union and the United Kingdom keep their statutory cancellation rights for a service bought at a distance, and where those rights give you more than this policy does, those rights apply.",
+      "items": [
+        {
+          "title": "Saying which right you are using",
+          "body": "If you are writing under a statutory right, name it in the message with the country you are in, and the request is handled under that right rather than this policy."
+        }
+      ]
+    },
+    {
+      "id": "how-to-ask",
+      "title": "How to ask about a charge",
+      "body": "Write through the [contact page](/contact/), or straight to [hello@sizechartonline.com](mailto:hello@sizechartonline.com) from the address the account uses. A person reads every message, and we reply within a few business days.",
+      "items": [
+        {
+          "title": "What to include",
+          "body": "The email address on the account, the date of the charge and the plan name — Plus or Pro, monthly or yearly. Those three find the payment record, and a message carrying them is answered without a second exchange."
+        },
+        {
+          "title": "What the reply says",
+          "body": "The reply says whether the request is approved and, where it is, that the provider is putting the money back on the card. No refund is promised on a fixed timetable, and there is no money-back guarantee behind this policy."
+        },
+        {
+          "title": "If a size answer was wrong",
+          "body": "A chart we showed that turned out to be wrong is worth reporting in the same message: say which brand, which category and which result you were given. It is read beside the refund request."
+        }
+      ]
+    }
+  ],
+  "schema": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Size Chart refund policy",
+    "url": "https://site.example/refund/",
+    "description": "How Size Chart handles a duplicate charge, an unused paid period and a cancellation, and how to ask about a Plus or Pro charge.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Size Chart",
+      "url": "https://site.example/"
+    }
+  }
+}
