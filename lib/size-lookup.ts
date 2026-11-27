@@ -679,26 +679,42 @@ export function lookupSize(input: LookupInput, unitLabels: { cm: string; in: str
     }
   }
 
+  // A brand sells its own row, one or two places from the chart row: the
+  // readings and the answer are moved to that row together, so every size the
+  // explanation names is a size the visitor would actually find in its shop.
+  const brandShift = brand ? brand.runs : 0;
+  const rowFor = (i: number) => Math.min(Math.max(i - brandShift, 0), category.rows.length - 1);
+  const finalIndex = rowFor(index);
+  const finalRow = category.rows[finalIndex];
+  const finalLabel = finalRow.labels[market];
+  const size = sizeText(market, finalLabel) + cup;
+
   // The between-sizes rule, and where the measurements read. In "a size I
   // wear" mode the length fields are not the source, so they say nothing.
+  // Every reading is named, the one that set the answer included: a sentence
+  // that dropped it would send the visitor to a smaller size than it returned.
   const readings = (usedMeasurements ? measurements : []).map((m) => {
-    const i = locate(category.rows, m.key, m.valueCm);
-    const reading = i >= 0 ? category.rows[i] : null;
+    const found = locate(category.rows, m.key, m.valueCm);
+    const at = found >= 0 ? rowFor(found) : -1;
     return {
       key: m.key,
       raw: m.raw + " " + unitWord(category, m.key, units),
-      index: i,
-      text: reading ? `${reading.labels[market]}` : "—",
+      index: at,
+      text: at >= 0 ? `${category.rows[at].labels[market]}` : "—",
     };
   });
 
-  const disagree = readings.filter((r) => r.index !== index);
-  if (disagree.length > 0) {
+  const named = (r: { key: MeasureKey; raw: string; text: string }) =>
+    `${MEASURE_LABEL[r.key]} ${r.raw} reads ${r.text}`;
+  const winners = readings.filter((r) => r.index === finalIndex);
+  const others = readings.filter((r) => r.index !== finalIndex);
+
+  if (others.length > 0 && winners.length > 0) {
     conclusions.push({
       label: "between",
-      text: `Between two sizes: your ${disagree
-        .map((d) => `${MEASURE_LABEL[d.key]} ${d.raw} reads ${d.text}`)
-        .join(", your ")}. We take the larger size — a seam can be taken in, not let out.`,
+      text: `Between two sizes: your ${readings.map(named).join(", your ")}. We take the larger — your ${winners
+        .map(named)
+        .join(" and your ")}, so ${sizeText(market, finalLabel)}. A seam can be taken in, not let out.`,
     });
   } else if (readings.length > 0) {
     conclusions.push({
@@ -713,20 +729,14 @@ export function lookupSize(input: LookupInput, unitLabels: { cm: string; in: str
   }
 
   // Brand direction: the label that brand itself uses, and how it runs.
-  let finalIndex = index;
   if (brand) {
-    finalIndex = Math.min(Math.max(index - brand.runs, 0), category.rows.length - 1);
     conclusions.push({
       label: "brand",
-      text: `${brand.name} labels this ${category.rows[finalIndex].labels[brand.market]}${
-        category.rows[finalIndex].sizeLabel ? " (" + category.rows[finalIndex].sizeLabel + ")" : ""
+      text: `${brand.name} labels this ${finalRow.labels[brand.market]}${
+        finalRow.sizeLabel ? " (" + finalRow.sizeLabel + ")" : ""
       }. ${brand.note}`,
     });
   }
-
-  const finalRow = category.rows[finalIndex];
-  const finalLabel = finalRow.labels[market];
-  const size = sizeText(market, finalLabel) + cup;
   if (brand) conclusions[0] = { label: "size", text: `${size}${finalRow.sizeLabel ? " · " + finalRow.sizeLabel : ""} at ${brand.name}`, emphasis: true };
 
   // The chart the answer came from: two rows either side, the match marked.
